@@ -48,11 +48,11 @@ public class StartConveyor : MonoBehaviour {
 		changeObj = obj;
 	}
 
-	public void ApplyChangeButton( GameObject obj, int scKind)
+	public void ApplyChangeButton( GameObject obj, SCRIPTTYPE scKind)
 	{
 		if (changeObj == null)
 						return;
 		changeObj.GetComponent<Image>().sprite = obj.GetComponent<Image>().sprite;
-		changeObj.GetComponent<BoxBehaviorControl>().scriptKind = (SCRIPTTYPE) scKind;
+		changeObj.GetComponent<BoxBehaviorControl>().scriptKind = scKind;
 	}
 }

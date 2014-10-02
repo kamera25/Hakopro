@@ -12,14 +12,16 @@ public class ScrollController : MonoBehaviour
 	private float beforeX = 0F;
 	private bool useScroll = false;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+	private bool isLock = false;
+
 	// Update is called once per frame
 	void Update () 
 	{
+		if (isLock) 
+		{
+			return;
+		}
+
 		if (Input.GetMouseButton(0)) 
 		{
 			Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -46,7 +48,15 @@ public class ScrollController : MonoBehaviour
 			useScroll = false;
 		}
 
+	}
 
+	void SetLock()
+	{
+		isLock = true;
+	}
 
+	void LiftLock()
+	{
+		isLock = false;
 	}
 }

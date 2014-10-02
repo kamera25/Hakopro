@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 using System.Collections.Generic;
 
 public enum SCRIPTTYPE 
@@ -8,7 +9,8 @@ public enum SCRIPTTYPE
 	FLAGGREEN	= -1,
 	SWAPFIRST	= 0,
 	SWAPEND		= 1,
-	GOTOGREEN	= 2
+	GOTOGREEN	= 2,
+	SWAPMIDDLE	= 3
 }
 
 public class BoxBehaviorControl : MonoBehaviour 
@@ -19,8 +21,11 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	public float weitTime = 4F;
 	private float nowWaitTime;
+	public int maxExec = 1;
 	public bool addElements = false;
 	private bool execDecision = false;
+
+	private bool putParameta = false;
 
 	// Use this for initialization
 	void Start () 
@@ -31,6 +36,25 @@ public class BoxBehaviorControl : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
+		if (putParameta == false && scriptKind == SCRIPTTYPE.GOTOGREEN) 
+		{
+			GameObject obj = GameObject.Find("BlockPalletCanvas").transform.Find("GotoPanel").gameObject;
+			obj.SetActive(true);
+			GameObject.Find("Background").SendMessage("SetLock");
+
+			putParameta = true;
+		}
+		if (putParameta == true) {
+						GameObject obj = GameObject.Find ("GotoPanel");
+						
+						if (obj != null) {	
+								obj = obj.transform.FindChild("Slider").gameObject;
+								maxExec = (int)(obj.GetComponent<Slider> ()).value + 1;
+						}
+		}
+
+
+
 		if (!addElements) 
 			return;
 
@@ -46,6 +70,9 @@ public class BoxBehaviorControl : MonoBehaviour
 						break;
 					case SCRIPTTYPE.SWAPEND:
 						SwapEnd();
+						break;
+					case SCRIPTTYPE.SWAPMIDDLE:
+						SwapMiddle();
 						break;
 				}
 
@@ -81,17 +108,16 @@ public class BoxBehaviorControl : MonoBehaviour
 				Rigidbody2D objRigid = ElementsList[0].GetComponent<Rigidbody2D>();
 				objRigid.Sleep();
 
-				objRigid.AddForce( new Vector2( 0F, 10F), ForceMode2D.Impulse);
+				objRigid.AddForce( new Vector2( 0F, 15F), ForceMode2D.Impulse);
 				if( aimObj != null)
 				{
 					float dump = 0.4F;
 
 					Vector3 vec = aimObj.transform.position - this.transform.position;
 					objRigid.AddForce( vec * dump, ForceMode2D.Impulse);
-					Debug.Log(vec);
 				}
 
-				nowWaitTime = 2F; // slow..
+				nowWaitTime = 0.6F; // slow..
 			}
 			else
 			{
@@ -100,7 +126,15 @@ public class BoxBehaviorControl : MonoBehaviour
 			}
 
 			ElementsList.RemoveAt(0);
+			if( ElementsList.Count == 0)
+			{
+				maxExec--;
 
+				if( maxExec <= 0)
+				{
+					this.gameObject.SetActive(false);
+				}
+			}
 		}
 
 	}
@@ -119,6 +153,15 @@ public class BoxBehaviorControl : MonoBehaviour
 		
 		ElementsList [ElementsList.Count-2] = ElementsList [ElementsList.Count-1];
 		ElementsList [ElementsList.Count-1] = tempObj;
+	}
+
+	void SwapMiddle()
+	{
+		int count = ElementsList.Count / 2;
+		GameObject tempObj = ElementsList[count];
+
+		ElementsList [count] = ElementsList [count-1];
+		ElementsList [count-1] = tempObj;
 	}
 
 	void OnTriggerEnter2D(Collider2D collision) 

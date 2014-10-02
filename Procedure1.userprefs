@@ -1,11 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\BoxBehaviorControl.cs">
     <Files>
-      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="87" Column="22" />
+      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="13" Column="16" />
       <File FileName="c:\Users\takahiro\Documents\religion\Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs" Line="79" Column="33" />
-      <File FileName="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\StartConveyor.cs" Line="22" Column="1" />
+      <File FileName="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\StartConveyor.cs" Line="56" Column="61" />
       <File FileName="Assets\ElemetsBehavior.cs" Line="11" Column="18" />
+      <File FileName="Assets\Componets\PalletButtonBehavior.cs" Line="33" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -5,7 +5,7 @@ using System.Collections;
 public class PalletButtonBehavior : MonoBehaviour 
 {
 
-	public int scriptKind;
+	public SCRIPTTYPE scriptKind;
 	public int useCount = 1;
 
 	private Text text;
