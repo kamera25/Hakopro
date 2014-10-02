@@ -46,13 +46,15 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\BoxBehaviorControl.cs" />
-     <Compile Include="Assets\BoxButton.cs" />
-     <Compile Include="Assets\DecisionController.cs" />
-     <Compile Include="Assets\PalletButtonBehavior.cs" />
-     <Compile Include="Assets\ResetController.cs" />
-     <Compile Include="Assets\ScrollController.cs" />
-     <Compile Include="Assets\StartConveyor.cs" />
+     <Compile Include="Assets\Componets\BoxBehaviorControl.cs" />
+     <Compile Include="Assets\Componets\BoxButton.cs" />
+     <Compile Include="Assets\Componets\DecisionController.cs" />
+     <Compile Include="Assets\Componets\PalletButtonBehavior.cs" />
+     <Compile Include="Assets\Componets\ResetController.cs" />
+     <Compile Include="Assets\Componets\ScrollController.cs" />
+     <Compile Include="Assets\Componets\StartConveyor.cs" />
+     <Compile Include="Assets\Componets\TrasitionPageControl.cs" />
+     <Compile Include="Assets\ElemetsBehavior.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

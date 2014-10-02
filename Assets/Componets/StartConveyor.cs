@@ -19,18 +19,7 @@ public class StartConveyor : MonoBehaviour {
 		elements = GameObject.FindGameObjectsWithTag("Element");
 	}
 	
-	// Update is called once per frame
-	void Update () 
-	{
 
-		if (isStart) 
-		{
-			foreach( GameObject element in elements)
-			{
-				element.rigidbody2D.AddForce( new Vector2( 10F, 0F));
-			}
-		}
-	}
 
 	void ExecConveyor()
 	{
@@ -42,6 +31,11 @@ public class StartConveyor : MonoBehaviour {
 		}
 
 		isStart = true;
+
+		foreach( GameObject element in elements)
+		{
+			element.GetComponent<ElemetsBehavior>().isStart = true;
+		}
 	}
 
 	void DisableMissionPanel()
@@ -59,6 +53,6 @@ public class StartConveyor : MonoBehaviour {
 		if (changeObj == null)
 						return;
 		changeObj.GetComponent<Image>().sprite = obj.GetComponent<Image>().sprite;
-		changeObj.GetComponent<BoxBehaviorControl>().scriptKind = scKind;
+		changeObj.GetComponent<BoxBehaviorControl>().scriptKind = (SCRIPTTYPE) scKind;
 	}
 }
