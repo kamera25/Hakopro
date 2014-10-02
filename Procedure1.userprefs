@@ -1,0 +1,14 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\religion\Assets\Components\PutUnitControl.cs">
+    <Files>
+      <File FileName="..\religion\Assets\Components\PutUnitControl.cs" Line="41" Column="4" />
+      <File FileName="..\religion\Assets\Photon Unity Networking\Plugins\PhotonNetwork\PhotonNetwork.cs" Line="2030" Column="1" />
+      <File FileName="..\religion\Assets\Components\GUITimer.cs" Line="94" Column="27" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
