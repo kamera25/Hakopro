@@ -7,9 +7,9 @@ public class ScrollController : MonoBehaviour
 	[SerializeField] float maxX = 14F;
 	[SerializeField] float minY = 0F;
 	[SerializeField] float maxY = 0F;
-
-	private float nowX = 0F;
+	
 	private float beforeX = 0F;
+	private float beforeY;
 	private bool useScroll = false;
 
 	private bool isLock = false;
@@ -31,15 +31,18 @@ public class ScrollController : MonoBehaviour
 				if( hit.collider.gameObject == this.gameObject && useScroll)
 				{
 					float X = mousePosWorld.x - beforeX;
+					float Y = mousePosWorld.y - beforeY;
 					Vector3 pos = Camera.main.transform.position;
 
 					pos.x = Mathf.Clamp( pos.x - X, minX, maxX);
+					pos.y = Mathf.Clamp( pos.y - Y, minY, maxY);
 					Camera.main.transform.position = pos;
 				}
 
 				mousePosWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
 				beforeX = mousePosWorld.x;
+				beforeY = mousePosWorld.y;
 				useScroll = true;
 			}	
 		}

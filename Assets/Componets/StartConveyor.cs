@@ -17,6 +17,7 @@ public class StartConveyor : MonoBehaviour {
 		Invoke ("DisableMissionPanel", 4F);
 
 		elements = GameObject.FindGameObjectsWithTag("Element");
+		Time.timeScale = 2F;
 	}
 	
 

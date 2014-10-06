@@ -5,8 +5,10 @@ TagManager:
   tags:
   - BeltCircle
   - Element
-  - BeltConver
+  - 
   - Function
+  - BeltConveyor_R
+  - BeltConveyor_L
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

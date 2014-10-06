@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -27,15 +27,13 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	private bool putParameta = false;
 
-	// Use this for initialization
-	void Start () 
-	{
+	public ElementSensorControl elementSensor;
 	
-	}
-	
+
 	// Update is called once per frame
 	void Update () 
 	{
+		/*
 		if (putParameta == false && scriptKind == SCRIPTTYPE.GOTOGREEN) 
 		{
 			GameObject obj = GameObject.Find("BlockPalletCanvas").transform.Find("GotoPanel").gameObject;
@@ -52,6 +50,7 @@ public class BoxBehaviorControl : MonoBehaviour
 								maxExec = (int)(obj.GetComponent<Slider> ()).value + 1;
 						}
 		}
+		*/
 
 
 
@@ -87,7 +86,7 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	void PopElement()
 	{
-		if( nowWaitTime < -1 && ElementsList.Count != 0)
+		if( nowWaitTime < -1 && ElementsList.Count != 0 && !IsExistElemets())
 		{
 			if( scriptKind == SCRIPTTYPE.GOTOGREEN)
 			{
@@ -111,13 +110,13 @@ public class BoxBehaviorControl : MonoBehaviour
 				objRigid.AddForce( new Vector2( 0F, 15F), ForceMode2D.Impulse);
 				if( aimObj != null)
 				{
-					float dump = 0.4F;
+					float dump = 0.3F;
 
 					Vector3 vec = aimObj.transform.position - this.transform.position;
 					objRigid.AddForce( vec * dump, ForceMode2D.Impulse);
 				}
 
-				nowWaitTime = 0.6F; // slow..
+				nowWaitTime = 2F; // slow..
 			}
 			else
 			{
@@ -129,7 +128,6 @@ public class BoxBehaviorControl : MonoBehaviour
 			if( ElementsList.Count == 0)
 			{
 				maxExec--;
-
 				if( maxExec <= 0)
 				{
 					this.gameObject.SetActive(false);
@@ -137,6 +135,11 @@ public class BoxBehaviorControl : MonoBehaviour
 			}
 		}
 
+	}
+
+	bool IsExistElemets()
+	{
+		return elementSensor.elementCount > 0;
 	}
 
 	void SwapFirst()
@@ -174,6 +177,7 @@ public class BoxBehaviorControl : MonoBehaviour
 			
 			nowWaitTime = weitTime;
 			addElements = true;
+			execDecision = false;
 		}
 		
 	}
