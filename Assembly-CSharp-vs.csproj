@@ -52,13 +52,13 @@
      <Compile Include="Assets\Componets\DecisionController.cs" />
      <Compile Include="Assets\Componets\ElementSensorControl.cs" />
      <Compile Include="Assets\Componets\ElemetsBehavior.cs" />
+     <Compile Include="Assets\Componets\LoadMenuScene.cs" />
+     <Compile Include="Assets\Componets\MenuSceneLoder.cs" />
      <Compile Include="Assets\Componets\PalletButtonBehavior.cs" />
      <Compile Include="Assets\Componets\ResetController.cs" />
      <Compile Include="Assets\Componets\ScrollController.cs" />
      <Compile Include="Assets\Componets\StartConveyor.cs" />
      <Compile Include="Assets\Componets\TrasitionPageControl.cs" />
-     <Compile Include="Assets\LoadMenuScene.cs" />
-     <Compile Include="Assets\MenuSceneLoder.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

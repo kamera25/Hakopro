@@ -7,7 +7,7 @@ public class LoadMenuScene : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		Invoke ("LoadMenu", 5F);
+		Invoke ("LoadMenu", 2F);
 	}
 	
 	void LoadMenu()

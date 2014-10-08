@@ -8,6 +8,7 @@ public class ElemetsBehavior : MonoBehaviour
 	private bool moveRight = false;
 
 	private float force = 240F;
+	private Vector2 velocity = Vector2.zero;
 
 	void Update()
 	{
@@ -63,5 +64,18 @@ public class ElemetsBehavior : MonoBehaviour
 	public void EnableCollision()
 	{
 		this.GetComponent<BoxCollider2D> ().isTrigger = false;
+	}
+
+	public void PauseElement()
+	{
+		velocity = this.rigidbody2D.velocity;
+		isStart = false;
+		this.rigidbody2D.velocity = Vector2.zero;
+	}
+
+	public void RestartElement()
+	{
+		isStart = true;
+		this.rigidbody2D.velocity = velocity;
 	}
 }

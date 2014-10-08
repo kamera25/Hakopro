@@ -17,13 +17,14 @@ public class StartConveyor : MonoBehaviour {
 		Invoke ("DisableMissionPanel", 4F);
 
 		elements = GameObject.FindGameObjectsWithTag("Element");
-		Time.timeScale = 2F;
 	}
 	
 
 
 	void ExecConveyor()
 	{
+		Time.timeScale = 2F;
+
 		GameObject[] conveyors = GameObject.FindGameObjectsWithTag("BeltCircle");
 
 		foreach (GameObject conveyor in conveyors) 
@@ -36,7 +37,10 @@ public class StartConveyor : MonoBehaviour {
 		foreach( GameObject element in elements)
 		{
 			element.GetComponent<ElemetsBehavior>().isStart = true;
+			element.SendMessage("RestartElement");
 		}
+
+
 	}
 
 	void DisableMissionPanel()
@@ -55,5 +59,25 @@ public class StartConveyor : MonoBehaviour {
 						return;
 		changeObj.GetComponent<Image>().sprite = obj.GetComponent<Image>().sprite;
 		changeObj.GetComponent<BoxBehaviorControl>().scriptKind = scKind;
+	}
+
+	public void Pause()
+	{
+		// Elemets.
+		GameObject[] elements = GameObject.FindGameObjectsWithTag ("Element");
+		foreach( GameObject element in elements)
+		{
+			element.SendMessage("PauseElement");
+		}
+
+
+		// Conveyor Circles.
+		GameObject[] conveyors = GameObject.FindGameObjectsWithTag("BeltCircle");
+		foreach (GameObject conveyor in conveyors) 
+		{
+			conveyor.GetComponent<Animator>().SetBool("isStart", false);
+		}
+
+		Time.timeScale = 0F;
 	}
 }

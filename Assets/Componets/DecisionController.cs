@@ -35,6 +35,8 @@ public class DecisionController : MonoBehaviour
 			if( ret )
 			{
 				clearTextUI.SetActive(true);
+				Invoke("GoToMenu", 3F);
+				this.enabled = false;
 			}
 			else
 			{
@@ -60,6 +62,11 @@ public class DecisionController : MonoBehaviour
 		}
 
 		return true;
+	}
+
+	void GoToMenu()
+	{
+		Application.LoadLevel ("Menu");
 	}
 
 	void OnCollisionEnter2D(Collision2D collision) 
