@@ -59,6 +59,7 @@
      <Compile Include="Assets\Componets\ScrollController.cs" />
      <Compile Include="Assets\Componets\StartConveyor.cs" />
      <Compile Include="Assets\Componets\TrasitionPageControl.cs" />
+     <Compile Include="Assets\MenuClearControl.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.0/UnityEngine.UI.dll</HintPath>
  </Reference>

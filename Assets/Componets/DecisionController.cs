@@ -12,6 +12,7 @@ public class DecisionController : MonoBehaviour
 	public float weitTime = 4F;
 	private float nowWaitTime;
 	public bool startDecision = false;
+	[SerializeField] int stageNum = 0;
 	private Animator anim;
 
 	// Use this for initialization
@@ -66,6 +67,9 @@ public class DecisionController : MonoBehaviour
 
 	void GoToMenu()
 	{
+		int flag = PlayerPrefs.GetInt ("ClearFlag");
+		flag = flag | stageNum;
+		PlayerPrefs.SetInt ("ClearFlag", flag);
 		Application.LoadLevel ("Menu");
 	}
 

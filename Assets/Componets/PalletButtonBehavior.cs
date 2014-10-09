@@ -17,7 +17,7 @@ public class PalletButtonBehavior : MonoBehaviour
 
 	void Update()
 	{
-		text.text = "x" + useCount;
+		text.text = useCount + "コ";
 	}
 
 	void ApplyChangeButton()

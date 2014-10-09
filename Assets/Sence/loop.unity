@@ -2186,10 +2186,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 9689967}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 38.7999992, y: 25.684}
-  m_SizeDelta: {x: 36.5, y: 31.1000004}
+  m_AnchorMin: {x: .524201274, y: .62110436}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 1.14999628, y: .0500070006}
+  m_SizeDelta: {x: 2.29999924, y: .100000381}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &836758191
 MonoBehaviour:
@@ -2216,7 +2216,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x2
+  m_Text: "2\u30B3\n"
 --- !u!222 &836758192
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2253,10 +2253,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1929800342}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 38.7999992, y: 25.3099995}
-  m_SizeDelta: {x: 36.5, y: 31.1000004}
+  m_AnchorMin: {x: .5, y: .633208692}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: .150001526, y: -.24200058}
+  m_SizeDelta: {x: .299999237, y: 1.09999847}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &900096042
 MonoBehaviour:
@@ -2283,7 +2283,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: x1
+  m_Text: "1\u30B3"
 --- !u!222 &900096043
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2778,6 +2778,7 @@ MonoBehaviour:
   - omori11t
   weitTime: 4
   startDecision: 0
+  stageNum: 1
 --- !u!95 &1248572653
 Animator:
   serializedVersion: 3
