@@ -10,7 +10,8 @@ public enum SCRIPTTYPE
 	SWAPFIRST	= 0,
 	SWAPEND		= 1,
 	GOTOGREEN	= 2,
-	SWAPMIDDLE	= 3
+	SWAPMIDDLE	= 3,
+	PRINT		= 4
 }
 
 public class BoxBehaviorControl : MonoBehaviour 
@@ -73,7 +74,7 @@ public class BoxBehaviorControl : MonoBehaviour
 					case SCRIPTTYPE.SWAPMIDDLE:
 						SwapMiddle();
 						break;
-				}
+				}	
 
 				execDecision = true;
 			}
@@ -88,6 +89,7 @@ public class BoxBehaviorControl : MonoBehaviour
 	{
 		if( nowWaitTime < -1 && ElementsList.Count != 0 && !IsExistElemets())
 		{
+
 			if( scriptKind == SCRIPTTYPE.GOTOGREEN)
 			{
 				GameObject[] objs = GameObject.FindGameObjectsWithTag("Function");
@@ -120,6 +122,11 @@ public class BoxBehaviorControl : MonoBehaviour
 			}
 			else
 			{
+				if( scriptKind == SCRIPTTYPE.PRINT)
+				{
+					Print();
+				}
+
 				ElementsList[0].transform.position = this.transform.position + Vector3.right * 3F;
 				nowWaitTime = 0F;
 			}
@@ -165,6 +172,21 @@ public class BoxBehaviorControl : MonoBehaviour
 
 		ElementsList [count] = ElementsList [count-1];
 		ElementsList [count-1] = tempObj;
+	}
+
+	private GameObject fukudashi;
+	void Print()
+	{
+		if (fukudashi == null) 
+		{
+			fukudashi = Instantiate( Resources.Load( "Prefab/Fukidashi"), this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
+			fukudashi.transform.parent = GameObject.Find("Canvas").transform;
+		}
+
+		Text fukidashiText = fukudashi.transform.FindChild ("Text").GetComponent<Text> ();
+
+		fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+
 	}
 
 	void OnTriggerEnter2D(Collider2D collision) 
