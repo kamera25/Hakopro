@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\BoxBehaviorControl.cs">
     <Files>
-      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="185" Column="23" />
+      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="232" Column="1" />
+      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="207" Column="51" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

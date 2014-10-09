@@ -196,12 +196,21 @@ public class BoxBehaviorControl : MonoBehaviour
 		if (fukudashi == null) 
 		{
 			fukudashi = Instantiate( Resources.Load( "Prefab/Fukidashi"), this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
-			fukudashi.transform.parent = GameObject.Find("Canvas").transform;
+			fukudashi.transform.parent = GameObject.Find("Buttons").transform;
 		}
 
 		Text fukidashiText = fukudashi.transform.FindChild ("Text").GetComponent<Text> ();
 
-		fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+
+		if (ElementsList [0].name == "NewLine") 
+		{
+			fukidashiText.text = fukidashiText.text + "\n";
+		}
+		else 
+		{
+			fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+		}
+
 
 	}
 
