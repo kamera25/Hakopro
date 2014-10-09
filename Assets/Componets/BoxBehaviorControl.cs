@@ -11,7 +11,8 @@ public enum SCRIPTTYPE
 	SWAPEND		= 1,
 	GOTOGREEN	= 2,
 	SWAPMIDDLE	= 3,
-	PRINT		= 4
+	PRINT		= 4,
+	STACK		= 5
 }
 
 public class BoxBehaviorControl : MonoBehaviour 
@@ -73,6 +74,9 @@ public class BoxBehaviorControl : MonoBehaviour
 						break;
 					case SCRIPTTYPE.SWAPMIDDLE:
 						SwapMiddle();
+						break;
+					case SCRIPTTYPE.STACK:
+						ExecStack();
 						break;
 				}	
 
@@ -172,6 +176,18 @@ public class BoxBehaviorControl : MonoBehaviour
 
 		ElementsList [count] = ElementsList [count-1];
 		ElementsList [count-1] = tempObj;
+	}
+
+	void ExecStack()
+	{
+		int loopNumber = ElementsList.Count;
+
+		for( int i = 1; i <= loopNumber; i++)
+		{
+			int index = loopNumber - i;
+			ElementsList.Add(ElementsList[index]);
+			ElementsList.RemoveAt(index);
+		}
 	}
 
 	private GameObject fukudashi;
