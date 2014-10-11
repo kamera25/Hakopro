@@ -49,6 +49,7 @@
      <Compile Include="Assets\Componets\BeltCircleBehavior.cs" />
      <Compile Include="Assets\Componets\BoxBehaviorControl.cs" />
      <Compile Include="Assets\Componets\BoxButton.cs" />
+     <Compile Include="Assets\Componets\CardBehaviour.cs" />
      <Compile Include="Assets\Componets\DecisionController.cs" />
      <Compile Include="Assets\Componets\ElementSensorControl.cs" />
      <Compile Include="Assets\Componets\ElemetsBehavior.cs" />

@@ -6,13 +6,19 @@ using System.Collections.Generic;
 public enum SCRIPTTYPE 
 {
 	NONE 		= -999,
+	FLAGBLUE	= -2,
 	FLAGGREEN	= -1,
 	SWAPFIRST	= 0,
 	SWAPEND		= 1,
 	GOTOGREEN	= 2,
 	SWAPMIDDLE	= 3,
 	PRINT		= 4,
-	STACK		= 5
+	STACK		= 5,
+	ADD			= 6,
+	SUB			= 7,
+	MUL			= 8,
+	DIV			= 9,
+	GOTOBLUE	= 10,
 }
 
 public class BoxBehaviorControl : MonoBehaviour 
@@ -30,7 +36,8 @@ public class BoxBehaviorControl : MonoBehaviour
 	private bool putParameta = false;
 
 	public ElementSensorControl elementSensor;
-	
+	public GameObject onObject;
+	private GameObject fukudashi;
 
 	// Update is called once per frame
 	void Update () 
@@ -78,6 +85,18 @@ public class BoxBehaviorControl : MonoBehaviour
 					case SCRIPTTYPE.STACK:
 						ExecStack();
 						break;
+					case SCRIPTTYPE.ADD:
+						Add();
+						break;
+					case SCRIPTTYPE.SUB:
+						Sub();
+						break;
+					case SCRIPTTYPE.MUL:
+						Mul();
+						break;
+					case SCRIPTTYPE.DIV:
+						Div();
+						break;
 				}	
 
 				execDecision = true;
@@ -94,46 +113,23 @@ public class BoxBehaviorControl : MonoBehaviour
 		if( nowWaitTime < -1 && ElementsList.Count != 0 && !IsExistElemets())
 		{
 
-			if( scriptKind == SCRIPTTYPE.GOTOGREEN)
-			{
-				GameObject[] objs = GameObject.FindGameObjectsWithTag("Function");
-				GameObject aimObj = null;
-
-				foreach( GameObject obj in objs)
+				switch( scriptKind)
 				{
-					if( obj.GetComponent<BoxBehaviorControl>().scriptKind == SCRIPTTYPE.FLAGGREEN)
-					{
-						aimObj = obj;
+					case SCRIPTTYPE.GOTOBLUE:
+						GoToFlag( SCRIPTTYPE.FLAGBLUE);
+						nowWaitTime = 2F; // slow..
 						break;
-					}
+					case SCRIPTTYPE.GOTOGREEN:
+						GoToFlag( SCRIPTTYPE.FLAGGREEN);
+						nowWaitTime = 2F; // slow..
+						break;
+					default:
+						if( scriptKind == SCRIPTTYPE.PRINT) Print();
+						ElementsList[0].transform.position = this.transform.position + Vector3.right * 3F;
+						nowWaitTime = 0F;
+				break;
 				}
 
-				ElementsList[0].transform.position = this.transform.position + Vector3.up * 3F;
-
-				Rigidbody2D objRigid = ElementsList[0].GetComponent<Rigidbody2D>();
-				objRigid.Sleep();
-
-				objRigid.AddForce( new Vector2( 0F, 15F), ForceMode2D.Impulse);
-				if( aimObj != null)
-				{
-					float dump = 0.3F;
-
-					Vector3 vec = aimObj.transform.position - this.transform.position;
-					objRigid.AddForce( vec * dump, ForceMode2D.Impulse);
-				}
-
-				nowWaitTime = 2F; // slow..
-			}
-			else
-			{
-				if( scriptKind == SCRIPTTYPE.PRINT)
-				{
-					Print();
-				}
-
-				ElementsList[0].transform.position = this.transform.position + Vector3.right * 3F;
-				nowWaitTime = 0F;
-			}
 
 			ElementsList.RemoveAt(0);
 			if( ElementsList.Count == 0)
@@ -146,6 +142,37 @@ public class BoxBehaviorControl : MonoBehaviour
 			}
 		}
 
+	}
+
+	void GoToFlag( SCRIPTTYPE flag)
+	{
+		GameObject[] objs = GameObject.FindGameObjectsWithTag("Function");
+		GameObject aimObj = null;
+		
+		foreach( GameObject obj in objs)
+		{
+			if( obj.GetComponent<BoxBehaviorControl>().scriptKind == flag)
+			{
+				aimObj = obj;
+				break;
+			}
+		}
+		
+		ElementsList[0].transform.position = this.transform.position + Vector3.up * 3F;
+		
+		Rigidbody2D objRigid = ElementsList[0].GetComponent<Rigidbody2D>();
+		objRigid.Sleep();
+		
+		objRigid.AddForce( new Vector2( 0F, 15F), ForceMode2D.Impulse);
+		if( aimObj != null)
+		{
+			float dump = 0.3F;
+			
+			Vector3 vec = aimObj.transform.position - this.transform.position;
+			objRigid.AddForce( vec * dump, ForceMode2D.Impulse);
+		}
+
+		return;
 	}
 
 	bool IsExistElemets()
@@ -189,8 +216,53 @@ public class BoxBehaviorControl : MonoBehaviour
 			ElementsList.RemoveAt(index);
 		}
 	}
+	
 
-	private GameObject fukudashi;
+	void Add()
+	{
+		if (onObject == null) 
+		{
+			return;
+		}
+		
+		int num = onObject.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0].GetComponent<CardBehaviour> ().Add ( num);
+	}
+
+	void Sub()
+	{
+		if (onObject == null) 
+		{
+			return;
+		}
+		
+		int num = onObject.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0].GetComponent<CardBehaviour> ().Sub ( num);
+	}
+
+	void Mul()
+	{
+		if (onObject == null) 
+		{
+			return;
+		}
+		
+		int num = onObject.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0].GetComponent<CardBehaviour> ().Mul ( num);
+	}
+
+	void Div()
+	{
+		if (onObject == null) 
+		{
+			return;
+		}
+		
+		int num = onObject.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0].GetComponent<CardBehaviour> ().Div( num);
+	}
+
+	
 	void Print()
 	{
 		if (fukudashi == null) 
@@ -222,10 +294,34 @@ public class BoxBehaviorControl : MonoBehaviour
 			collision.transform.position = new Vector2( 999F, -999F);
 			ElementsList.Add(collision.gameObject);
 			
-			nowWaitTime = weitTime;
+			if( scriptKind == SCRIPTTYPE.ADD)
+			{
+				nowWaitTime = 0;
+			}
+			else
+			{
+				nowWaitTime = weitTime;
+			}
+
 			addElements = true;
 			execDecision = false;
 		}
 		
+	}
+
+	void OnCollisionEnter2D(Collision2D col)
+	{
+		if (col.gameObject.CompareTag ("Element")) 
+		{
+			onObject = col.gameObject;
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D col)
+	{
+		if ( onObject == col.gameObject) 
+		{
+			onObject = null;
+		}
 	}
 }
