@@ -58,7 +58,7 @@ public class StartConveyor : MonoBehaviour {
 		if (changeObj == null)
 						return;
 		changeObj.GetComponent<Image>().sprite = obj.GetComponent<Image>().sprite;
-		changeObj.GetComponent<BoxBehaviorControl>().scriptKind = scKind;
+		changeObj.GetComponent<BoxBehaviorControl>().InitChangeBox( scKind);
 	}
 
 	public void Pause()

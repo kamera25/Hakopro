@@ -19,6 +19,7 @@ public enum SCRIPTTYPE
 	MUL			= 8,
 	DIV			= 9,
 	GOTOBLUE	= 10,
+	SWAPARRAY	= 11
 }
 
 public class BoxBehaviorControl : MonoBehaviour 
@@ -36,8 +37,11 @@ public class BoxBehaviorControl : MonoBehaviour
 	private bool putParameta = false;
 
 	public ElementSensorControl elementSensor;
-	public GameObject onObject;
 	private GameObject fukudashi;
+
+	// relation parameter.
+	private int param = 0;
+	public List<SaucerBehavior> SaucerList = new List<SaucerBehavior>();
 
 	// Update is called once per frame
 	void Update () 
@@ -220,46 +224,54 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	void Add()
 	{
-		if (onObject == null) 
+		GameObject Obj = SaucerList [0].onElement;
+
+		if (Obj == null) 
 		{
 			return;
 		}
 		
-		int num = onObject.GetComponent<CardBehaviour>().CardNumberForInt();
+		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
 		ElementsList [0].GetComponent<CardBehaviour> ().Add ( num);
 	}
 
 	void Sub()
 	{
-		if (onObject == null) 
+		GameObject Obj = SaucerList [0].onElement;
+		
+		if (Obj == null) 
 		{
 			return;
 		}
 		
-		int num = onObject.GetComponent<CardBehaviour>().CardNumberForInt();
+		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
 		ElementsList [0].GetComponent<CardBehaviour> ().Sub ( num);
 	}
 
 	void Mul()
 	{
-		if (onObject == null) 
+		GameObject Obj = SaucerList [0].onElement;
+		
+		if (Obj == null) 
 		{
 			return;
 		}
 		
-		int num = onObject.GetComponent<CardBehaviour>().CardNumberForInt();
+		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
 		ElementsList [0].GetComponent<CardBehaviour> ().Mul ( num);
 	}
 
 	void Div()
 	{
-		if (onObject == null) 
+		GameObject Obj = SaucerList [0].onElement;
+		
+		if (Obj == null) 
 		{
 			return;
 		}
 		
-		int num = onObject.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0].GetComponent<CardBehaviour> ().Div( num);
+		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0].GetComponent<CardBehaviour> ().Div ( num);
 	}
 
 	
@@ -309,19 +321,39 @@ public class BoxBehaviorControl : MonoBehaviour
 		
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+	// Initialize Function Box Process.
+	public void InitChangeBox( SCRIPTTYPE scKind)
 	{
-		if (col.gameObject.CompareTag ("Element")) 
+		this.scriptKind = scKind;
+
+		switch (scKind) 
 		{
-			onObject = col.gameObject;
+			case SCRIPTTYPE.SWAPARRAY:
+				MakeSaucer( 2);
+				break;
+			case SCRIPTTYPE.ADD:
+			case SCRIPTTYPE.SUB:
+			case SCRIPTTYPE.DIV:
+			case SCRIPTTYPE.MUL:
+				MakeSaucer(1);
+				break;
 		}
+
+		return;
 	}
 
-	void OnCollisionExit2D(Collision2D col)
+	public void MakeSaucer( int param)
 	{
-		if ( onObject == col.gameObject) 
+		this.param = param;
+
+		for (int i = 1; i <= param; i++) 
 		{
-			onObject = null;
+			Vector3 pos = this.transform.position + Vector3.up * 2.1F + Vector3.right * (i*2 - param) * 1.1F + Vector3.left * 1.3F;
+			GameObject clone = Instantiate( Resources.Load("Prefab/Saucer"), pos,Quaternion.identity) as GameObject;
+			SaucerList.Add(clone.GetComponent<SaucerBehavior>());
 		}
+
 	}
+
+	
 }

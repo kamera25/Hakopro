@@ -85,7 +85,7 @@ GameObject:
   - 212: {fileID: 33765181}
   - 95: {fileID: 33765180}
   - 114: {fileID: 33765179}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -292,6 +292,10 @@ Prefab:
     - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
@@ -616,14 +620,14 @@ CanvasRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-  m_PrefabInternal: {fileID: 1709064349}
+  m_PrefabInternal: {fileID: 1535912187}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 176068576}
   - 212: {fileID: 176068575}
   - 95: {fileID: 176068574}
   - 114: {fileID: 176068573}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -635,7 +639,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: ad3613f3315be6741b65e24e866f4923,
     type: 2}
-  m_PrefabInternal: {fileID: 1709064349}
+  m_PrefabInternal: {fileID: 1535912187}
   m_GameObject: {fileID: 176068572}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -648,7 +652,7 @@ Animator:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 9500000, guid: ad3613f3315be6741b65e24e866f4923,
     type: 2}
-  m_PrefabInternal: {fileID: 1709064349}
+  m_PrefabInternal: {fileID: 1535912187}
   m_GameObject: {fileID: 176068572}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
@@ -663,7 +667,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200000, guid: ad3613f3315be6741b65e24e866f4923,
     type: 2}
-  m_PrefabInternal: {fileID: 1709064349}
+  m_PrefabInternal: {fileID: 1535912187}
   m_GameObject: {fileID: 176068572}
   m_Enabled: 1
   m_CastShadows: 0
@@ -685,7 +689,7 @@ SpriteRenderer:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-  m_PrefabInternal: {fileID: 1709064349}
+  m_PrefabInternal: {fileID: 1535912187}
   m_GameObject: {fileID: 176068572}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.85420001, y: .0131900003, z: -1}
@@ -1132,7 +1136,7 @@ GameObject:
   - 4: {fileID: 342841347}
   - 212: {fileID: 342841346}
   - 61: {fileID: 342841348}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
   m_Icon: {fileID: 0}
@@ -1168,15 +1172,15 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 342841345}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .726100028, y: -4.1500001, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -10.284111, y: -9.78735352, z: 1.74301064}
+  m_LocalScale: {x: 1.74301064, y: 1.74301064, z: 1.74301064}
   m_Children:
   - {fileID: 672471432}
   - {fileID: 639066809}
   - {fileID: 1349739274}
   - {fileID: 2008535827}
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 710048851}
+  m_RootOrder: 2
 --- !u!61 &342841348
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1462,11 +1466,11 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1204633122}
     m_Modifications:
     - target: {fileID: 400000, guid: fe89d7d033f644e4d9e3e01b0b6da9c8, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 6.62629986
+      value: 5.7507
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe89d7d033f644e4d9e3e01b0b6da9c8, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1494,7 +1498,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe89d7d033f644e4d9e3e01b0b6da9c8, type: 2}
       propertyPath: m_RootOrder
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: fe89d7d033f644e4d9e3e01b0b6da9c8, type: 2}
       propertyPath: m_Text
@@ -1650,12 +1654,12 @@ Transform:
   m_PrefabInternal: {fileID: 453638079}
   m_GameObject: {fileID: 514928935}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.62629986, y: 1.46519995, z: -1}
+  m_LocalPosition: {x: 5.7507, y: 1.46519995, z: -1}
   m_LocalScale: {x: .573719978, y: .573719978, z: .573719978}
   m_Children:
   - {fileID: 1296894360}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_Father: {fileID: 1204633122}
+  m_RootOrder: 5
 --- !u!114 &514928937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1772,7 +1776,7 @@ MonoBehaviour:
   maxExec: 3
   addElements: 0
   elementSensor: {fileID: 1928786851}
-  onObject: {fileID: 0}
+  SaucerList: []
 --- !u!61 &523836073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2123,7 +2127,7 @@ GameObject:
   - 212: {fileID: 582899978}
   - 95: {fileID: 582899977}
   - 114: {fileID: 582899976}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -2198,7 +2202,7 @@ Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1204633122}
     m_Modifications:
     - target: {fileID: 400000, guid: fe89d7d033f644e4d9e3e01b0b6da9c8, type: 2}
       propertyPath: m_LocalPosition.x
@@ -2230,7 +2234,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fe89d7d033f644e4d9e3e01b0b6da9c8, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: fe89d7d033f644e4d9e3e01b0b6da9c8, type: 2}
       propertyPath: m_Text
@@ -2340,7 +2344,7 @@ GameObject:
   - 212: {fileID: 639066812}
   - 95: {fileID: 639066811}
   - 114: {fileID: 639066810}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -2421,7 +2425,7 @@ GameObject:
   - 212: {fileID: 672471434}
   - 95: {fileID: 672471433}
   - 114: {fileID: 672471435}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -2491,63 +2495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55d0c8822ebf17547a7f6be00f940a10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &695643334
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 224: {fileID: 695643335}
-  - 61: {fileID: 695643337}
-  - 114: {fileID: 695643336}
-  m_Layer: 5
-  m_Name: ObjectSensor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &695643335
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 695643334}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2077921454}
-  m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 27.2590008, y: -.191960007}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: .5, y: .5}
---- !u!114 &695643336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 695643334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a97446fc333f624eb41813404e7e5bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  elementCount: 0
---- !u!61 &695643337
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 695643334}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Size: {x: 25.7600002, y: 24.9300003}
-  m_Center: {x: 0, y: 0}
 --- !u!1 &707466842
 GameObject:
   m_ObjectHideFlags: 0
@@ -2688,6 +2635,37 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 707466842}
   m_HideIfInvisible: 0
+--- !u!1 &710048850
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 710048851}
+  m_Layer: 0
+  m_Name: Stage(Static)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &710048851
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 710048850}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.62629986, y: 1.46519995, z: -1}
+  m_LocalScale: {x: .573719978, y: .573719978, z: .573719978}
+  m_Children:
+  - {fileID: 1248572650}
+  - {fileID: 1713092100}
+  - {fileID: 342841347}
+  - {fileID: 1982951709}
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
 --- !u!1 &728798553
 GameObject:
   m_ObjectHideFlags: 0
@@ -2766,7 +2744,7 @@ GameObject:
   - 212: {fileID: 740871011}
   - 95: {fileID: 740871010}
   - 114: {fileID: 740871009}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -3117,7 +3095,7 @@ GameObject:
   - 212: {fileID: 809345035}
   - 95: {fileID: 809345034}
   - 114: {fileID: 809345033}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -3493,7 +3471,7 @@ MonoBehaviour:
   maxExec: 3
   addElements: 0
   elementSensor: {fileID: 2095396511}
-  onObject: {fileID: 0}
+  SaucerList: []
 --- !u!61 &1021995615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3675,7 +3653,7 @@ GameObject:
   - 212: {fileID: 1088476492}
   - 95: {fileID: 1088476491}
   - 114: {fileID: 1088476490}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -3775,7 +3753,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05e83b54f5c797b42af251379695f41e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptKind: 2
+  scriptKind: 6
   useCount: 2
 --- !u!114 &1104607191
 MonoBehaviour:
@@ -4024,8 +4002,10 @@ Transform:
   - {fileID: 2117075796}
   - {fileID: 540377406}
   - {fileID: 57485076}
+  - {fileID: 1376952940}
+  - {fileID: 514928936}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 7
 --- !u!1001 &1210221458
 Prefab:
   m_ObjectHideFlags: 0
@@ -4125,6 +4105,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
   m_RootGameObject: {fileID: 740871007}
@@ -4178,11 +4162,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1248572648}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.3260002, y: -3.4361999, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 37.8228149, y: -8.54319286, z: 1.74301064}
+  m_LocalScale: {x: 1.74301064, y: 1.74301064, z: 1.74301064}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 710048851}
+  m_RootOrder: 0
 --- !u!61 &1248572651
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4383,7 +4367,7 @@ GameObject:
   - 212: {fileID: 1349739277}
   - 95: {fileID: 1349739276}
   - 114: {fileID: 1349739275}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -4753,8 +4737,8 @@ Transform:
   m_LocalScale: {x: .573719978, y: .573719978, z: .573719978}
   m_Children:
   - {fileID: 2114206676}
-  m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_Father: {fileID: 1204633122}
+  m_RootOrder: 4
 --- !u!1 &1432719018
 GameObject:
   m_ObjectHideFlags: 0
@@ -4867,7 +4851,7 @@ RectTransform:
   - {fileID: 245795452}
   - {fileID: 150544487}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -4906,6 +4890,50 @@ Canvas:
   m_OverrideSorting: 0
   m_SortingLayerID: 0
   m_SortingOrder: -1
+--- !u!1001 &1535912187
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1713092100}
+    m_Modifications:
+    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -1.85420001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .0131900003
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+  m_RootGameObject: {fileID: 176068572}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1001 &1540962800
 Prefab:
   m_ObjectHideFlags: 0
@@ -5005,6 +5033,10 @@ Prefab:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
   m_RootGameObject: {fileID: 33765177}
@@ -5050,7 +5082,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!114 &1563182940
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5220,7 +5252,7 @@ RectTransform:
   - {fileID: 780098265}
   - {fileID: 707466843}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -5282,7 +5314,7 @@ MonoBehaviour:
   maxExec: 3
   addElements: 0
   elementSensor: {fileID: 209970945}
-  onObject: {fileID: 0}
+  SaucerList: []
 --- !u!61 &1701851531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5386,58 +5418,6 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1701851528}
   m_HideIfInvisible: 0
---- !u!1001 &1709064349
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1713092100}
-    m_Modifications:
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -1.85420001
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .0131900003
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_TagString
-      value: BeltCircle
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_LocalScale.x
-      value: .699999988
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_LocalScale.y
-      value: .699999988
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: ad3613f3315be6741b65e24e866f4923, type: 2}
-  m_RootGameObject: {fileID: 176068572}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1713092099
 GameObject:
   m_ObjectHideFlags: 0
@@ -5448,7 +5428,7 @@ GameObject:
   - 4: {fileID: 1713092100}
   - 212: {fileID: 1713092102}
   - 61: {fileID: 1713092101}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
   m_Icon: {fileID: 0}
@@ -5462,15 +5442,15 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1713092099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.76179981, y: 5.84399986, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.7221992, y: 7.63229465, z: 1.74301064}
+  m_LocalScale: {x: 1.74301064, y: 1.74301064, z: 1.74301064}
   m_Children:
   - {fileID: 740871008}
   - {fileID: 176068576}
   - {fileID: 33765178}
   - {fileID: 1916620564}
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 710048851}
+  m_RootOrder: 1
 --- !u!61 &1713092101
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5515,7 +5495,7 @@ GameObject:
   - 212: {fileID: 1878129638}
   - 95: {fileID: 1878129637}
   - 114: {fileID: 1878129636}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -5596,7 +5576,7 @@ GameObject:
   - 212: {fileID: 1916620567}
   - 95: {fileID: 1916620566}
   - 114: {fileID: 1916620565}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -5733,7 +5713,7 @@ GameObject:
   - 4: {fileID: 1982951709}
   - 212: {fileID: 1982951711}
   - 61: {fileID: 1982951710}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
   m_Icon: {fileID: 0}
@@ -5747,15 +5727,15 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1982951708}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.0100002, y: -4.32999992, z: 0}
-  m_LocalScale: {x: 1, y: .872276187, z: 1}
+  m_LocalPosition: {x: 19.8419113, y: -10.1010952, z: 1.74301064}
+  m_LocalScale: {x: 1.74301064, y: 1.5203867, z: 1.74301064}
   m_Children:
   - {fileID: 809345032}
   - {fileID: 1088476489}
   - {fileID: 582899979}
   - {fileID: 1878129635}
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 710048851}
+  m_RootOrder: 3
 --- !u!61 &1982951710
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5800,7 +5780,7 @@ GameObject:
   - 212: {fileID: 2008535826}
   - 95: {fileID: 2008535825}
   - 114: {fileID: 2008535824}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: beltcircle
   m_TagString: BeltCircle
   m_Icon: {fileID: 0}
@@ -6120,7 +6100,7 @@ MonoBehaviour:
   maxExec: 3
   addElements: 0
   elementSensor: {fileID: 435666775}
-  onObject: {fileID: 0}
+  SaucerList: []
 --- !u!1 &2077921453
 GameObject:
   m_ObjectHideFlags: 0
@@ -6131,12 +6111,9 @@ GameObject:
   - 224: {fileID: 2077921454}
   - 222: {fileID: 2077921460}
   - 114: {fileID: 2077921459}
-  - 114: {fileID: 2077921458}
-  - 114: {fileID: 2077921457}
   - 61: {fileID: 2077921456}
-  - 114: {fileID: 2077921455}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Dummy
   m_TagString: Function
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6151,8 +6128,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -2.28970003}
   m_LocalScale: {x: .111396, y: .111396, z: .111396}
-  m_Children:
-  - {fileID: 695643335}
+  m_Children: []
   m_Father: {fileID: 1665659025}
   m_RootOrder: 4
   m_AnchorMin: {x: .5, y: .5}
@@ -6160,24 +6136,6 @@ RectTransform:
   m_AnchoredPosition: {x: 15.0769997, y: 4.45819998}
   m_SizeDelta: {x: 28, y: 28}
   m_Pivot: {x: .49999997, y: .5}
---- !u!114 &2077921455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2077921453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scriptKind: -999
-  ElementsList: []
-  weitTime: 2
-  maxExec: 3
-  addElements: 0
-  elementSensor: {fileID: 695643336}
-  onObject: {fileID: 0}
 --- !u!61 &2077921456
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6189,70 +6147,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 24.9200001, y: 25.2900009}
   m_Center: {x: 0, y: 0}
---- !u!114 &2077921457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2077921453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f03a066442358747a52da532c94298f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2077921458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2077921453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1392445389, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Navigation:
-    m_Mode: 3
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
-    m_SelectOnLeft: {fileID: 0}
-    m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
-  m_Colors:
-    m_NormalColor: {r: .501960814, g: .501960814, b: .501960814, a: .501960814}
-    m_HighlightedColor: {r: .501960814, g: .501960814, b: .501960814, a: .698039234}
-    m_PressedColor: {r: .345098048, g: .345098048, b: .345098048, a: .698039234}
-    m_DisabledColor: {r: .250980407, g: .250980407, b: .250980407, a: .501960814}
-    m_ColorMultiplier: 2
-    m_FadeDuration: .100000001
-  m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
-  m_AnimationTriggers:
-    m_NormalTrigger: Normal
-    m_HighlightedTrigger: Highlighted
-    m_PressedTrigger: Pressed
-    m_DisabledTrigger: Disabled
-  m_Interactable: 1
-  m_TargetGraphic: {fileID: 2077921459}
-  m_OnClick:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2077921453}
-        m_MethodName: SendMessage
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: NotifyButtonPallet
-          m_BoolArgument: 0
-        m_CallState: 1
-    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!114 &2077921459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6266,7 +6160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: 5388d4e7778feb747acff9e0163a6d51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bbe305cc83d580408751afcbd370b9f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

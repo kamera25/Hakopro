@@ -58,6 +58,7 @@
      <Compile Include="Assets\Componets\MenuSceneLoder.cs" />
      <Compile Include="Assets\Componets\PalletButtonBehavior.cs" />
      <Compile Include="Assets\Componets\ResetController.cs" />
+     <Compile Include="Assets\Componets\SaucerBehavior.cs" />
      <Compile Include="Assets\Componets\ScrollController.cs" />
      <Compile Include="Assets\Componets\StartConveyor.cs" />
      <Compile Include="Assets\Componets\TrasitionPageControl.cs" />
