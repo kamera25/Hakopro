@@ -10,7 +10,7 @@ public class ElementSensorControl : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collision) 
 	{
 		
-		if( collision.gameObject.CompareTag("Element"))
+		if( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card"))
 		{
 			elementCount++;
 		}
@@ -19,7 +19,7 @@ public class ElementSensorControl : MonoBehaviour
 	void OnTriggerExit2D(Collider2D collision) 
 	{
 		
-		if( collision.gameObject.CompareTag("Element"))
+		if( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card"))
 		{
 			elementCount--;
 		}

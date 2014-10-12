@@ -19,7 +19,8 @@ public enum SCRIPTTYPE
 	MUL			= 8,
 	DIV			= 9,
 	GOTOBLUE	= 10,
-	SWAPARRAY	= 11
+	SWAPARRAY	= 11,
+	SUBSTITUTE	= 12
 }
 
 public class BoxBehaviorControl : MonoBehaviour 
@@ -28,20 +29,49 @@ public class BoxBehaviorControl : MonoBehaviour
 	public SCRIPTTYPE scriptKind = SCRIPTTYPE.NONE;
 	public List<GameObject> ElementsList = new List<GameObject>();
 
-	public float weitTime = 4F;
+	public float weitTime = 6F;
 	private float nowWaitTime;
 	public int maxExec = 1;
 	public bool addElements = false;
 	private bool execDecision = false;
 
-	private bool putParameta = false;
+	public bool putRight = true;
 
 	public ElementSensorControl elementSensor;
 	private GameObject fukudashi;
 
 	// relation parameter.
 	private int param = 0;
-	public List<SaucerBehavior> SaucerList = new List<SaucerBehavior>();
+	private List<SaucerBehavior> SaucerList = new List<SaucerBehavior>();
+
+	void Start()
+	{
+		InitChangeBox (scriptKind);
+	}
+
+	// Initialize Function Box Process.
+	public void InitChangeBox( SCRIPTTYPE scKind)
+	{
+		this.scriptKind = scKind;
+		
+		switch (scKind) 
+		{
+		case SCRIPTTYPE.SWAPARRAY:
+			MakeSaucer( 2);
+			break;
+		case SCRIPTTYPE.ADD:
+		case SCRIPTTYPE.SUB:
+		case SCRIPTTYPE.DIV:
+		case SCRIPTTYPE.MUL:
+			MakeSaucer(1);
+			break;
+		case SCRIPTTYPE.SUBSTITUTE:
+			MakeSaucer(1);
+			break;
+		}
+		
+		return;
+	}
 
 	// Update is called once per frame
 	void Update () 
@@ -64,7 +94,6 @@ public class BoxBehaviorControl : MonoBehaviour
 						}
 		}
 		*/
-
 
 
 		if (!addElements) 
@@ -104,6 +133,9 @@ public class BoxBehaviorControl : MonoBehaviour
 					case SCRIPTTYPE.SWAPARRAY:
 						SwapArray();
 						break;
+					case SCRIPTTYPE.SUBSTITUTE:
+						Substitute();
+						break;
 				}	
 
 				execDecision = true;
@@ -131,10 +163,23 @@ public class BoxBehaviorControl : MonoBehaviour
 						nowWaitTime = 2F; // slow..
 						break;
 					default:
-						if( scriptKind == SCRIPTTYPE.PRINT) Print();
-						ElementsList[0].transform.position = this.transform.position + Vector3.right * 3F;
 						nowWaitTime = 0F;
-				break;
+
+						if( scriptKind == SCRIPTTYPE.PRINT) Print();
+						if( scriptKind == SCRIPTTYPE.SUBSTITUTE) // Element is not back, so...
+						{
+							break;
+						}
+
+						if( putRight)
+						{
+							ElementsList[0].transform.position = this.transform.position + Vector3.right * 3F;
+						}	
+						else {
+							ElementsList[0].transform.position = this.transform.position + Vector3.left * 3F;
+						}
+						
+						break;
 				}
 
 
@@ -144,11 +189,21 @@ public class BoxBehaviorControl : MonoBehaviour
 				maxExec--;
 				if( maxExec <= 0)
 				{
+					//ExplosionCards();
 					this.gameObject.SetActive(false);
 				}
 			}
 		}
 
+	}
+
+	void ExplosionCards()
+	{
+		foreach (SaucerBehavior saucer in SaucerList) 
+		{
+			saucer.onElement.SetActive(false);
+			saucer.gameObject.SetActive(false);
+		}
 	}
 
 	void GoToFlag( SCRIPTTYPE flag)
@@ -317,48 +372,24 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	}
 
-	void OnTriggerEnter2D(Collider2D collision) 
+	void Substitute()
 	{
-		
-		if( collision.gameObject.CompareTag("Element") && 0 <= (int)scriptKind)
+		CardBehaviour card = SaucerList [0].onElement.GetComponent<CardBehaviour> ();
+
+		int num = ElementsList [ElementsList.Count - 1].GetComponent<CardBehaviour> ().CardNumberForInt ();
+		card.variable = num;
+
+
+		GameObject[] cards = GameObject.FindGameObjectsWithTag ("Card");
+		foreach( GameObject findCard in cards)
 		{
-			collision.transform.position = new Vector2( 999F, -999F);
-			ElementsList.Add(collision.gameObject);
-			
-			if( scriptKind == SCRIPTTYPE.ADD)
+			CardBehaviour cardBhv = findCard.GetComponent<CardBehaviour>();
+			if( cardBhv.cardString == card.cardString)
 			{
-				nowWaitTime = 0;
+				cardBhv.variable = num;
 			}
-			else
-			{
-				nowWaitTime = weitTime;
-			}
-
-			addElements = true;
-			execDecision = false;
-		}
-		
-	}
-
-	// Initialize Function Box Process.
-	public void InitChangeBox( SCRIPTTYPE scKind)
-	{
-		this.scriptKind = scKind;
-
-		switch (scKind) 
-		{
-			case SCRIPTTYPE.SWAPARRAY:
-				MakeSaucer( 2);
-				break;
-			case SCRIPTTYPE.ADD:
-			case SCRIPTTYPE.SUB:
-			case SCRIPTTYPE.DIV:
-			case SCRIPTTYPE.MUL:
-				MakeSaucer(1);
-				break;
 		}
 
-		return;
 	}
 
 	public void MakeSaucer( int param)
@@ -370,8 +401,32 @@ public class BoxBehaviorControl : MonoBehaviour
 			Vector3 pos = this.transform.position + Vector3.up * 2.1F + Vector3.right * (i*2 - param) * 1.1F + Vector3.left * 1.3F;
 			GameObject clone = Instantiate( Resources.Load("Prefab/Saucer"), pos,Quaternion.identity) as GameObject;
 			SaucerList.Add(clone.GetComponent<SaucerBehavior>());
+			clone.transform.parent = this.transform;
 		}
 
+	}
+
+	void OnTriggerEnter2D(Collider2D collision) 
+	{
+		
+		if( ( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card")) && 0 <= (int)scriptKind)
+		{
+			collision.transform.position = new Vector2( 999F, -999F);
+			ElementsList.Add(collision.gameObject);
+			
+			if( scriptKind == SCRIPTTYPE.ADD || scriptKind == SCRIPTTYPE.SUBSTITUTE)
+			{
+				nowWaitTime = 0;
+			}
+			else
+			{
+				nowWaitTime = weitTime;
+			}
+			
+			addElements = true;
+			execDecision = false;
+		}
+		
 	}
 
 	

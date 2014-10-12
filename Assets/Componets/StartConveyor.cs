@@ -7,7 +7,8 @@ public class StartConveyor : MonoBehaviour {
 
 	[SerializeField] GameObject missionPanel;
 	private bool isStart = false;
-	public GameObject[] elements;
+	//public GameObject[] elements;
+	public List<GameObject> elements = new List<GameObject>();
 
 	public GameObject changeObj;
 
@@ -16,7 +17,9 @@ public class StartConveyor : MonoBehaviour {
 	{
 		Invoke ("DisableMissionPanel", 4F);
 
-		elements = GameObject.FindGameObjectsWithTag("Element");
+
+		elements = new List<GameObject>( GameObject.FindGameObjectsWithTag("Element"));
+		elements.AddRange ( GameObject.FindGameObjectsWithTag ("Card"));
 	}
 	
 
@@ -63,8 +66,9 @@ public class StartConveyor : MonoBehaviour {
 
 	public void Pause()
 	{
-		// Elemets.
-		GameObject[] elements = GameObject.FindGameObjectsWithTag ("Element");
+		// Elements.
+		List<GameObject> elements = new List<GameObject>( GameObject.FindGameObjectsWithTag ("Element"));
+		elements.AddRange ( GameObject.FindGameObjectsWithTag ("Card"));
 		foreach( GameObject element in elements)
 		{
 			element.SendMessage("PauseElement");

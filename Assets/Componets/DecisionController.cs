@@ -11,7 +11,8 @@ public class DecisionController : MonoBehaviour
 	public List<string> CorrectElementsList = new List<string>();
 	public float weitTime = 4F;
 	private float nowWaitTime;
-	public bool startDecision = false;
+	public bool timeDecision = false;
+	private bool startDecision = false;
 	[SerializeField] int stageNum = 0;
 	private Animator anim;
 
@@ -39,9 +40,10 @@ public class DecisionController : MonoBehaviour
 				Invoke("GoToMenu", 3F);
 				this.enabled = false;
 			}
-			else
+			else if( timeDecision)
 			{
 				notClearTextUI.SetActive(true);
+				this.enabled = false;
 			}
 
 		}
@@ -76,7 +78,7 @@ public class DecisionController : MonoBehaviour
 	void OnCollisionEnter2D(Collision2D collision) 
 	{
 
-		if( collision.gameObject.CompareTag("Element"))
+		if( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card"))
 		{
 			collision.transform.position = new Vector2( 999F, 999F);
 			ElementsList.Add(collision.gameObject.name);

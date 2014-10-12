@@ -9,6 +9,7 @@ TagManager:
   - Function
   - BeltConveyor_R
   - BeltConveyor_L
+  - Card
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

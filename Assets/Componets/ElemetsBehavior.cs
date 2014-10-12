@@ -37,7 +37,7 @@ public class ElemetsBehavior : MonoBehaviour
 		if (existAimPos) 
 		{
 			Vector2 vec = new Vector2( this.transform.position.x, this.transform.position.y) - aimPosotion;
-			if( vec.sqrMagnitude < 10F)
+			if( vec.sqrMagnitude < 1F && this.rigidbody2D.velocity.y < 0F)
 			{
 				EnableCollision();
 				existAimPos = false;

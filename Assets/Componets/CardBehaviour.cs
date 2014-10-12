@@ -6,6 +6,7 @@ public class CardBehaviour : MonoBehaviour
 {
 	public string cardString = "";
 	private Text cardText;
+	public int variable = 0;
 
 	// Use this for initialization
 	void Start () 
@@ -72,7 +73,17 @@ public class CardBehaviour : MonoBehaviour
 
 	public int CardNumberForInt()
 	{
-		return int.Parse (cardString);
+		int num;
+
+
+		if (int.TryParse (cardString, out num)) 
+		{
+			return num;
+		} 
+		else 
+		{
+			return variable;
+		}
 	}
 
 
