@@ -101,6 +101,9 @@ public class BoxBehaviorControl : MonoBehaviour
 					case SCRIPTTYPE.DIV:
 						Div();
 						break;
+					case SCRIPTTYPE.SWAPARRAY:
+						SwapArray();
+						break;
 				}	
 
 				execDecision = true;
@@ -186,27 +189,39 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	void SwapFirst()
 	{
-		GameObject tempObj = ElementsList[0];
-
-		ElementsList [0] = ElementsList [1];
-		ElementsList [1] = tempObj;
+		Swap ( 0, 1);
 	}
 
 	void SwapEnd()
 	{
-		GameObject tempObj = ElementsList[ElementsList.Count-2];
-		
-		ElementsList [ElementsList.Count-2] = ElementsList [ElementsList.Count-1];
-		ElementsList [ElementsList.Count-1] = tempObj;
+		Swap (ElementsList.Count - 2, ElementsList.Count - 1);
 	}
 
 	void SwapMiddle()
 	{
 		int count = ElementsList.Count / 2;
-		GameObject tempObj = ElementsList[count];
+		Swap (count, count - 1);
+	}
 
-		ElementsList [count] = ElementsList [count-1];
-		ElementsList [count-1] = tempObj;
+	void SwapArray()
+	{
+		GameObject pram1 = SaucerList [0].onElement;
+		GameObject pram2 = SaucerList [1].onElement;
+		
+		if (pram1 == null || pram2 == null) 
+		{
+			return;
+		}
+		
+		Swap (pram1.GetComponent<CardBehaviour> ().CardNumberForInt(), pram2.GetComponent<CardBehaviour> ().CardNumberForInt());
+	}
+
+	void Swap( int index1, int index2 )
+	{
+		GameObject tempObj = ElementsList[index1];
+		
+		ElementsList [index1] = ElementsList [index2];
+		ElementsList [index2] = tempObj;
 	}
 
 	void ExecStack()
@@ -273,6 +288,7 @@ public class BoxBehaviorControl : MonoBehaviour
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
 		ElementsList [0].GetComponent<CardBehaviour> ().Div ( num);
 	}
+
 
 	
 	void Print()
