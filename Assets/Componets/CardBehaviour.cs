@@ -9,26 +9,26 @@ public class CardBehaviour : MonoBehaviour
 	public int variable = 0;
 
 	// Use this for initialization
-	void Start () 
+	void Awake () 
 	{
 		cardText = this.transform.FindChild ("Canvas").FindChild ("Text").GetComponent<Text> ();
 
-		UpdateCardData ();
+		UpdateCardData ( cardString);
 	}
+	
 
-	void UpdateCardData()
+	void UpdateCardData( string text)
 	{
-		cardText.text = cardString;
+		cardString = text;
+		cardText.text = text;
 		if (cardString == "\\n") 
 		{
 			this.name = "NewLine";
 		}
 		else 
 		{
-			this.name = cardString;
+			this.name = text;
 		}
-
-		return;
 	}
 
 	public void Add( int num)
@@ -36,9 +36,7 @@ public class CardBehaviour : MonoBehaviour
 		int textNum = CardNumberForInt();
 
 		textNum += num;
-		cardString = textNum.ToString();
-
-		UpdateCardData ();
+		UpdateCardData (textNum.ToString());
 	}
 
 	public void Sub( int num)
@@ -46,9 +44,7 @@ public class CardBehaviour : MonoBehaviour
 		int textNum = CardNumberForInt();
 		
 		textNum -= num;
-		cardString = textNum.ToString();
-		
-		UpdateCardData ();
+		UpdateCardData (textNum.ToString());
 	}
 
 	public void Mul( int num)
@@ -56,9 +52,7 @@ public class CardBehaviour : MonoBehaviour
 		int textNum = CardNumberForInt();
 		
 		textNum *= num;
-		cardString = textNum.ToString();
-		
-		UpdateCardData ();
+		UpdateCardData (textNum.ToString());
 	}
 
 	public void Div( int num)
@@ -66,9 +60,7 @@ public class CardBehaviour : MonoBehaviour
 		int textNum = CardNumberForInt();
 		
 		textNum /= num;
-		cardString = textNum.ToString();
-		
-		UpdateCardData ();
+		UpdateCardData (textNum.ToString());
 	}
 
 	public int CardNumberForInt()

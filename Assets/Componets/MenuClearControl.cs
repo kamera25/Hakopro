@@ -14,7 +14,7 @@ public class MenuClearControl : MonoBehaviour {
 		foreach (GameObject button in buttons) 
 		{
 			int textNum = int.Parse( button.name[button.name.Length-1].ToString());
-			int condition = 1 << (textNum-1);
+			int condition = 1 << (textNum);
 
 			if( (clearFlag & condition) == condition)
 			{

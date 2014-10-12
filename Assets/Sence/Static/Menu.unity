@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab867c5bbe1f51c409829f1fb3b87a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: sort
+  scene: selectionsort
 --- !u!1 &806940404
 GameObject:
   m_ObjectHideFlags: 0
@@ -1649,7 +1649,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "3 : \u3061\u3044\u3055\u3044\u3058\u3085\u3093\u3067"
+  m_Text: "3 : \u305B\u3093\u305F\u304F\u30BD\u30FC\u30C8"
 --- !u!222 &1312199800
 CanvasRenderer:
   m_ObjectHideFlags: 0

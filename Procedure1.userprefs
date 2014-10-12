@@ -1,15 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\StartConveyor.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\MenuClearControl.cs">
     <Files>
-      <File FileName="Assets\Componets\DecisionController.cs" Line="81" Column="90" />
-      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="389" Column="28" />
-      <File FileName="Assets\Componets\PalletButtonBehavior.cs" Line="1" Column="1" />
-      <File FileName="Assets\Componets\ScrollController.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\StartConveyor.cs" Line="22" Column="65" />
-      <File FileName="Assets\Componets\SaucerBehavior.cs" Line="10" Column="80" />
-      <File FileName="Assets\Componets\CardBehaviour.cs" Line="24" Column="26" />
-      <File FileName="Assets\Componets\ElementSensorControl.cs" Line="22" Column="90" />
+      <File FileName="Assets\Componets\MenuClearControl.cs" Line="17" Column="33" />
+      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Componets\ElemetsBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Componets\CardBehaviour.cs" Line="1" Column="1" />
+      <File FileName="Assets\Componets\SaucerBehavior.cs" Line="12" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

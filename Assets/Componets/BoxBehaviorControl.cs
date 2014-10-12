@@ -20,7 +20,9 @@ public enum SCRIPTTYPE
 	DIV			= 9,
 	GOTOBLUE	= 10,
 	SWAPARRAY	= 11,
-	SUBSTITUTE	= 12
+	SUBSTITUTE	= 12,
+	COUNTER		= 13,
+	MINIMUMINDEX= 14
 }
 
 public class BoxBehaviorControl : MonoBehaviour 
@@ -30,7 +32,7 @@ public class BoxBehaviorControl : MonoBehaviour
 	public List<GameObject> ElementsList = new List<GameObject>();
 
 	public float weitTime = 6F;
-	private float nowWaitTime;
+	public float nowWaitTime;
 	public int maxExec = 1;
 	public bool addElements = false;
 	private bool execDecision = false;
@@ -63,9 +65,9 @@ public class BoxBehaviorControl : MonoBehaviour
 		case SCRIPTTYPE.SUB:
 		case SCRIPTTYPE.DIV:
 		case SCRIPTTYPE.MUL:
-			MakeSaucer(1);
-			break;
 		case SCRIPTTYPE.SUBSTITUTE:
+		case SCRIPTTYPE.COUNTER:
+		case SCRIPTTYPE.MINIMUMINDEX:
 			MakeSaucer(1);
 			break;
 		}
@@ -136,6 +138,12 @@ public class BoxBehaviorControl : MonoBehaviour
 					case SCRIPTTYPE.SUBSTITUTE:
 						Substitute();
 						break;
+					case SCRIPTTYPE.COUNTER:
+						Counter();
+						break;
+					case SCRIPTTYPE.MINIMUMINDEX:
+						FindMinimumIndex();
+						break;
 				}	
 
 				execDecision = true;
@@ -156,11 +164,11 @@ public class BoxBehaviorControl : MonoBehaviour
 				{
 					case SCRIPTTYPE.GOTOBLUE:
 						GoToFlag( SCRIPTTYPE.FLAGBLUE);
-						nowWaitTime = 2F; // slow..
+						nowWaitTime = 3F; // slow..
 						break;
 					case SCRIPTTYPE.GOTOGREEN:
 						GoToFlag( SCRIPTTYPE.FLAGGREEN);
-						nowWaitTime = 2F; // slow..
+						nowWaitTime = 3F; // slow..
 						break;
 					default:
 						nowWaitTime = 0F;
@@ -276,6 +284,11 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	void Swap( int index1, int index2 )
 	{
+		if (ElementsList.Count - 1 < index1 || ElementsList.Count - 1 < index2) 
+		{
+			// Index error!!!
+			return;
+		}
 		GameObject tempObj = ElementsList[index1];
 		
 		ElementsList [index1] = ElementsList [index2];
@@ -347,7 +360,50 @@ public class BoxBehaviorControl : MonoBehaviour
 		ElementsList [0].GetComponent<CardBehaviour> ().Div ( num);
 	}
 
+	void Counter()
+	{
+		GameObject Obj = SaucerList [0].onElement;
 
+		if (Obj == null) 
+		{
+			return;
+		}
+
+		GameObject clone = Instantiate (Obj, this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
+		clone.rigidbody2D.AddForce (Vector3.up * 10F, ForceMode2D.Impulse);
+		clone.SendMessage( "SetAimPosition", this.transform.position + Vector3.up * 5F);
+		return;
+	}
+
+	void FindMinimumIndex()
+	{
+		GameObject Obj = SaucerList [0].onElement;
+		
+		if (Obj == null) 
+		{
+			return;
+		}
+
+		Debug.Log ("OK");
+		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
+		int minimamNum = 999;
+		int minimam = -1;
+		for (int i = num; i < ElementsList.Count; i++) 
+		{
+			CardBehaviour cardBhv = ElementsList[i].GetComponent<CardBehaviour>();
+			if( cardBhv.CardNumberForInt() < minimamNum)
+			{
+				minimamNum = cardBhv.CardNumberForInt();
+				minimam = i;
+			}
+		}
+
+		GameObject clone = Instantiate ( Resources.Load("Prefab/Cards/Card"), this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
+		clone.SendMessage( "SetAimPosition", this.transform.position + Vector3.up * 5F);
+		clone.SendMessage("UpdateCardData", minimam.ToString());
+		clone.SendMessage ( "RestartElement");
+		clone.rigidbody2D.AddForce (Vector3.up * 10F, ForceMode2D.Impulse);
+	}
 	
 	void Print()
 	{
@@ -409,8 +465,14 @@ public class BoxBehaviorControl : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D collision) 
 	{
 		
-		if( ( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card")) && 0 <= (int)scriptKind)
+		if( ( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card")) 
+		   && 0 <= (int)scriptKind)
 		{
+			if( collision.GetComponent<ElemetsBehavior>().existAimPos)
+			{
+				return;
+			}
+
 			collision.transform.position = new Vector2( 999F, -999F);
 			ElementsList.Add(collision.gameObject);
 			

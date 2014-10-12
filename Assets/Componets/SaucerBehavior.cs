@@ -5,15 +5,18 @@ public class SaucerBehavior : MonoBehaviour
 {
 	public GameObject onElement;
 
-	void OnCollisionEnter2D(Collision2D col)
+	void OnTriggerEnter2D(Collider2D col)
 	{
 		if (col.gameObject.CompareTag ("Element") || col.gameObject.CompareTag ("Card")) 
 		{
-			onElement = col.gameObject;
+			if( onElement == null)
+			{
+				onElement = col.gameObject;
+			}
 		}
 	}
 	
-	void OnCollisionExit2D(Collision2D col)
+	void OnTriggerExit2D(Collider2D col)
 	{
 		if ( onElement == col.gameObject) 
 		{

@@ -11,3 +11,5 @@ EditorBuildSettings:
     path: Assets/Sence/loop.unity
   - enabled: 1
     path: Assets/Sence/Static/Menu.unity
+  - enabled: 1
+    path: Assets/Sence/selectionsort.unity

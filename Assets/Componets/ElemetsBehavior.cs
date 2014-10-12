@@ -11,11 +11,11 @@ public class ElemetsBehavior : MonoBehaviour
 	private Vector2 velocity = Vector2.zero;
 
 	private Vector2 aimPosotion = Vector2.zero;
-	private bool existAimPos = false;
+	public bool existAimPos = false;
 
 	private BoxCollider2D boxCol;
 
-	void Start()
+	void Awake()
 	{
 		boxCol = this.GetComponent<BoxCollider2D> ();
 	}
@@ -37,7 +37,7 @@ public class ElemetsBehavior : MonoBehaviour
 		if (existAimPos) 
 		{
 			Vector2 vec = new Vector2( this.transform.position.x, this.transform.position.y) - aimPosotion;
-			if( vec.sqrMagnitude < 1F && this.rigidbody2D.velocity.y < 0F)
+			if( vec.sqrMagnitude < 4F && this.rigidbody2D.velocity.y < 0F)
 			{
 				EnableCollision();
 				existAimPos = false;
