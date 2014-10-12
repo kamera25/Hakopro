@@ -174,8 +174,11 @@ public class BoxBehaviorControl : MonoBehaviour
 		if( aimObj != null)
 		{
 			float dump = 0.3F;
-			
-			Vector3 vec = aimObj.transform.position - this.transform.position;
+			Vector3 aimPos = aimObj.transform.position;
+
+			ElementsList[0].SendMessage( "SetAimPosition", aimPos);
+
+			Vector3 vec = aimPos - this.transform.position;
 			objRigid.AddForce( vec * dump, ForceMode2D.Impulse);
 		}
 

@@ -10,6 +10,16 @@ public class ElemetsBehavior : MonoBehaviour
 	private float force = 240F;
 	private Vector2 velocity = Vector2.zero;
 
+	private Vector2 aimPosotion = Vector2.zero;
+	private bool existAimPos = false;
+
+	private BoxCollider2D boxCol;
+
+	void Start()
+	{
+		boxCol = this.GetComponent<BoxCollider2D> ();
+	}
+
 	void Update()
 	{
 		if (isStart && onBelt) 
@@ -24,14 +34,23 @@ public class ElemetsBehavior : MonoBehaviour
 			}
 		}
 
-		if (this.rigidbody2D.velocity.y > 1F) 
+		if (existAimPos) 
 		{
-			DisableCollision ();
-		} 
-		else 
-		{
-			EnableCollision();
+			Vector2 vec = new Vector2( this.transform.position.x, this.transform.position.y) - aimPosotion;
+			if( vec.sqrMagnitude < 10F)
+			{
+				EnableCollision();
+				existAimPos = false;
+			}
 		}
+	}
+
+	void SetAimPosition( Vector3 pos)
+	{
+		aimPosotion = new Vector2 (pos.x, pos.y);
+		DisableCollision ();
+		existAimPos = true;
+		return;
 	}
 
 	void OnCollisionEnter2D( Collision2D col)
@@ -58,12 +77,12 @@ public class ElemetsBehavior : MonoBehaviour
 
 	public void DisableCollision()
 	{
-		this.GetComponent<BoxCollider2D> ().isTrigger = true;
+		boxCol.isTrigger = true;
 	}
 
 	public void EnableCollision()
 	{
-		this.GetComponent<BoxCollider2D> ().isTrigger = false;
+		boxCol.isTrigger = false;
 	}
 
 	public void PauseElement()
