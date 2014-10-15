@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class MenuClearControl : MonoBehaviour {
 
@@ -14,7 +15,7 @@ public class MenuClearControl : MonoBehaviour {
 		foreach (GameObject button in buttons) 
 		{
 			int textNum = int.Parse( button.name[button.name.Length-1].ToString());
-			int condition = 1 << (textNum);
+			int condition = 1 << (textNum-1);
 
 			if( (clearFlag & condition) == condition)
 			{

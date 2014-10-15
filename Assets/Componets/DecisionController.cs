@@ -9,11 +9,14 @@ public class DecisionController : MonoBehaviour
 
 	public List<string> ElementsList = new List<string>();
 	public List<string> CorrectElementsList = new List<string>();
+	public bool timeDecision = false;
+
 	public float weitTime = 4F;
 	private float nowWaitTime;
-	public bool timeDecision = false;
-	private bool startDecision = false;
+
 	[SerializeField] int stageNum = 0;
+
+	private bool startDecision = false;
 	private Animator anim;
 
 	private AudioSource audioSource;
@@ -83,7 +86,9 @@ public class DecisionController : MonoBehaviour
 	void GoToMenu()
 	{
 		int flag = PlayerPrefs.GetInt ("ClearFlag");
-		flag = flag | stageNum;
+		int condition = 1 << (stageNum-1);
+
+		flag = flag | condition;
 		PlayerPrefs.SetInt ("ClearFlag", flag);
 		Application.LoadLevel ("Menu");
 	}
