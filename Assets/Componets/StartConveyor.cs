@@ -12,6 +12,9 @@ public class StartConveyor : MonoBehaviour {
 
 	public GameObject changeObj;
 
+	private AudioSource audioSource;
+	private AudioClip execSE;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -20,6 +23,9 @@ public class StartConveyor : MonoBehaviour {
 
 		elements = new List<GameObject>( GameObject.FindGameObjectsWithTag("Element"));
 		elements.AddRange ( GameObject.FindGameObjectsWithTag ("Card"));
+
+		audioSource = this.GetComponent<AudioSource> ();
+		execSE = Resources.Load ("chime00") as AudioClip;
 	}
 	
 
@@ -43,7 +49,7 @@ public class StartConveyor : MonoBehaviour {
 			element.SendMessage("RestartElement");
 		}
 
-
+		audioSource.PlayOneShot (execSE);
 	}
 
 	void DisableMissionPanel()

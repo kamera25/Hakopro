@@ -16,11 +16,22 @@ public class DecisionController : MonoBehaviour
 	[SerializeField] int stageNum = 0;
 	private Animator anim;
 
+	private AudioSource audioSource;
+	private AudioClip clapSE;
+	private AudioClip absorbSE;
+	private AudioClip beepSE;
+
 	// Use this for initialization
 	void Start () 
 	{
 		nowWaitTime = weitTime;
 		anim = this.GetComponent<Animator> ();
+
+		audioSource = GameObject.FindWithTag ("GameController").GetComponent<AudioSource>();
+
+		clapSE = Resources.Load ("clap04_fade") as AudioClip;
+		absorbSE = Resources.Load ("push24") as AudioClip;
+		beepSE = Resources.Load ("beep14") as AudioClip;
 	}
 	
 	// Update is called once per frame
@@ -37,12 +48,14 @@ public class DecisionController : MonoBehaviour
 			if( ret )
 			{
 				clearTextUI.SetActive(true);
+				audioSource.PlayOneShot(clapSE);
 				Invoke("GoToMenu", 3F);
 				this.enabled = false;
 			}
 			else if( timeDecision)
 			{
 				notClearTextUI.SetActive(true);
+				audioSource.PlayOneShot(beepSE);
 				this.enabled = false;
 			}
 
@@ -83,6 +96,7 @@ public class DecisionController : MonoBehaviour
 			collision.transform.position = new Vector2( 999F, 999F);
 			ElementsList.Add(collision.gameObject.name);
 			anim.SetTrigger( "addObject");
+			audioSource.PlayOneShot( absorbSE);
 
 			nowWaitTime = weitTime;
 			startDecision = true;

@@ -14,10 +14,14 @@ public class ElemetsBehavior : MonoBehaviour
 	public bool existAimPos = false;
 
 	private BoxCollider2D boxCol;
+	private AudioClip fallSound;
+	private AudioSource audioSource;
 
 	void Awake()
 	{
 		boxCol = this.GetComponent<BoxCollider2D> ();
+		fallSound = Resources.Load ("bosu06") as AudioClip;
+		audioSource = GameObject.FindWithTag ("GameController").GetComponent<AudioSource> ();
 	}
 
 	void Update()
@@ -41,6 +45,7 @@ public class ElemetsBehavior : MonoBehaviour
 			{
 				EnableCollision();
 				existAimPos = false;
+				audioSource.PlayOneShot(fallSound);
 			}
 		}
 	}

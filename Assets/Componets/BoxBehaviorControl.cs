@@ -41,6 +41,11 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	public ElementSensorControl elementSensor;
 	private GameObject fukudashi;
+	private Animator animator;
+	private AudioSource audioSource;
+	private AudioClip explosionSE;
+	private AudioClip absorbSE;
+	private AudioClip outputSE;
 
 	// relation parameter.
 	private int param = 0;
@@ -49,6 +54,12 @@ public class BoxBehaviorControl : MonoBehaviour
 	void Start()
 	{
 		InitChangeBox (scriptKind);
+		animator = this.GetComponent<Animator> ();
+
+		audioSource = GameObject.FindWithTag ("GameController").GetComponent<AudioSource>();
+		explosionSE = Resources.Load ("crash28") as AudioClip;
+		absorbSE = Resources.Load ("open24") as AudioClip;
+		outputSE = Resources.Load ("open43") as AudioClip;
 	}
 
 	// Initialize Function Box Process.
@@ -190,6 +201,8 @@ public class BoxBehaviorControl : MonoBehaviour
 						break;
 				}
 
+			animator.SetTrigger("inElement");
+			audioSource.PlayOneShot(outputSE);
 
 			ElementsList.RemoveAt(0);
 			if( ElementsList.Count == 0)
@@ -198,6 +211,7 @@ public class BoxBehaviorControl : MonoBehaviour
 				if( maxExec <= 0)
 				{
 					//ExplosionCards();
+					audioSource.PlayOneShot(explosionSE);
 					this.gameObject.SetActive(false);
 				}
 			}
@@ -384,7 +398,7 @@ public class BoxBehaviorControl : MonoBehaviour
 			return;
 		}
 
-		Debug.Log ("OK");
+
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
 		int minimamNum = 999;
 		int minimam = -1;
@@ -403,6 +417,7 @@ public class BoxBehaviorControl : MonoBehaviour
 		clone.SendMessage("UpdateCardData", minimam.ToString());
 		clone.SendMessage ( "RestartElement");
 		clone.rigidbody2D.AddForce (Vector3.up * 10F, ForceMode2D.Impulse);
+		audioSource.PlayOneShot(outputSE);
 	}
 	
 	void Print()
@@ -487,6 +502,9 @@ public class BoxBehaviorControl : MonoBehaviour
 			
 			addElements = true;
 			execDecision = false;
+
+			animator.SetTrigger("inElement");
+			audioSource.PlayOneShot(absorbSE);
 		}
 		
 	}
