@@ -22,7 +22,10 @@ public enum SCRIPTTYPE
 	SWAPARRAY	= 11,
 	SUBSTITUTE	= 12,
 	COUNTER		= 13,
-	MINIMUMINDEX= 14
+	MINIMUMINDEX= 14,
+	PRINT_LN	= 15,
+	PRINT_LN_VAR= 16,
+	BLACKHOLE	= 17
 }
 
 public class BoxBehaviorControl : MonoBehaviour 
@@ -184,25 +187,29 @@ public class BoxBehaviorControl : MonoBehaviour
 					default:
 						nowWaitTime = 0F;
 
-						if( scriptKind == SCRIPTTYPE.PRINT) Print();
-						if( scriptKind == SCRIPTTYPE.SUBSTITUTE) // Element is not back, so...
+						if( scriptKind == SCRIPTTYPE.PRINT || scriptKind == SCRIPTTYPE.PRINT_LN || scriptKind == SCRIPTTYPE.PRINT_LN_VAR)
+						{
+							Print();
+						}
+						else if( scriptKind == SCRIPTTYPE.BLACKHOLE) // Element is not back, so...
 						{
 							break;
 						}
-
-						if( putRight)
+						else if( scriptKind == SCRIPTTYPE.SUBSTITUTE )
 						{
-							ElementsList[0].transform.position = this.transform.position + Vector3.right * 3F;
-						}	
-						else {
-							ElementsList[0].transform.position = this.transform.position + Vector3.left * 3F;
+							GameObject clone = Instantiate (SaucerList [0].onElement) as GameObject;
+							PutElement( clone, putRight);
+							break;
 						}
+
+						PutElement( ElementsList[0], putRight);
 						
 						break;
 				}
 
 			animator.SetTrigger("inElement");
 			audioSource.PlayOneShot(outputSE);
+
 
 			ElementsList.RemoveAt(0);
 			if( ElementsList.Count == 0)
@@ -217,6 +224,18 @@ public class BoxBehaviorControl : MonoBehaviour
 			}
 		}
 
+	}
+
+	void PutElement( GameObject obj, bool isRight)
+	{
+		if( isRight)
+		{
+			obj.transform.position = this.transform.position + Vector3.right * 3F;
+		}	
+		else 
+		{
+			obj.transform.position = this.transform.position + Vector3.left * 3F;
+		}
 	}
 
 	void ExplosionCards()
@@ -264,6 +283,11 @@ public class BoxBehaviorControl : MonoBehaviour
 
 	bool IsExistElemets()
 	{
+		if (scriptKind == SCRIPTTYPE.BLACKHOLE) 
+		{
+			return true;
+		}
+
 		return elementSensor.elementCount > 0;
 	}
 
@@ -422,6 +446,8 @@ public class BoxBehaviorControl : MonoBehaviour
 	
 	void Print()
 	{
+
+		// Load Fukidashi <(___________) 
 		if (fukudashi == null) 
 		{
 			fukudashi = Instantiate( Resources.Load( "Prefab/Fukidashi"), this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
@@ -433,12 +459,26 @@ public class BoxBehaviorControl : MonoBehaviour
 
 		if (ElementsList [0].name == "NewLine") 
 		{
-			fukidashiText.text = fukidashiText.text + "\n";
-		}
+						fukidashiText.text = fukidashiText.text + "\n";
+		} 
 		else 
 		{
-			fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+			switch (scriptKind) 
+			{
+				case SCRIPTTYPE.PRINT:
+					fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+					break;
+				case SCRIPTTYPE.PRINT_LN:
+					fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+					break;
+				case SCRIPTTYPE.PRINT_LN_VAR:
+					fukidashiText.text = fukidashiText.text + ElementsList[0].GetComponent<CardBehaviour>().CardNumberForInt() + " ";
+					break;
+			}
 		}
+
+
+
 
 
 	}
@@ -451,6 +491,7 @@ public class BoxBehaviorControl : MonoBehaviour
 		card.variable = num;
 
 
+		// Assign variable all card of same name.
 		GameObject[] cards = GameObject.FindGameObjectsWithTag ("Card");
 		foreach( GameObject findCard in cards)
 		{
@@ -491,7 +532,7 @@ public class BoxBehaviorControl : MonoBehaviour
 			collision.transform.position = new Vector2( 999F, -999F);
 			ElementsList.Add(collision.gameObject);
 			
-			if( scriptKind == SCRIPTTYPE.ADD || scriptKind == SCRIPTTYPE.SUBSTITUTE)
+			if( scriptKind == SCRIPTTYPE.ADD || scriptKind == SCRIPTTYPE.SUBSTITUTE || scriptKind == SCRIPTTYPE.BLACKHOLE || scriptKind == SCRIPTTYPE.PRINT_LN_VAR)
 			{
 				nowWaitTime = 0;
 			}

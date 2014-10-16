@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Sence/Static/TopScene.unity
   - enabled: 1
-    path: Assets/Sence/loop.unity
+    path: Assets/Sence/DemoScene/loop.unity
   - enabled: 1
     path: Assets/Sence/Static/Menu.unity
   - enabled: 1
