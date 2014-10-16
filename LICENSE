@@ -1,6 +1,6 @@
 The MIT License (MIT)
 
-Copyright (c) 2014 Takahiro Nakaoku
+Copyright (c) 2014 Takahiro Nakaoku, Yosuke Kakiuchi, Shinpei Matsumoto 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -20,3 +20,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+--------
+
+This software is using sound of THE MATCH-MAKERS(http://osabisi.sakura.ne.jp/m2/).
+So, You redistribution this software, you should obey these licenses.
