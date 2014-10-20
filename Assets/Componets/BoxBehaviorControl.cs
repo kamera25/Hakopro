@@ -3,37 +3,8 @@ using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public enum SCRIPTTYPE 
+public class BoxBehaviorControl : FunctionBehavior
 {
-	NONE 		= -999,
-	FLAGBLUE	= -2,
-	FLAGGREEN	= -1,
-	SWAPFIRST	= 0,
-	SWAPEND		= 1,
-	GOTOGREEN	= 2,
-	SWAPMIDDLE	= 3,
-	PRINT		= 4,
-	STACK		= 5,
-	ADD			= 6,
-	SUB			= 7,
-	MUL			= 8,
-	DIV			= 9,
-	GOTOBLUE	= 10,
-	SWAPARRAY	= 11,
-	SUBSTITUTE	= 12,
-	COUNTER		= 13,
-	MINIMUMINDEX= 14,
-	PRINT_LN	= 15,
-	PRINT_LN_VAR= 16,
-	BLACKHOLE	= 17
-}
-
-public class BoxBehaviorControl : MonoBehaviour 
-{
-
-	public SCRIPTTYPE scriptKind = SCRIPTTYPE.NONE;
-	public List<GameObject> ElementsList = new List<GameObject>();
-
 	public float weitTime = 6F;
 	public float nowWaitTime;
 	public int maxExec = 1;
@@ -41,9 +12,8 @@ public class BoxBehaviorControl : MonoBehaviour
 	private bool execDecision = false;
 
 	public bool putRight = true;
-
 	public ElementSensorControl elementSensor;
-	private GameObject fukudashi;
+
 	private Animator animator;
 	private AudioSource audioSource;
 	private AudioClip explosionSE;
@@ -51,7 +21,6 @@ public class BoxBehaviorControl : MonoBehaviour
 	private AudioClip outputSE;
 
 	// relation parameter.
-	private int param = 0;
 	private List<SaucerBehavior> SaucerList = new List<SaucerBehavior>();
 
 	void Start()
@@ -120,47 +89,7 @@ public class BoxBehaviorControl : MonoBehaviour
 		{
 			if( !execDecision)
 			{
-				switch( scriptKind)
-				{
-					case SCRIPTTYPE.SWAPFIRST:
-						SwapFirst();
-						break;
-					case SCRIPTTYPE.SWAPEND:
-						SwapEnd();
-						break;
-					case SCRIPTTYPE.SWAPMIDDLE:
-						SwapMiddle();
-						break;
-					case SCRIPTTYPE.STACK:
-						ExecStack();
-						break;
-					case SCRIPTTYPE.ADD:
-						Add();
-						break;
-					case SCRIPTTYPE.SUB:
-						Sub();
-						break;
-					case SCRIPTTYPE.MUL:
-						Mul();
-						break;
-					case SCRIPTTYPE.DIV:
-						Div();
-						break;
-					case SCRIPTTYPE.SWAPARRAY:
-						SwapArray();
-						break;
-					case SCRIPTTYPE.SUBSTITUTE:
-						Substitute();
-						break;
-					case SCRIPTTYPE.COUNTER:
-						Counter();
-						break;
-					case SCRIPTTYPE.MINIMUMINDEX:
-						FindMinimumIndex();
-						break;
-				}	
-
-				execDecision = true;
+				ExecScript();
 			}
 			else
 			{
@@ -169,59 +98,91 @@ public class BoxBehaviorControl : MonoBehaviour
 		}
 	}
 
+	void ExecScript()
+	{
+		switch( scriptKind)
+		{
+		case SCRIPTTYPE.SWAPFIRST:
+			SwapFirst();
+			break;
+		case SCRIPTTYPE.SWAPEND:
+			SwapEnd();
+			break;
+		case SCRIPTTYPE.SWAPMIDDLE:
+			SwapMiddle();
+			break;
+		case SCRIPTTYPE.STACK:
+			ExecStack();
+			break;
+		case SCRIPTTYPE.ADD:
+			Add(SaucerList [0].onElement);
+			break;
+		case SCRIPTTYPE.SUB:
+			Sub(SaucerList [0].onElement);
+			break;
+		case SCRIPTTYPE.MUL:
+			Mul(SaucerList [0].onElement);
+			break;
+		case SCRIPTTYPE.DIV:
+			Div(SaucerList [0].onElement);
+			break;
+		case SCRIPTTYPE.SWAPARRAY:
+			SwapArray(SaucerList [0].onElement, SaucerList [1].onElement);
+			break;
+		case SCRIPTTYPE.SUBSTITUTE:
+			Substitute(SaucerList [0].onElement);
+			break;
+		case SCRIPTTYPE.COUNTER:
+			Counter(SaucerList [0].onElement);
+			break;
+		case SCRIPTTYPE.MINIMUMINDEX:
+			FindMinimumIndex(SaucerList [0].onElement);
+			break;
+		}	
+		
+		execDecision = true;
+
+		return;
+	}
+
 	void PopElement()
 	{
-		if( nowWaitTime < -1 && ElementsList.Count != 0 && !IsExistElemets())
+		if( nowWaitTime < -1 && ElementsList.Count != 0 && !IsExistSideElement())
 		{
 
-				switch( scriptKind)
-				{
-					case SCRIPTTYPE.GOTOBLUE:
-						GoToFlag( SCRIPTTYPE.FLAGBLUE);
-						nowWaitTime = 3F; // slow..
-						break;
-					case SCRIPTTYPE.GOTOGREEN:
-						GoToFlag( SCRIPTTYPE.FLAGGREEN);
-						nowWaitTime = 3F; // slow..
-						break;
-					default:
-						nowWaitTime = 0F;
-
-						if( scriptKind == SCRIPTTYPE.PRINT || scriptKind == SCRIPTTYPE.PRINT_LN || scriptKind == SCRIPTTYPE.PRINT_LN_VAR)
-						{
-							Print();
-						}
-						else if( scriptKind == SCRIPTTYPE.BLACKHOLE) // Element is not back, so...
-						{
-							break;
-						}
-						else if( scriptKind == SCRIPTTYPE.SUBSTITUTE )
-						{
-							GameObject clone = Instantiate (SaucerList [0].onElement) as GameObject;
-							PutElement( clone, putRight);
-							break;
-						}
-
-						PutElement( ElementsList[0], putRight);
-						
-						break;
-				}
+			nowWaitTime = 0F;
+		
+			switch( scriptKind)
+			{
+				case SCRIPTTYPE.GOTOBLUE:
+					GoToFlag( SCRIPTTYPE.FLAGBLUE);
+					nowWaitTime = 3F; // slow..
+					break;
+				case SCRIPTTYPE.GOTOGREEN:
+					GoToFlag( SCRIPTTYPE.FLAGGREEN);
+					nowWaitTime = 3F; // slow..
+					break;
+				case SCRIPTTYPE.PRINT:  // Opeariton of PRINTs ... 
+				case SCRIPTTYPE.PRINT_LN:
+				case SCRIPTTYPE.PRINT_LN_VAR:
+					Print ();
+					PutElement( ElementsList[0], putRight);
+					break;
+				case SCRIPTTYPE.SUBSTITUTE:
+					GameObject clone = Instantiate (SaucerList [0].onElement) as GameObject;
+					clone.transform.parent = GameObject.Find ("Elements").transform;
+					PutElement( clone, putRight);
+					break;
+				default:
+					PutElement( ElementsList[0], putRight);
+					break;
+			}
 
 			animator.SetTrigger("inElement");
 			audioSource.PlayOneShot(outputSE);
 
-
 			ElementsList.RemoveAt(0);
-			if( ElementsList.Count == 0)
-			{
-				maxExec--;
-				if( maxExec <= 0)
-				{
-					//ExplosionCards();
-					audioSource.PlayOneShot(explosionSE);
-					this.gameObject.SetActive(false);
-				}
-			}
+			CheckDestroyBox();
 		}
 
 	}
@@ -238,6 +199,23 @@ public class BoxBehaviorControl : MonoBehaviour
 		}
 	}
 
+	void CheckDestroyBox()
+	{
+		if( ElementsList.Count == 0)
+		{
+			maxExec--;
+			if( maxExec <= 0)
+			{
+				//ExplosionCards();
+				audioSource.PlayOneShot(explosionSE);
+				this.gameObject.SetActive(false);
+			}
+		}
+
+		return;
+	}
+
+	/*
 	void ExplosionCards()
 	{
 		foreach (SaucerBehavior saucer in SaucerList) 
@@ -246,12 +224,14 @@ public class BoxBehaviorControl : MonoBehaviour
 			saucer.gameObject.SetActive(false);
 		}
 	}
+	*/
 
 	void GoToFlag( SCRIPTTYPE flag)
 	{
 		GameObject[] objs = GameObject.FindGameObjectsWithTag("Function");
 		GameObject aimObj = null;
-		
+
+		// Search a flag of aiming.
 		foreach( GameObject obj in objs)
 		{
 			if( obj.GetComponent<BoxBehaviorControl>().scriptKind == flag)
@@ -281,7 +261,7 @@ public class BoxBehaviorControl : MonoBehaviour
 		return;
 	}
 
-	bool IsExistElemets()
+	bool IsExistSideElement()
 	{
 		if (scriptKind == SCRIPTTYPE.BLACKHOLE) 
 		{
@@ -291,222 +271,10 @@ public class BoxBehaviorControl : MonoBehaviour
 		return elementSensor.elementCount > 0;
 	}
 
-	void SwapFirst()
-	{
-		Swap ( 0, 1);
-	}
 
-	void SwapEnd()
-	{
-		Swap (ElementsList.Count - 2, ElementsList.Count - 1);
-	}
-
-	void SwapMiddle()
-	{
-		int count = ElementsList.Count / 2;
-		Swap (count, count - 1);
-	}
-
-	void SwapArray()
-	{
-		GameObject pram1 = SaucerList [0].onElement;
-		GameObject pram2 = SaucerList [1].onElement;
-		
-		if (pram1 == null || pram2 == null) 
-		{
-			return;
-		}
-		
-		Swap (pram1.GetComponent<CardBehaviour> ().CardNumberForInt(), pram2.GetComponent<CardBehaviour> ().CardNumberForInt());
-	}
-
-	void Swap( int index1, int index2 )
-	{
-		if (ElementsList.Count - 1 < index1 || ElementsList.Count - 1 < index2) 
-		{
-			// Index error!!!
-			return;
-		}
-		GameObject tempObj = ElementsList[index1];
-		
-		ElementsList [index1] = ElementsList [index2];
-		ElementsList [index2] = tempObj;
-	}
-
-	void ExecStack()
-	{
-		int loopNumber = ElementsList.Count;
-
-		for( int i = 1; i <= loopNumber; i++)
-		{
-			int index = loopNumber - i;
-			ElementsList.Add(ElementsList[index]);
-			ElementsList.RemoveAt(index);
-		}
-	}
-	
-
-	void Add()
-	{
-		GameObject Obj = SaucerList [0].onElement;
-
-		if (Obj == null) 
-		{
-			return;
-		}
-		
-		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0].GetComponent<CardBehaviour> ().Add ( num);
-	}
-
-	void Sub()
-	{
-		GameObject Obj = SaucerList [0].onElement;
-		
-		if (Obj == null) 
-		{
-			return;
-		}
-		
-		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0].GetComponent<CardBehaviour> ().Sub ( num);
-	}
-
-	void Mul()
-	{
-		GameObject Obj = SaucerList [0].onElement;
-		
-		if (Obj == null) 
-		{
-			return;
-		}
-		
-		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0].GetComponent<CardBehaviour> ().Mul ( num);
-	}
-
-	void Div()
-	{
-		GameObject Obj = SaucerList [0].onElement;
-		
-		if (Obj == null) 
-		{
-			return;
-		}
-		
-		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0].GetComponent<CardBehaviour> ().Div ( num);
-	}
-
-	void Counter()
-	{
-		GameObject Obj = SaucerList [0].onElement;
-
-		if (Obj == null) 
-		{
-			return;
-		}
-
-		GameObject clone = Instantiate (Obj, this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
-		clone.rigidbody2D.AddForce (Vector3.up * 10F, ForceMode2D.Impulse);
-		clone.SendMessage( "SetAimPosition", this.transform.position + Vector3.up * 5F);
-		return;
-	}
-
-	void FindMinimumIndex()
-	{
-		GameObject Obj = SaucerList [0].onElement;
-		
-		if (Obj == null) 
-		{
-			return;
-		}
-
-
-		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		int minimamNum = 999;
-		int minimam = -1;
-		for (int i = num; i < ElementsList.Count; i++) 
-		{
-			CardBehaviour cardBhv = ElementsList[i].GetComponent<CardBehaviour>();
-			if( cardBhv.CardNumberForInt() < minimamNum)
-			{
-				minimamNum = cardBhv.CardNumberForInt();
-				minimam = i;
-			}
-		}
-
-		GameObject clone = Instantiate ( Resources.Load("Prefab/Cards/Card"), this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
-		clone.SendMessage( "SetAimPosition", this.transform.position + Vector3.up * 5F);
-		clone.SendMessage("UpdateCardData", minimam.ToString());
-		clone.SendMessage ( "RestartElement");
-		clone.rigidbody2D.AddForce (Vector3.up * 10F, ForceMode2D.Impulse);
-		audioSource.PlayOneShot(outputSE);
-	}
-	
-	void Print()
-	{
-
-		// Load Fukidashi <(___________) 
-		if (fukudashi == null) 
-		{
-			fukudashi = Instantiate( Resources.Load( "Prefab/Fukidashi"), this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
-			fukudashi.transform.parent = GameObject.Find("Buttons").transform;
-		}
-
-		Text fukidashiText = fukudashi.transform.FindChild ("Text").GetComponent<Text> ();
-
-
-		if (ElementsList [0].name == "NewLine") 
-		{
-						fukidashiText.text = fukidashiText.text + "\n";
-		} 
-		else 
-		{
-			switch (scriptKind) 
-			{
-				case SCRIPTTYPE.PRINT:
-					fukidashiText.text = fukidashiText.text + ElementsList [0].name;
-					break;
-				case SCRIPTTYPE.PRINT_LN:
-					fukidashiText.text = fukidashiText.text + ElementsList [0].name;
-					break;
-				case SCRIPTTYPE.PRINT_LN_VAR:
-					fukidashiText.text = fukidashiText.text + ElementsList[0].GetComponent<CardBehaviour>().CardNumberForInt() + " ";
-					break;
-			}
-		}
-
-
-
-
-
-	}
-
-	void Substitute()
-	{
-		CardBehaviour card = SaucerList [0].onElement.GetComponent<CardBehaviour> ();
-
-		int num = ElementsList [ElementsList.Count - 1].GetComponent<CardBehaviour> ().CardNumberForInt ();
-		card.variable = num;
-
-
-		// Assign variable all card of same name.
-		GameObject[] cards = GameObject.FindGameObjectsWithTag ("Card");
-		foreach( GameObject findCard in cards)
-		{
-			CardBehaviour cardBhv = findCard.GetComponent<CardBehaviour>();
-			if( cardBhv.cardString == card.cardString)
-			{
-				cardBhv.variable = num;
-			}
-		}
-
-	}
 
 	public void MakeSaucer( int param)
 	{
-		this.param = param;
 
 		for (int i = 1; i <= param; i++) 
 		{
@@ -531,7 +299,8 @@ public class BoxBehaviorControl : MonoBehaviour
 
 			collision.transform.position = new Vector2( 999F, -999F);
 			ElementsList.Add(collision.gameObject);
-			
+
+			// These is executed soon.
 			if( scriptKind == SCRIPTTYPE.ADD || scriptKind == SCRIPTTYPE.SUBSTITUTE || scriptKind == SCRIPTTYPE.BLACKHOLE || scriptKind == SCRIPTTYPE.PRINT_LN_VAR)
 			{
 				nowWaitTime = 0;
@@ -550,5 +319,9 @@ public class BoxBehaviorControl : MonoBehaviour
 		
 	}
 
+	new void PlayOutPutSE()
+	{
+		audioSource.PlayOneShot(outputSE);
+	}
 	
 }
