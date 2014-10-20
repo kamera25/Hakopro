@@ -45,7 +45,6 @@ public class ElemetsBehavior : MonoBehaviour
 			{
 				EnableCollision();
 				existAimPos = false;
-				audioSource.PlayOneShot(fallSound);
 			}
 		}
 	}
@@ -64,11 +63,13 @@ public class ElemetsBehavior : MonoBehaviour
 		{
 			onBelt = true;
 			moveRight = true;
+			audioSource.PlayOneShot(fallSound);
 		}
 		else if( col.collider.CompareTag("BeltConveyor_L"))
 		{
 			onBelt = true;
 			moveRight = false;
+			audioSource.PlayOneShot(fallSound);
 		}
 	}
 
