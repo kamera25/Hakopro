@@ -11,13 +11,19 @@ public class ScrollController : MonoBehaviour
 	private float beforeX = 0F;
 	private float beforeY;
 	private bool useScroll = false;
+	
 
-	private bool isLock = false;
+	private BoxCollider2D collider;
+
+	void Start()
+	{
+		collider = this.GetComponent<BoxCollider2D> ();
+	}
 
 	// Update is called once per frame
 	void Update () 
 	{
-		if (isLock) 
+		if ( !collider.enabled) 
 		{
 			return;
 		}
@@ -55,11 +61,11 @@ public class ScrollController : MonoBehaviour
 
 	void SetLock()
 	{
-		isLock = true;
+		collider.enabled = false;
 	}
 
 	void LiftLock()
 	{
-		isLock = false;
+		collider.enabled = true;
 	}
 }
