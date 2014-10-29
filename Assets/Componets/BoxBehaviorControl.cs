@@ -19,6 +19,8 @@ public class BoxBehaviorControl : FunctionBehavior
 	private AudioClip explosionSE;
 	private AudioClip absorbSE;
 	private AudioClip outputSE;
+	private bool isExec = false;
+	
 
 	// relation parameter.
 	private List<SaucerBehavior> SaucerList = new List<SaucerBehavior>();
@@ -53,6 +55,9 @@ public class BoxBehaviorControl : FunctionBehavior
 		case SCRIPTTYPE.MINIMUMINDEX:
 			MakeSaucer(1);
 			break;
+		case SCRIPTTYPE.CAPSEL:
+			MakeSaucer(1);
+			break;
 		}
 		
 		return;
@@ -61,25 +66,7 @@ public class BoxBehaviorControl : FunctionBehavior
 	// Update is called once per frame
 	void Update () 
 	{
-		/*
-		if (putParameta == false && scriptKind == SCRIPTTYPE.GOTOGREEN) 
-		{
-			GameObject obj = GameObject.Find("BlockPalletCanvas").transform.Find("GotoPanel").gameObject;
-			obj.SetActive(true);
-			GameObject.Find("Background").SendMessage("SetLock");
-
-			putParameta = true;
-		}
-		if (putParameta == true) {
-						GameObject obj = GameObject.Find ("GotoPanel");
-						
-						if (obj != null) {	
-								obj = obj.transform.FindChild("Slider").gameObject;
-								maxExec = (int)(obj.GetComponent<Slider> ()).value + 1;
-						}
-		}
-		*/
-
+		//NoAbsorbBehavior ();
 
 		if (!addElements) 
 			return;
@@ -199,6 +186,34 @@ public class BoxBehaviorControl : FunctionBehavior
 		}
 	}
 
+	void NoAbsorbBehavior()
+	{
+		if ( isExec) 
+		{
+			return;
+		}
+
+		if (scriptKind == SCRIPTTYPE.SWITCHRED) 
+		{
+			SendMesseageForButtons("PushRed");
+			this.GetComponent<Image>().enabled = false;
+			isExec = true;
+		}
+		else if( scriptKind == SCRIPTTYPE.SWITCHBLUE)
+		{
+			SendMesseageForButtons("PushBlue");
+			this.GetComponent<Image>().enabled = false;
+			isExec = true;
+		}		
+		else if( scriptKind == SCRIPTTYPE.SWITCHRESET)
+		{
+			SendMesseageForButtons("PushReset");
+			this.GetComponent<Image>().enabled = false;
+			isExec = true;
+		}
+
+	}
+
 	void CheckDestroyBox()
 	{
 		if( ElementsList.Count == 0)
@@ -288,33 +303,40 @@ public class BoxBehaviorControl : FunctionBehavior
 
 	void OnTriggerEnter2D(Collider2D collision) 
 	{
-		
-		if( ( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card")) 
-		   && 0 <= (int)scriptKind)
-		{
-			if( collision.GetComponent<ElemetsBehavior>().existAimPos)
-			{
-				return;
-			}
+		const float posInf = 999F;
 
-			collision.transform.position = new Vector2( 999F, -999F);
-			ElementsList.Add(collision.gameObject);
-
-			// These is executed soon.
-			if( scriptKind == SCRIPTTYPE.ADD || scriptKind == SCRIPTTYPE.SUBSTITUTE || scriptKind == SCRIPTTYPE.BLACKHOLE || scriptKind == SCRIPTTYPE.PRINT_LN_VAR)
+		if(  collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card"))
+		 {
+		   if( IsNoAbsorbScriptType())
 			{
-				nowWaitTime = 0;
+				if( collision.GetComponent<ElemetsBehavior>().existAimPos)
+				{
+					return;
+				}
+
+				collision.transform.position = new Vector2( posInf, -posInf);
+				ElementsList.Add(collision.gameObject);
+
+				// These is executed soon.
+				if( scriptKind == SCRIPTTYPE.ADD || scriptKind == SCRIPTTYPE.SUBSTITUTE || scriptKind == SCRIPTTYPE.BLACKHOLE || scriptKind == SCRIPTTYPE.PRINT_LN_VAR)
+				{
+					nowWaitTime = 0;
+				}
+				else
+				{
+					nowWaitTime = weitTime;
+				}
+				
+				addElements = true;
+				execDecision = false;
+
+				animator.SetTrigger("inElement");
+				audioSource.PlayOneShot(absorbSE);
 			}
 			else
 			{
-				nowWaitTime = weitTime;
+				NoAbsorbBehavior();
 			}
-			
-			addElements = true;
-			execDecision = false;
-
-			animator.SetTrigger("inElement");
-			audioSource.PlayOneShot(absorbSE);
 		}
 		
 	}
@@ -323,5 +345,38 @@ public class BoxBehaviorControl : FunctionBehavior
 	{
 		audioSource.PlayOneShot(outputSE);
 	}
-	
+
+	private bool IsNoAbsorbScriptType()
+	{
+		return 0 <= (int)scriptKind;
+	}
+
+	protected void PushRed()
+	{
+		if (scriptKind == SCRIPTTYPE.CAPSEL) 
+		{
+			GameObject clone = Instantiate (SaucerList [0].onElement) as GameObject;
+			clone.transform.parent = GameObject.Find ("Elements").transform;
+			PutElement( clone, putRight);
+		}
+		if (scriptKind == SCRIPTTYPE.SWITCHRESET) 
+		{
+			this.GetComponent<Image>().enabled = true;
+			isExec = false;
+		}
+	}
+
+	protected void PushReset()
+	{
+		if (scriptKind == SCRIPTTYPE.SWITCHBLUE || scriptKind == SCRIPTTYPE.SWITCHRED) 
+		{
+			this.GetComponent<Image>().enabled = true;
+			isExec = false;
+		}
+		if (scriptKind == SCRIPTTYPE.STOPSIGN) 
+		{
+			this.GetComponent<Image>().sprite = Load( "Element", "stopSign");
+			this.GetComponent<BoxCollider2D>().enabled = true;
+		}
+	}
 }

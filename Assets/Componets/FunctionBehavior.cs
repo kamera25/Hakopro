@@ -6,6 +6,12 @@ using UnityEngine.UI;
 public enum SCRIPTTYPE 
 {
 	NONE 		= -999,
+	SWITCHRESET	= -302,
+	SWITCHBLUE 	= -301,
+	SWITCHRED	= -300,
+	CAPSEL		= -200,
+	GOSIGN		= -101,
+	STOPSIGN	= -100,
 	FLAGBLUE	= -2,
 	FLAGGREEN	= -1,
 	SWAPFIRST	= 0,
@@ -34,6 +40,8 @@ public class FunctionBehavior : MonoBehaviour
 	public List<GameObject> ElementsList = new List<GameObject>();
 	private GameObject fukudashi;
 	public SCRIPTTYPE scriptKind = SCRIPTTYPE.NONE;
+
+	private bool flag1 = false;
 
 	protected void SwapFirst()
 	{
@@ -244,6 +252,43 @@ public class FunctionBehavior : MonoBehaviour
 				cardBhv.variable = num;
 			}
 		}
-		
+	}
+
+	protected void Sign( BoxCollider2D col)
+	{
+		if(flag1)
+		{
+			col.enabled = false;
+		}
+		else
+		{
+			col.enabled = true;
+		}
+	}
+
+	protected void PushBlue()
+	{
+		if (scriptKind == SCRIPTTYPE.STOPSIGN) 
+		{
+			this.GetComponent<BoxCollider2D>().enabled = false;
+			Sprite sign = Load( "Element", "GoSign");
+			this.GetComponent<Image>().sprite = sign;
+		}
+	}
+
+	protected void SendMesseageForButtons( string method)
+	{
+		GameObject[] buttons = GameObject.FindGameObjectsWithTag("Function");
+		foreach( GameObject button in buttons)
+		{
+			button.SendMessage(method);
+		}
+	}
+
+	public static Sprite Load (string fileName , string spriteName) {
+		// Resoucesから対象のテクスチャから生成したスプライト一覧を取得
+		Sprite[] sprites = Resources.LoadAll<Sprite>(fileName);
+		// 対象のスプライトを取得
+		return System.Array.Find<Sprite>( sprites, (sprite) => sprite.name.Equals(spriteName));
 	}
 }
