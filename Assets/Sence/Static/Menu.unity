@@ -1394,7 +1394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab867c5bbe1f51c409829f1fb3b87a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: loop
+  scene: comparision
 --- !u!1 &1017535165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2482,7 +2482,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "1 : \u306F\u3053\u307C\u3046\uFF01"
+  m_Text: "1 : \u30EB\u30FC\u30D7\u3067\u3075\u3084\u305D\u3046\n"
 --- !u!222 &1750149521
 CanvasRenderer:
   m_ObjectHideFlags: 0

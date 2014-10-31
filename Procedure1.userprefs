@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\BoxBehaviorControl.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\religion\Assets\Components\PlayerMoveControl.cs">
     <Files>
-      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="378" Column="59" />
-      <File FileName="Assets\Componets\FunctionBehavior.cs" Line="274" Column="18" />
+      <File FileName="..\religion\Assets\Components\PlayerMoveControl.cs" Line="383" Column="31" />
+      <File FileName="..\religion\Assets\Components\CharactorYoke.cs" Line="37" Column="9" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

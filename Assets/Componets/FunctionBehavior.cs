@@ -31,7 +31,10 @@ public enum SCRIPTTYPE
 	MINIMUMINDEX= 14,
 	PRINT_LN	= 15,
 	PRINT_LN_VAR= 16,
-	BLACKHOLE	= 17
+	BLACKHOLE	= 17,
+	GREATER		= 18,
+	LESS		= 19,
+	EQUAL		= 20
 }
 
 public class FunctionBehavior : MonoBehaviour 
@@ -41,7 +44,7 @@ public class FunctionBehavior : MonoBehaviour
 	private GameObject fukudashi;
 	public SCRIPTTYPE scriptKind = SCRIPTTYPE.NONE;
 
-	private bool flag1 = false;
+	protected bool flag1 = false;
 
 	protected void SwapFirst()
 	{
@@ -274,6 +277,53 @@ public class FunctionBehavior : MonoBehaviour
 			Sprite sign = Load( "Element", "GoSign");
 			this.GetComponent<Image>().sprite = sign;
 		}
+	}
+
+	protected void Less( GameObject pram1, GameObject pram2)
+	{
+		int num1 = pram1.GetComponent<CardBehaviour>().CardNumberForInt();
+		int num2 = pram2.GetComponent<CardBehaviour>().CardNumberForInt();
+
+		if( num1 < num2)
+		{
+			flag1 = true;
+		}
+		else
+		{
+			flag1 = false;
+		}
+	}
+
+	protected void Greater( GameObject pram1, GameObject pram2)
+	{
+		int num1 = pram1.GetComponent<CardBehaviour>().CardNumberForInt();
+		int num2 = pram2.GetComponent<CardBehaviour>().CardNumberForInt();
+		
+		if( num1 > num2)
+		{
+			flag1 = true;
+		}
+		else
+		{
+			flag1 = false;
+		}
+
+	}
+
+	protected void Equal( GameObject pram1, GameObject pram2)
+	{
+		int num1 = pram1.GetComponent<CardBehaviour>().CardNumberForInt();
+		int num2 = pram2.GetComponent<CardBehaviour>().CardNumberForInt();
+		
+		if( num1 == num2)
+		{
+			flag1 = true;
+		}
+		else
+		{
+			flag1 = false;
+		}
+
 	}
 
 	protected void SendMesseageForButtons( string method)

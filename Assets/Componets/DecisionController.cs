@@ -4,10 +4,16 @@ using System.Collections.Generic;
 
 public class DecisionController : MonoBehaviour 
 {
+	enum DECISION
+	{
+		BYSTRING,
+		BYVAR
+	}
+
 	public GameObject clearTextUI;
 	public GameObject notClearTextUI;
 
-	public List<string> ElementsList = new List<string>();
+	public List<GameObject> ElementsList = new List<GameObject>();
 	public List<string> CorrectElementsList = new List<string>();
 	public bool timeDecision = false;
 
@@ -15,6 +21,7 @@ public class DecisionController : MonoBehaviour
 	private float nowWaitTime;
 
 	[SerializeField] int stageNum = 0;
+	[SerializeField] DECISION decision;
 
 	private bool startDecision = false;
 	private Animator anim;
@@ -67,20 +74,32 @@ public class DecisionController : MonoBehaviour
 
 	bool ExecDicision()
 	{
-		if (ElementsList.Count != CorrectElementsList.Count) 
+		switch (decision) 
 		{
-			return false;
+			case DECISION.BYSTRING:
+				if (ElementsList.Count != CorrectElementsList.Count) 
+				{
+					return false;
+				}
+				
+				for( int i = 0; i < ElementsList.Count; i++)
+				{
+					if( ElementsList[i].name != CorrectElementsList[i])
+					{
+						return false;
+					}
+				}
+				
+				return true;
+			case DECISION.BYVAR:
+				if( ElementsList[0].GetComponent<CardBehaviour>().CardNumberForInt() == int.Parse( CorrectElementsList[0]))
+				{
+					return true;
+				}
+			break;
 		}
 
-		for( int i = 0; i < ElementsList.Count; i++)
-		{
-			if( ElementsList[i] != CorrectElementsList[i])
-			{
-				return false;
-			}
-		}
-
-		return true;
+		return false;
 	}
 
 	void GoToMenu()
@@ -99,7 +118,7 @@ public class DecisionController : MonoBehaviour
 		if( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card"))
 		{
 			collision.transform.position = new Vector2( 999F, 999F);
-			ElementsList.Add(collision.gameObject.name);
+			ElementsList.Add(collision.gameObject);
 			anim.SetTrigger( "addObject");
 			audioSource.PlayOneShot( absorbSE);
 

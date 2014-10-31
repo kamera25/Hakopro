@@ -44,6 +44,9 @@ public class BoxBehaviorControl : FunctionBehavior
 		switch (scKind) 
 		{
 		case SCRIPTTYPE.SWAPARRAY:
+		case SCRIPTTYPE.EQUAL:
+		case SCRIPTTYPE.LESS:
+		case SCRIPTTYPE.GREATER:
 			MakeSaucer( 2);
 			break;
 		case SCRIPTTYPE.ADD:
@@ -125,6 +128,15 @@ public class BoxBehaviorControl : FunctionBehavior
 		case SCRIPTTYPE.MINIMUMINDEX:
 			FindMinimumIndex(SaucerList [0].onElement);
 			break;
+		case SCRIPTTYPE.LESS:
+			Less( SaucerList [0].onElement, SaucerList [1].onElement);
+			break;
+		case SCRIPTTYPE.GREATER:
+			Greater( SaucerList [0].onElement, SaucerList [1].onElement);
+			break;
+		case SCRIPTTYPE.EQUAL:
+			Equal( SaucerList [0].onElement, SaucerList [1].onElement);
+			break;
 		}	
 		
 		execDecision = true;
@@ -160,6 +172,11 @@ public class BoxBehaviorControl : FunctionBehavior
 					clone.transform.parent = GameObject.Find ("Elements").transform;
 					PutElement( clone, putRight);
 					break;
+				case SCRIPTTYPE.EQUAL:
+				case SCRIPTTYPE.GREATER:
+				case SCRIPTTYPE.LESS:
+					PutElementUp( ElementsList[0], flag1);
+					break;
 				default:
 					PutElement( ElementsList[0], putRight);
 					break;
@@ -172,6 +189,18 @@ public class BoxBehaviorControl : FunctionBehavior
 			CheckDestroyBox();
 		}
 
+	}
+
+	void PutElementUp( GameObject obj, bool istrue)
+	{
+		if( istrue)
+		{
+			obj.transform.position = this.transform.position + Vector3.right * 3F;
+		}
+		else
+		{
+			obj.transform.position = this.transform.position + Vector3.down * 3F;
+		}
 	}
 
 	void PutElement( GameObject obj, bool isRight)
