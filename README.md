@@ -7,6 +7,7 @@
 * MITライセンスで配布(ソースコード、画像)
 * 音声は ザ・マッチメイカァズ2nd よりお借りしています
 * Unity 4.6 Beta で開発
+* アプリは[ここから](https://play.google.com/store/apps/details?id=com.hitkakiuchi.hakopro)からダウンロード出来ます
 
 - - -
 (c) Applied System Engineering Kakiuchi Lab, Hiroshima Institute of Technology.
