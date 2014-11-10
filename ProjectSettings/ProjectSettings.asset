@@ -104,7 +104,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: C:/Users/takahiro/Documents/Procedure1/user.keystore
-  AndroidKeyaliasName: "\u30CF\u30B3\u30D7\u30ED"
+  AndroidKeyaliasName: 
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
   - m_BuildTarget: 

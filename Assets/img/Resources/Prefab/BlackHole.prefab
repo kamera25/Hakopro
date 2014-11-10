@@ -26,8 +26,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.78780007, y: -1.67499995, z: 0}
-  m_LocalScale: {x: .657251775, y: .657251775, z: .657251775}
+  m_LocalPosition: {x: 52.0499992, y: 29.5100002, z: 1.74000001}
+  m_LocalScale: {x: 1.14559686, y: 1.14559686, z: 1.14559686}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,7 +53,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: eefc09986e2b14744869928a5f5d0d3b, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scriptKind: 17
   ElementsList: []
+  scriptKind: 17
   weitTime: 6
   nowWaitTime: 0
   maxExec: 30

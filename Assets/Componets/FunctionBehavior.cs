@@ -105,9 +105,12 @@ public class FunctionBehavior : MonoBehaviour
 		{
 			return;
 		}
-		
+
+
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ();
 		ElementsList [0].GetComponent<CardBehaviour> ().Add ( num);
+
 	}
 	
 	protected void Sub( GameObject Obj)
@@ -118,6 +121,7 @@ public class FunctionBehavior : MonoBehaviour
 		}
 		
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ();
 		ElementsList [0].GetComponent<CardBehaviour> ().Sub ( num);
 	}
 	
@@ -129,6 +133,7 @@ public class FunctionBehavior : MonoBehaviour
 		}
 		
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ();
 		ElementsList [0].GetComponent<CardBehaviour> ().Mul ( num);
 	}
 	
@@ -140,7 +145,16 @@ public class FunctionBehavior : MonoBehaviour
 		}
 		
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ();
 		ElementsList [0].GetComponent<CardBehaviour> ().Div ( num);
+	}
+
+	protected GameObject InstantiateCard()
+	{
+		GameObject obj = Instantiate ( Resources.Load("Prefab/Cards/Card")) as GameObject;
+		obj.SendMessage ( "RestartElement");
+
+		return obj;
 	}
 	
 	protected void Counter( GameObject Obj)

@@ -7,7 +7,9 @@ public class ScrollController : MonoBehaviour
 	[SerializeField] float maxX = 14F;
 	[SerializeField] float minY = 0F;
 	[SerializeField] float maxY = 0F;
-	
+	[SerializeField] float maxScale = 10F;
+	[SerializeField] float minScale = 5F;
+
 	private float beforeX = 0F;
 	private float beforeY;
 	private bool useScroll = false;
@@ -56,6 +58,9 @@ public class ScrollController : MonoBehaviour
 		{
 			useScroll = false;
 		}
+
+		Camera.main.orthographicSize += Input.GetAxis("Mouse ScrollWheel");
+		Camera.main.orthographicSize = Mathf.Clamp (Camera.main.orthographicSize, minScale, maxScale);
 
 	}
 
