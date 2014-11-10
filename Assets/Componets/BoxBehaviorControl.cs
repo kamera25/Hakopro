@@ -53,6 +53,7 @@ public class BoxBehaviorControl : FunctionBehavior
 		case SCRIPTTYPE.SUB:
 		case SCRIPTTYPE.DIV:
 		case SCRIPTTYPE.MUL:
+		case SCRIPTTYPE.REM:
 		case SCRIPTTYPE.SUBSTITUTE:
 		case SCRIPTTYPE.COUNTER:
 		case SCRIPTTYPE.MINIMUMINDEX:
@@ -115,6 +116,9 @@ public class BoxBehaviorControl : FunctionBehavior
 			break;
 		case SCRIPTTYPE.DIV:
 			Div(SaucerList [0].onElement);
+			break;
+		case SCRIPTTYPE.REM:
+			Rem(SaucerList [0].onElement);
 			break;
 		case SCRIPTTYPE.SWAPARRAY:
 			SwapArray(SaucerList [0].onElement, SaucerList [1].onElement);

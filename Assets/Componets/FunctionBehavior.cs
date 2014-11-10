@@ -34,7 +34,8 @@ public enum SCRIPTTYPE
 	BLACKHOLE	= 17,
 	GREATER		= 18,
 	LESS		= 19,
-	EQUAL		= 20
+	EQUAL		= 20,
+	REM			= 21
 }
 
 public class FunctionBehavior : MonoBehaviour 
@@ -147,6 +148,18 @@ public class FunctionBehavior : MonoBehaviour
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
 		ElementsList [0] = InstantiateCard ();
 		ElementsList [0].GetComponent<CardBehaviour> ().Div ( num);
+	}
+
+	protected void Rem( GameObject Obj)
+	{
+		if (Obj == null) 
+		{
+			return;
+		}
+		
+		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ();
+		ElementsList [0].GetComponent<CardBehaviour> ().Rem ( num);
 	}
 
 	protected GameObject InstantiateCard()

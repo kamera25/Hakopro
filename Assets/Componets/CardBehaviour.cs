@@ -73,6 +73,14 @@ public class CardBehaviour : MonoBehaviour
 		UpdateCardData (textNum.ToString());
 	}
 
+	public void Rem( int num)
+	{
+		int textNum = CardNumberForInt();
+		
+		textNum %= num;
+		UpdateCardData (textNum.ToString());
+	}
+
 	public int CardNumberForInt()
 	{
 		int num;
