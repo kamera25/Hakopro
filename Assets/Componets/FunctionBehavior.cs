@@ -181,7 +181,7 @@ public class FunctionBehavior : MonoBehaviour
 
 	protected void ThrowUpElement( GameObject Obj, string newCardString)
 	{
-		GameObject clone = Instantiate (Obj, this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
+		GameObject clone = Instantiate ( Resources.Load("Prefab/Cards/Card"), this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
 
 		if( newCardString != "")
 		{
@@ -242,7 +242,7 @@ public class FunctionBehavior : MonoBehaviour
 		CardBehaviour card = Obj.GetComponent<CardBehaviour> ();
 		
 		int num = ElementsList [ElementsList.Count - 1].GetComponent<CardBehaviour> ().CardNumberForInt ();
-		card.variable = num;
+		card.SetVariable( num);
 		
 		
 		// Assign variable all card of same name.
@@ -252,7 +252,7 @@ public class FunctionBehavior : MonoBehaviour
 			CardBehaviour cardBhv = findCard.GetComponent<CardBehaviour>();
 			if( cardBhv.cardString == card.cardString)
 			{
-				cardBhv.variable = num;
+				cardBhv.SetVariable( num);
 			}
 		}
 	}

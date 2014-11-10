@@ -6,7 +6,9 @@ public class CardBehaviour : MonoBehaviour
 {
 	public string cardString = "";
 	private Text cardText;
-	public int variable = 0;
+	[SerializeField] private int variable = 0;
+	[SerializeField] private bool putInside = false;
+	private bool changeNum = false;
 
 	// Use this for initialization
 	void Awake () 
@@ -20,7 +22,15 @@ public class CardBehaviour : MonoBehaviour
 	void UpdateCardData( string text)
 	{
 		cardString = text;
-		cardText.text = text;
+		if (putInside) 
+		{
+			cardText.text = CardNumberForInt().ToString();
+		} 
+		else 
+		{
+			cardText.text = text;
+		}
+
 		if (cardString == "\\n") 
 		{
 			this.name = "NewLine";
@@ -78,9 +88,18 @@ public class CardBehaviour : MonoBehaviour
 		}
 	}
 
+	public void SetVariable( int num)
+	{
+		changeNum = true;
+		variable = num;
+	}
 
 	// Update is called once per frame
 	void Update () 
 	{
+		if (changeNum && putInside) 
+		{
+			cardText.text = CardNumberForInt().ToString();
+		}
 	}
 }
