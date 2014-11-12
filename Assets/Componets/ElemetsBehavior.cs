@@ -16,12 +16,14 @@ public class ElemetsBehavior : MonoBehaviour
 	private BoxCollider2D boxCol;
 	private AudioClip fallSound;
 	private AudioSource audioSource;
+	private Rigidbody2D regid;
 
 	void Awake()
 	{
 		boxCol = this.GetComponent<BoxCollider2D> ();
 		fallSound = Resources.Load ("bosu06") as AudioClip;
 		audioSource = GameObject.FindWithTag ("GameController").GetComponent<AudioSource> ();
+		regid = this.rigidbody2D;
 	}
 
 	void Update()
@@ -30,18 +32,18 @@ public class ElemetsBehavior : MonoBehaviour
 		{
 			if (moveRight) 
 			{
-				this.rigidbody2D.AddForce (new Vector2 (force * Time.deltaTime, 0F));
+				regid.AddForce (new Vector2 (force * Time.deltaTime, 0F));
 			}
 			else
 			{
-				this.rigidbody2D.AddForce (new Vector2 (-force * Time.deltaTime, 0F));
+				regid.AddForce (new Vector2 (-force * Time.deltaTime, 0F));
 			}
 		}
 
 		if (existAimPos) 
 		{
 			Vector2 vec = new Vector2( this.transform.position.x, this.transform.position.y) - aimPosotion;
-			if( vec.sqrMagnitude < 4F && this.rigidbody2D.velocity.y < 0F)
+			if( vec.sqrMagnitude < 4F && regid.velocity.y < 0F)
 			{
 				EnableCollision();
 				existAimPos = false;
@@ -95,12 +97,12 @@ public class ElemetsBehavior : MonoBehaviour
 	{
 		velocity = this.rigidbody2D.velocity;
 		isStart = false;
-		this.rigidbody2D.velocity = Vector2.zero;
+		if( regid != null) regid.velocity = Vector2.zero;
 	}
 
 	public void RestartElement()
 	{
 		isStart = true;
-		this.rigidbody2D.velocity = velocity;
+		if( regid != null) regid.velocity = velocity;
 	}
 }
