@@ -109,7 +109,8 @@ public class FunctionBehavior : MonoBehaviour
 
 
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0] = InstantiateCard ();
+		int normalNum = ElementsList [0].GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ( normalNum);
 		ElementsList [0].GetComponent<CardBehaviour> ().Add ( num);
 
 	}
@@ -122,7 +123,8 @@ public class FunctionBehavior : MonoBehaviour
 		}
 		
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0] = InstantiateCard ();
+		int normalNum = ElementsList [0].GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ( normalNum);
 		ElementsList [0].GetComponent<CardBehaviour> ().Sub ( num);
 	}
 	
@@ -134,7 +136,8 @@ public class FunctionBehavior : MonoBehaviour
 		}
 		
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0] = InstantiateCard ();
+		int normalNum = ElementsList [0].GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ( normalNum);
 		ElementsList [0].GetComponent<CardBehaviour> ().Mul ( num);
 	}
 	
@@ -146,7 +149,8 @@ public class FunctionBehavior : MonoBehaviour
 		}
 		
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0] = InstantiateCard ();
+		int normalNum = ElementsList [0].GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ( normalNum);
 		ElementsList [0].GetComponent<CardBehaviour> ().Div ( num);
 	}
 
@@ -158,14 +162,16 @@ public class FunctionBehavior : MonoBehaviour
 		}
 		
 		int num = Obj.GetComponent<CardBehaviour>().CardNumberForInt();
-		ElementsList [0] = InstantiateCard ();
+		int normalNum = ElementsList [0].GetComponent<CardBehaviour>().CardNumberForInt();
+		ElementsList [0] = InstantiateCard ( normalNum);
 		ElementsList [0].GetComponent<CardBehaviour> ().Rem ( num);
 	}
 
-	protected GameObject InstantiateCard()
+	protected GameObject InstantiateCard( int num)
 	{
 		GameObject obj = Instantiate ( Resources.Load("Prefab/Cards/Card")) as GameObject;
 		obj.SendMessage ( "RestartElement");
+		obj.SendMessage ( "UpdateCardData", num.ToString());
 
 		return obj;
 	}

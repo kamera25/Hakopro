@@ -13,12 +13,21 @@ public class ScrollController : MonoBehaviour
 	private float beforeX = 0F;
 	private float beforeY;
 	private bool useScroll = false;
-	
+
+	private bool usePC = true;
 
 	private BoxCollider2D collider;
+	private float interval = 0.0f;
+	private bool isPitched = false;
+	const float ZOOM_SPEED = 600.0f;
+
 
 	void Start()
 	{
+		#if UNITY_ANDROID
+			usePC = false;
+		#endif
+
 		collider = this.GetComponent<BoxCollider2D> ();
 	}
 
@@ -26,6 +35,25 @@ public class ScrollController : MonoBehaviour
 	void Update () 
 	{
 		if ( !collider.enabled) 
+		{
+			return;
+		}
+
+		MoveCamera ();
+
+		if (Input.GetMouseButtonUp (0)) 
+		{
+			useScroll = false;
+		}
+
+		ScaleProcess ();
+
+
+	}
+
+	void MoveCamera()
+	{
+		if (isPitched) 
 		{
 			return;
 		}
@@ -41,27 +69,43 @@ public class ScrollController : MonoBehaviour
 					float X = mousePosWorld.x - beforeX;
 					float Y = mousePosWorld.y - beforeY;
 					Vector3 pos = Camera.main.transform.position;
-
+					
 					pos.x = Mathf.Clamp( pos.x - X, minX, maxX);
 					pos.y = Mathf.Clamp( pos.y - Y, minY, maxY);
 					Camera.main.transform.position = pos;
 				}
-
+				
 				mousePosWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
+				
 				beforeX = mousePosWorld.x;
 				beforeY = mousePosWorld.y;
 				useScroll = true;
 			}	
 		}
-		if (Input.GetMouseButtonUp (0)) 
+	}
+
+	void ScaleProcess()
+	{
+		if (usePC) {
+			Camera.main.orthographicSize += Input.GetAxis ("Mouse ScrollWheel");
+		} 
+		else 
 		{
-			useScroll = false;
+			if (Input.touchCount == 2) {
+				if (Input.touches[0].phase == TouchPhase.Began || Input.touches[1].phase == TouchPhase.Began) {
+					interval = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
+				}
+				float tmpInterval = Vector2.Distance(Input.touches[0].position, Input.touches[1].position);
+				Camera.main.orthographicSize += (tmpInterval - interval) / ZOOM_SPEED;
+				isPitched = true;
+			}
+			else
+			{
+				isPitched = false;
+			}
 		}
-
-		Camera.main.orthographicSize += Input.GetAxis("Mouse ScrollWheel");
+		
 		Camera.main.orthographicSize = Mathf.Clamp (Camera.main.orthographicSize, minScale, maxScale);
-
 	}
 
 	void SetLock()
