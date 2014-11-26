@@ -1,13 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\ElemetsBehavior.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\religion\Assets\Components\ChatController.cs">
     <Files>
-      <File FileName="Assets\Componets\ElemetsBehavior.cs" Line="35" Column="10" />
-      <File FileName="Assets\Componets\ScrollController.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\takahiro\Documents\religion\Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs" Line="1" Column="1" />
-      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\FunctionBehavior.cs" Line="164" Column="38" />
-      <File FileName="Assets\Componets\CardBehaviour.cs" Line="1" Column="1" />
+      <File FileName="..\religion\Assets\Components\PoseModeControl.cs" Line="1" Column="1" />
+      <File FileName="..\religion\Assets\Components\ChatController.cs" Line="44" Column="60" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

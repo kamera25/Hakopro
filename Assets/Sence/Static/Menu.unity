@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
+  m_Priority: 2
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -2108,6 +2108,8 @@ MonoBehaviour:
   maxX: 0
   minY: -14
   maxY: 0
+  maxScale: 10
+  minScale: 5
 --- !u!114 &1507870556
 MonoBehaviour:
   m_ObjectHideFlags: 0

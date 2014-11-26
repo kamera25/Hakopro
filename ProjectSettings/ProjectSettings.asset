@@ -72,7 +72,7 @@ PlayerSettings:
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: c797022310413a540abfe759a6ebe939
   iPhoneBundleVersion: 1.0
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 14
   AndroidPreferredInstallLocation: 1
   aotOptions: 
@@ -104,7 +104,7 @@ PlayerSettings:
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: C:/Users/takahiro/Documents/Procedure1/user.keystore
-  AndroidKeyaliasName: 
+  AndroidKeyaliasName: "\u30CF\u30B3\u30D7\u30ED"
   resolutionDialogBanner: {fileID: 0}
   m_BuildTargetIcons:
   - m_BuildTarget: 
