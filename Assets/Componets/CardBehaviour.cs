@@ -6,7 +6,7 @@ public class CardBehaviour : MonoBehaviour
 {
 	public string cardString = "";
 	private Text cardText;
-	[SerializeField] private int variable = 0;
+	public int variable = 0;
 	[SerializeField] private bool putInside = false;
 	private bool changeNum = false;
 

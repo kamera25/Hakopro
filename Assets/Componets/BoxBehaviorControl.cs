@@ -147,6 +147,7 @@ public class BoxBehaviorControl : FunctionBehavior
 		{
 			// Detect error. To be terminated.
 			this.enabled = false;
+			audioSource.PlayOneShot(explosionSE);
 			animator.SetBool( "isError", true);
 		} 
 		else 
