@@ -142,8 +142,17 @@ public class BoxBehaviorControl : FunctionBehavior
 			Equal( SaucerList [0].onElement, SaucerList [1].onElement);
 			break;
 		}	
-		
-		execDecision = true;
+
+		if (error) 
+		{
+			// Detect error. To be terminated.
+			this.enabled = false;
+			animator.SetBool( "isError", true);
+		} 
+		else 
+		{
+			execDecision = true;
+		}
 
 		return;
 	}

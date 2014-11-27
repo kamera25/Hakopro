@@ -12,7 +12,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Sence/Static/Menu.unity
   - enabled: 1
-    path: Assets/Sence/selectionsort.unity
+    path: Assets/Sence/StageScene/selectionsort.unity
   - enabled: 1
     path: Assets/Sence/t2-14-1.unity
   - enabled: 1

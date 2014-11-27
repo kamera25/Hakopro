@@ -10,6 +10,7 @@ TagManager:
   - BeltConveyor_R
   - BeltConveyor_L
   - Card
+  - SelectMe
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

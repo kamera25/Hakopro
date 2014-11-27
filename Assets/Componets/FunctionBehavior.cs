@@ -46,6 +46,7 @@ public class FunctionBehavior : MonoBehaviour
 	public SCRIPTTYPE scriptKind = SCRIPTTYPE.NONE;
 
 	protected bool flag1 = false;
+	protected bool error = false;
 
 	protected void SwapFirst()
 	{
@@ -272,6 +273,12 @@ public class FunctionBehavior : MonoBehaviour
 	
 	protected void Substitute( GameObject Obj)
 	{
+		if ( Obj == null) 
+		{
+			error = true;
+			return;
+		}
+
 		CardBehaviour card = Obj.GetComponent<CardBehaviour> ();
 		
 		int num = ElementsList [ElementsList.Count - 1].GetComponent<CardBehaviour> ().CardNumberForInt ();
@@ -314,6 +321,11 @@ public class FunctionBehavior : MonoBehaviour
 
 	protected void Less( GameObject pram1, GameObject pram2)
 	{
+		if (pram1 == null || pram2 == null) 
+		{
+			error = true;
+			return;
+		}
 		int num1 = pram1.GetComponent<CardBehaviour>().CardNumberForInt();
 		int num2 = pram2.GetComponent<CardBehaviour>().CardNumberForInt();
 
@@ -329,6 +341,12 @@ public class FunctionBehavior : MonoBehaviour
 
 	protected void Greater( GameObject pram1, GameObject pram2)
 	{
+		if (pram1 == null || pram2 == null) 
+		{
+			error = true;
+			return;
+		}
+
 		int num1 = pram1.GetComponent<CardBehaviour>().CardNumberForInt();
 		int num2 = pram2.GetComponent<CardBehaviour>().CardNumberForInt();
 		
@@ -345,6 +363,12 @@ public class FunctionBehavior : MonoBehaviour
 
 	protected void Equal( GameObject pram1, GameObject pram2)
 	{
+		if (pram1 == null || pram2 == null) 
+		{
+			error = true;
+			return;
+		}
+
 		int num1 = pram1.GetComponent<CardBehaviour>().CardNumberForInt();
 		int num2 = pram2.GetComponent<CardBehaviour>().CardNumberForInt();
 		
