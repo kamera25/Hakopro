@@ -536,7 +536,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "2 : 5\u3064\u306E\u3050\u3046\u3059\u3046 "
+  m_Text: "2 : 160\u307E\u3067\u3075\u3084\u305D\u3046"
 --- !u!222 &620387483
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1855,7 +1855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab867c5bbe1f51c409829f1fb3b87a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: t2-14-1
+  scene: while1
 --- !u!1 &1312199797
 GameObject:
   m_ObjectHideFlags: 0
