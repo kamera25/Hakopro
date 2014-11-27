@@ -1,9 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\FunctionBehavior.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\takahiro\Documents\religion\Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs">
     <Files>
-      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="6" Column="42" />
-      <File FileName="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\FunctionBehavior.cs" Line="174" Column="42" />
+      <File FileName="Assets\Componets\BoxBehaviorControl.cs" Line="151" Column="10" />
+      <File FileName="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\FunctionBehavior.cs" Line="320" Column="24" />
+      <File FileName="c:\Users\takahiro\Documents\religion\Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs" Line="93" Column="99" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

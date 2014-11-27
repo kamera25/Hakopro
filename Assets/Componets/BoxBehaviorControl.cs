@@ -57,6 +57,8 @@ public class BoxBehaviorControl : FunctionBehavior
 		case SCRIPTTYPE.SUBSTITUTE:
 		case SCRIPTTYPE.COUNTER:
 		case SCRIPTTYPE.MINIMUMINDEX:
+		case SCRIPTTYPE.INCREMET:
+		case SCRIPTTYPE.INTIALIZE:
 			MakeSaucer(1);
 			break;
 		case SCRIPTTYPE.CAPSEL:
@@ -140,6 +142,12 @@ public class BoxBehaviorControl : FunctionBehavior
 			break;
 		case SCRIPTTYPE.EQUAL:
 			Equal( SaucerList [0].onElement, SaucerList [1].onElement);
+			break;
+		case SCRIPTTYPE.INCREMET:
+			Increment( SaucerList [0].onElement);
+			break;
+		case SCRIPTTYPE.INTIALIZE:
+			Initialize( SaucerList [0].onElement);
 			break;
 		}	
 

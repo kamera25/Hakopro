@@ -35,7 +35,9 @@ public enum SCRIPTTYPE
 	GREATER		= 18,
 	LESS		= 19,
 	EQUAL		= 20,
-	REM			= 21
+	REM			= 21,
+	INCREMET	= 22,
+	INTIALIZE	= 23
 }
 
 public class FunctionBehavior : MonoBehaviour 
@@ -285,13 +287,47 @@ public class FunctionBehavior : MonoBehaviour
 		int num = ElementsList [ElementsList.Count - 1].GetComponent<CardBehaviour> ().CardNumberForInt ();
 		card.SetVariable( num);
 		
+		ApplyChangeVariable (num, card.cardString);
+	}
+
+	protected void Increment(GameObject Obj)
+	{
+		if ( Obj == null) 
+		{
+			error = true;
+			return;
+		}
 		
+		CardBehaviour card = Obj.GetComponent<CardBehaviour> ();
+		int num = card.CardNumberForInt () + 1;
+		card.SetVariable( num);
+
+		ApplyChangeVariable (num, card.cardString);
+	}
+
+	protected void Initialize(GameObject Obj)
+	{
+		if ( Obj == null) 
+		{
+			error = true;
+			return;
+		}
+		
+		CardBehaviour card = Obj.GetComponent<CardBehaviour> ();
+		int num = 0;
+		card.SetVariable( num);
+
+		ApplyChangeVariable (num, card.cardString);
+	}
+
+	private void ApplyChangeVariable( int num, string cardString)
+	{
 		// Assign variable all card of same name.
 		GameObject[] cards = GameObject.FindGameObjectsWithTag ("Card");
 		foreach( GameObject findCard in cards)
 		{
 			CardBehaviour cardBhv = findCard.GetComponent<CardBehaviour>();
-			if( cardBhv.cardString == card.cardString)
+			if( cardBhv.cardString == cardString)
 			{
 				cardBhv.SetVariable( num);
 			}
