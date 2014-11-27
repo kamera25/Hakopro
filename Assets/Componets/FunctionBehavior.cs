@@ -171,6 +171,7 @@ public class FunctionBehavior : MonoBehaviour
 	protected GameObject InstantiateCard( int num)
 	{
 		GameObject obj = Instantiate ( Resources.Load("Prefab/Cards/Card")) as GameObject;
+		obj.transform.position = new Vector3 ( 0F, -100F, 0);
 		obj.SendMessage ( "RestartElement");
 		obj.SendMessage ( "UpdateCardData", num.ToString());
 

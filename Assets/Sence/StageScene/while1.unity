@@ -10062,7 +10062,7 @@ MonoBehaviour:
   notClearTextUI: {fileID: 1073826603}
   ElementsList: []
   CorrectElementsList:
-  - 160
+  - 320
   timeDecision: 0
   weitTime: 6
   stageNum: 3
