@@ -84,10 +84,28 @@ public class DecisionController : MonoBehaviour
 				
 				for( int i = 0; i < ElementsList.Count; i++)
 				{
+					CardBehaviour card = ElementsList[i].GetComponent<CardBehaviour>();
+					if( card != null)
+					{
+
+						if( card.putInside)
+						{
+							if( card.CardNumberForInt().ToString() == CorrectElementsList[i])
+						    {
+								continue;
+							}
+							else
+							{
+								return false;
+							}
+						}
+					}
+
 					if( ElementsList[i].name != CorrectElementsList[i])
 					{
-						return false;
+							return false;
 					}
+
 				}
 				
 				return true;

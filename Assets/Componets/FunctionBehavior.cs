@@ -37,7 +37,8 @@ public enum SCRIPTTYPE
 	EQUAL		= 20,
 	REM			= 21,
 	INCREMET	= 22,
-	INTIALIZE	= 23
+	INTIALIZE	= 23,
+	PRINT_NORMAL= 24
 }
 
 public class FunctionBehavior : MonoBehaviour 
@@ -247,7 +248,7 @@ public class FunctionBehavior : MonoBehaviour
 		if (fukudashi == null) 
 		{
 			fukudashi = Instantiate( Resources.Load( "Prefab/Fukidashi"), this.transform.position + Vector3.up * 3F, Quaternion.identity) as GameObject;
-			fukudashi.transform.parent = GameObject.Find("Buttons").transform;
+			fukudashi.GetComponent<RectTransform>().SetParent( GameObject.Find("Buttons").GetComponent<RectTransform>());
 		}
 		
 		Text fukidashiText = fukudashi.transform.FindChild ("Text").GetComponent<Text> ();
@@ -269,6 +270,24 @@ public class FunctionBehavior : MonoBehaviour
 				break;
 			case SCRIPTTYPE.PRINT_LN_VAR:
 				fukidashiText.text = fukidashiText.text + ElementsList[0].GetComponent<CardBehaviour>().CardNumberForInt() + " ";
+				break;
+			case SCRIPTTYPE.PRINT_NORMAL:
+				CardBehaviour card = ElementsList[0].GetComponent<CardBehaviour>();
+				if( card != null)
+				{
+					if( card.putInside)
+					{
+						fukidashiText.text = fukidashiText.text + card.CardNumberForInt();
+					}
+					else
+					{
+						fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+					}
+				}
+				else
+				{
+					fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+				}
 				break;
 			}
 		}

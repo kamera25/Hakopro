@@ -154,9 +154,7 @@ public class BoxBehaviorControl : FunctionBehavior
 		if (error) 
 		{
 			// Detect error. To be terminated.
-			this.enabled = false;
-			audioSource.PlayOneShot(explosionSE);
-			animator.SetBool( "isError", true);
+			ErrorProc();
 		} 
 		else 
 		{
@@ -164,6 +162,13 @@ public class BoxBehaviorControl : FunctionBehavior
 		}
 
 		return;
+	}
+
+	void ErrorProc()
+	{
+		this.enabled = false;
+		audioSource.PlayOneShot(explosionSE);
+		animator.SetBool( "isError", true);
 	}
 
 	void PopElement()
@@ -186,6 +191,7 @@ public class BoxBehaviorControl : FunctionBehavior
 				case SCRIPTTYPE.PRINT:  // Opeariton of PRINTs ... 
 				case SCRIPTTYPE.PRINT_LN:
 				case SCRIPTTYPE.PRINT_LN_VAR:
+			case SCRIPTTYPE.PRINT_NORMAL:
 					Print ();
 					PutElement( ElementsList[0], putRight);
 					break;
@@ -406,6 +412,11 @@ public class BoxBehaviorControl : FunctionBehavior
 	{
 		if (scriptKind == SCRIPTTYPE.CAPSEL) 
 		{
+			if( SaucerList [0].onElement == null)
+			{
+				ErrorProc();
+				return;
+			}
 			GameObject clone = Instantiate (SaucerList [0].onElement) as GameObject;
 			clone.transform.parent = GameObject.Find ("Elements").transform;
 			PutElement( clone, putRight);

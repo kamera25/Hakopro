@@ -7,7 +7,7 @@ public class CardBehaviour : MonoBehaviour
 	public string cardString = "";
 	private Text cardText;
 	public int variable = 0;
-	[SerializeField] private bool putInside = false;
+	public bool putInside = false;
 	private bool changeNum = false;
 
 	// Use this for initialization
