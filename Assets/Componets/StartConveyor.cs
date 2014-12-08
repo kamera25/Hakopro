@@ -2,13 +2,14 @@
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class StartConveyor : MonoBehaviour {
 
 	[SerializeField] GameObject missionPanel;
 	private bool isStart = false;
 	//public GameObject[] elements;
-	public List<GameObject> elements = new List<GameObject>();
+	public List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
 
 	public GameObject changeObj;
 
@@ -20,9 +21,7 @@ public class StartConveyor : MonoBehaviour {
 	{
 		Invoke ("DisableMissionPanel", 4F);
 
-
-		elements = new List<GameObject>( GameObject.FindGameObjectsWithTag("Element"));
-		elements.AddRange ( GameObject.FindGameObjectsWithTag ("Card"));
+		UpdateElementsList ();
 
 		audioSource = this.GetComponent<AudioSource> ();
 		execSE = Resources.Load ("chime00") as AudioClip;
@@ -34,18 +33,12 @@ public class StartConveyor : MonoBehaviour {
 	{
 		Time.timeScale = 2F;
 
-		GameObject[] conveyors = GameObject.FindGameObjectsWithTag("BeltCircle");
-
-		foreach (GameObject conveyor in conveyors) 
-		{
-			conveyor.GetComponent<Animator>().SetBool("isStart", true);
-		}
-
+		ConveyorCircleProc (true);
 		isStart = true;
 
-		foreach( GameObject element in elements)
+		foreach( ElemetsBehavior element in elements)
 		{
-			element.GetComponent<ElemetsBehavior>().isStart = true;
+			element.isStart = true;
 			element.SendMessage("RestartElement");
 		}
 
@@ -73,21 +66,36 @@ public class StartConveyor : MonoBehaviour {
 	public void Pause()
 	{
 		// Elements.
-		List<GameObject> elements = new List<GameObject>( GameObject.FindGameObjectsWithTag ("Element"));
-		elements.AddRange ( GameObject.FindGameObjectsWithTag ("Card"));
-		foreach( GameObject element in elements)
+		UpdateElementsList ();
+		foreach( ElemetsBehavior element in elements)
 		{
 			element.SendMessage("PauseElement");
 		}
 
-
 		// Conveyor Circles.
-		GameObject[] conveyors = GameObject.FindGameObjectsWithTag("BeltCircle");
-		foreach (GameObject conveyor in conveyors) 
-		{
-			conveyor.GetComponent<Animator>().SetBool("isStart", false);
-		}
+		ConveyorCircleProc (false);
 
 		Time.timeScale = 0F;
+	}
+
+	private void UpdateElementsList()
+	{
+		elements = GameObject.FindGameObjectsWithTag ("Element")
+					.Concat ( GameObject.FindGameObjectsWithTag ("Card"))
+					.Select ( ele => ele.GetComponent<ElemetsBehavior> ())
+					.ToList ();
+	}
+
+	private void ConveyorCircleProc( bool isExec)
+	{
+		// Conveyor Circles.
+		List<Animator> conveyorAnims = GameObject.FindGameObjectsWithTag ("BeltCircle")
+										.Select (anim => anim.GetComponent<Animator> ())
+										.ToList();
+
+		foreach (Animator conveyorAnim in conveyorAnims) 
+		{
+			conveyorAnim.SetBool("isStart", isExec);
+		}
 	}
 }

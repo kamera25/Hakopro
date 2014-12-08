@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using System.Linq;
 
 public class BoxBehaviorControl : FunctionBehavior
 {
@@ -300,19 +301,12 @@ public class BoxBehaviorControl : FunctionBehavior
 
 	void GoToFlag( SCRIPTTYPE flag)
 	{
-		GameObject[] objs = GameObject.FindGameObjectsWithTag("Function");
-		GameObject aimObj = null;
 
-		// Search a flag of aiming.
-		foreach( GameObject obj in objs)
-		{
-			if( obj.GetComponent<BoxBehaviorControl>().scriptKind == flag)
-			{
-				aimObj = obj;
-				break;
-			}
-		}
-		
+		// Find an aiming object. if nothing, return null.
+		GameObject aimObj = GameObject.FindGameObjectsWithTag ("Function")
+							.Where (go => go.GetComponent<BoxBehaviorControl> ().scriptKind == flag)
+							.FirstOrDefault();
+
 		ElementsList[0].transform.position = this.transform.position + Vector3.up * 3F;
 		
 		Rigidbody2D objRigid = ElementsList[0].GetComponent<Rigidbody2D>();

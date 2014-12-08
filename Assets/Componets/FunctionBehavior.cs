@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using System.Linq;
 
 public enum SCRIPTTYPE 
 {
@@ -342,14 +343,14 @@ public class FunctionBehavior : MonoBehaviour
 	private void ApplyChangeVariable( int num, string cardString)
 	{
 		// Assign variable all card of same name.
-		GameObject[] cards = GameObject.FindGameObjectsWithTag ("Card");
-		foreach( GameObject findCard in cards)
+		CardBehaviour[] cardBhvs = GameObject.FindGameObjectsWithTag ("Card")
+								.Select( go => go.GetComponent<CardBehaviour>())
+								.Where ( go => go.GetComponent<CardBehaviour>().cardString == cardString)
+								.ToArray();
+
+		foreach( CardBehaviour findCard in cardBhvs)
 		{
-			CardBehaviour cardBhv = findCard.GetComponent<CardBehaviour>();
-			if( cardBhv.cardString == cardString)
-			{
-				cardBhv.SetVariable( num);
-			}
+			findCard.SetVariable( num);
 		}
 	}
 
