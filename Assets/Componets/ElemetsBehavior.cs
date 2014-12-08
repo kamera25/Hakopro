@@ -95,9 +95,13 @@ public class ElemetsBehavior : MonoBehaviour
 
 	public void PauseElement()
 	{
-		velocity = this.rigidbody2D.velocity;
-		isStart = false;
-		if( regid != null) regid.velocity = Vector2.zero;
+		Rigidbody2D objRigid = this.rigidbody2D;
+		if (objRigid != null) 
+		{	
+			velocity = objRigid.velocity;
+			isStart = false;
+			if( regid != null) regid.velocity = Vector2.zero;
+		}
 	}
 
 	public void RestartElement()
