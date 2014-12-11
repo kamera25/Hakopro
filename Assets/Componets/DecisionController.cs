@@ -1,29 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 public class DecisionController : MonoBehaviour 
 {
-	enum DECISION
-	{
-		BYSTRING,
-		BYVAR
-	}
 
 	public GameObject clearTextUI;
 	public GameObject notClearTextUI;
 
-	public List<GameObject> ElementsList = new List<GameObject>();
+	public List<string> ElementsList = new List<string>();
 	public List<string> CorrectElementsList = new List<string>();
-	public bool timeDecision = false;
-
-	public float weitTime = 4F;
-	private float nowWaitTime;
+	private bool inputObj = false;
 
 	[SerializeField] int stageNum = 0;
-	[SerializeField] DECISION decision;
-
-	private bool startDecision = false;
+	
 	private Animator anim;
 
 	private AudioSource audioSource;
@@ -31,10 +22,11 @@ public class DecisionController : MonoBehaviour
 	private AudioClip absorbSE;
 	private AudioClip beepSE;
 
+	private const float INF = 999F;
+
 	// Use this for initialization
 	void Start () 
 	{
-		nowWaitTime = weitTime;
 		anim = this.GetComponent<Animator> ();
 
 		audioSource = GameObject.FindWithTag ("GameController").GetComponent<AudioSource>();
@@ -47,77 +39,83 @@ public class DecisionController : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		if (!startDecision) 
-						return;
+		if (!inputObj) 
+		{
+			return;
+		}
 
-
-		nowWaitTime -= Time.deltaTime;
-		if (nowWaitTime < 0) 
+		if (!IsMatchListCount ()) 
+		{
+			bool ret = CheckNowMatchList ();
+			if ( !ret ) 
+			{
+				FailureProcess ();
+			}
+		} 
+		else 
 		{
 			bool ret = ExecDicision();
 			if( ret )
 			{
-				clearTextUI.SetActive(true);
-				audioSource.PlayOneShot(clapSE);
-				Invoke("GoToMenu", 3F);
-				this.enabled = false;
+				ClearProcess();
 			}
-			else if( timeDecision)
+			else 
 			{
-				notClearTextUI.SetActive(true);
-				audioSource.PlayOneShot(beepSE);
-				this.enabled = false;
+				FailureProcess();
 			}
-
 		}
+
+
+		inputObj = false;
 	}
 
 	bool ExecDicision()
 	{
-		switch (decision) 
+
+		// Dosent match numbers.
+		if ( !IsMatchListCount()) 
 		{
-			case DECISION.BYSTRING:
-				if (ElementsList.Count != CorrectElementsList.Count) 
-				{
-					return false;
-				}
-				
-				for( int i = 0; i < ElementsList.Count; i++)
-				{
-					CardBehaviour card = ElementsList[i].GetComponent<CardBehaviour>();
-					if( card != null)
-					{
-
-						if( card.putInside)
-						{
-							if( card.CardNumberForInt().ToString() == CorrectElementsList[i])
-						    {
-								continue;
-							}
-							else
-							{
-								return false;
-							}
-						}
-					}
-
-					if( ElementsList[i].name != CorrectElementsList[i])
-					{
-							return false;
-					}
-
-				}
-				
-				return true;
-			case DECISION.BYVAR:
-				if( ElementsList[0].GetComponent<CardBehaviour>().CardNumberForInt() == int.Parse( CorrectElementsList[0]))
-				{
-					return true;
-				}
-			break;
+			return false;
 		}
 
-		return false;
+		bool ret = CheckNowMatchList ();
+		return ret;
+	}
+
+	bool CheckNowMatchList()
+	{
+		int i = 0;
+		foreach (string element in ElementsList) 
+		{
+			// if dosent match a array of correct names.
+			if( element != CorrectElementsList[i] )
+			{
+				return false;
+			}
+			i++;
+		}
+
+		return true;
+	}
+
+	bool IsMatchListCount()
+	{
+		return ElementsList.Count == CorrectElementsList.Count;
+	}
+
+	void ClearProcess()
+	{
+		clearTextUI.SetActive(true);
+		audioSource.PlayOneShot(clapSE);
+		Invoke("GoToMenu", 3F);
+		this.enabled = false;
+	}
+
+	void FailureProcess()
+	{
+		notClearTextUI.SetActive(true);
+		audioSource.PlayOneShot(beepSE);
+		this.enabled = false;
 	}
 
 	void GoToMenu()
@@ -135,14 +133,38 @@ public class DecisionController : MonoBehaviour
 
 		if( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card"))
 		{
-			collision.transform.position = new Vector2( 999F, 999F);
-			ElementsList.Add(collision.gameObject);
+			collision.transform.position = new Vector2( INF, INF);
+
+			AddCardElementsList( collision.gameObject);
 			anim.SetTrigger( "addObject");
 			audioSource.PlayOneShot( absorbSE);
 
-			nowWaitTime = weitTime;
-			startDecision = true;
+			inputObj = true;
+		}
+	}
+
+	void AddCardElementsList( GameObject obj)
+	{
+		string str;
+
+		CardBehaviour cardBhav = obj.GetComponent<CardBehaviour> ();
+
+		if( cardBhav == null)
+		{// Add objectname to ElementsList
+			str = obj.name;
+		}
+		else
+		{// This is a card.
+			if( cardBhav.putInside) // It is variavle, and visible a assignning value.
+			{
+				str = cardBhav.CardNumberForInt().ToString();
+			}
+			else // It is variavle, and invisiable a assignning value.
+			{
+				str = obj.name;
+			}
 		}
 
+		ElementsList.Add(str);
 	}
 }

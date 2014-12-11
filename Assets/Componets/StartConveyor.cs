@@ -8,8 +8,7 @@ public class StartConveyor : MonoBehaviour {
 
 	[SerializeField] GameObject missionPanel;
 	private bool isStart = false;
-	//public GameObject[] elements;
-	public List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
+	[SerializeField] private List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
 
 	public GameObject changeObj;
 

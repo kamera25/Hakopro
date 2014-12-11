@@ -6580,10 +6580,7 @@ MonoBehaviour:
   - 1
   - "\u306F"
   - 3
-  timeDecision: 0
-  weitTime: 6
   stageNum: 2
-  decision: 0
 --- !u!95 &1248572653
 Animator:
   serializedVersion: 3
