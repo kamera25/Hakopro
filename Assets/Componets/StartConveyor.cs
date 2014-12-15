@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using System.Collections.Generic;
@@ -60,7 +60,7 @@ public class StartConveyor : MonoBehaviour {
 		if (changeObj == null)
 						return;
 		changeObj.GetComponent<Image>().sprite = obj.GetComponent<Image>().sprite;
-		changeObj.GetComponent<BoxBehaviorControl>().InitChangeBox( scKind);
+		changeObj.GetComponent<FlowBoxBehaviorControl>().InitChangeBox( scKind);
 	}
 
 	public void Pause()

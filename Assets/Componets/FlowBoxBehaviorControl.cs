@@ -4,7 +4,7 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 
-public class BoxBehaviorControl : FunctionBehavior
+public class FlowBoxBehaviorControl : FunctionBehavior
 {
 	public float weitTime = 6F;
 	public float nowWaitTime;
@@ -28,6 +28,7 @@ public class BoxBehaviorControl : FunctionBehavior
 
 	void Start()
 	{
+		MakeObjectSensor ();
 		InitChangeBox (scriptKind);
 		animator = this.GetComponent<Animator> ();
 
@@ -304,7 +305,7 @@ public class BoxBehaviorControl : FunctionBehavior
 
 		// Find an aiming object. if nothing, return null.
 		GameObject aimObj = GameObject.FindGameObjectsWithTag ("Function")
-							.Where (go => go.GetComponent<BoxBehaviorControl> ().scriptKind == flag)
+							.Where (go => go.GetComponent<FlowBoxBehaviorControl> ().scriptKind == flag)
 							.FirstOrDefault();
 
 		ElementsList[0].transform.position = this.transform.position + Vector3.up * 3F;
@@ -434,5 +435,19 @@ public class BoxBehaviorControl : FunctionBehavior
 			this.GetComponent<Image>().sprite = Load( "Element", "stopSign");
 			this.GetComponent<BoxCollider2D>().enabled = true;
 		}
+	}
+
+	private void MakeObjectSensor()
+	{
+		if (elementSensor != null) 
+		{
+			return;
+		}
+
+		// If no exist sensor.
+		Vector3 pos = this.transform.position + new Vector3( 3F, 0, 0);
+		GameObject clone = Instantiate( Resources.Load("Prefab/ObjectSensor"), pos, Quaternion.identity) as GameObject;
+		clone.GetComponent<RectTransform> ().SetParent ( this.transform);
+
 	}
 }

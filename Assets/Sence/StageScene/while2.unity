@@ -276,7 +276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!61 &76952357
 BoxCollider2D:
@@ -527,7 +526,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -908,17 +906,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 149470999}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -1
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 3
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 1937298563}
+  elementSensor: {fileID: 0}
 --- !u!61 &149471002
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1455,7 +1453,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -1546,7 +1543,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -2050,7 +2046,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!61 &239755248
 BoxCollider2D:
@@ -2358,7 +2353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!114 &265579930
 MonoBehaviour:
@@ -2589,7 +2583,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -2749,7 +2742,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -3319,17 +3311,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 355459294}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 18
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 620716166}
+  elementSensor: {fileID: 0}
 --- !u!61 &355459299
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3856,17 +3848,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 426262162}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -2
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 582882065}
+  elementSensor: {fileID: 0}
 --- !u!61 &426262167
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4297,17 +4289,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 436091955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -300
-  weitTime: 4
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 346622025}
+  elementSensor: {fileID: 0}
 --- !u!61 &436091960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4714,17 +4706,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 511821974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 10
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
-  putRight: 0
-  elementSensor: {fileID: 1345093563}
+  putRight: 1
+  elementSensor: {fileID: 0}
 --- !u!61 &511821977
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4897,8 +4889,8 @@ Prefab:
 --- !u!1 &547064873
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 132452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+  m_PrefabInternal: {fileID: 1646191073}
   serializedVersion: 4
   m_Component:
   - 224: {fileID: 547064874}
@@ -4914,12 +4906,13 @@ GameObject:
 --- !u!224 &547064874
 RectTransform:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59,
+    type: 2}
+  m_PrefabInternal: {fileID: 1646191073}
   m_GameObject: {fileID: 547064873}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .100000001, y: .100000001, z: 1}
   m_Children: []
   m_Father: {fileID: 1305190586}
   m_RootOrder: 1
@@ -4931,8 +4924,9 @@ RectTransform:
 --- !u!114 &547064875
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59,
+    type: 2}
+  m_PrefabInternal: {fileID: 1646191073}
   m_GameObject: {fileID: 547064873}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -4943,8 +4937,9 @@ MonoBehaviour:
 --- !u!61 &547064876
 BoxCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 6132452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59,
+    type: 2}
+  m_PrefabInternal: {fileID: 1646191073}
   m_GameObject: {fileID: 547064873}
   m_Enabled: 1
   m_Material: {fileID: 0}
@@ -5475,17 +5470,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 586577900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 23
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 923612550}
+  elementSensor: {fileID: 0}
 --- !u!61 &586577904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6022,7 +6017,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 2
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -6988,7 +6982,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -7061,17 +7054,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 790830031}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 12
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 100
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 121778491}
+  elementSensor: {fileID: 0}
 --- !u!61 &790830034
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -7385,7 +7378,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!61 &807680022
 BoxCollider2D:
@@ -9189,17 +9181,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 964570347}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 6
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 1000
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 1177827791}
+  elementSensor: {fileID: 0}
 --- !u!61 &964570350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9446,17 +9438,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 978122628}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -200
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 1000
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 568211093}
+  elementSensor: {fileID: 0}
 --- !u!61 &978122632
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9680,17 +9672,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1012646252}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 22
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 755210809}
+  elementSensor: {fileID: 0}
 --- !u!61 &1012646256
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9853,17 +9845,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1021995611}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -999
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 3
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 2095396511}
+  elementSensor: {fileID: 0}
 --- !u!61 &1021995615
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10029,7 +10021,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -10113,7 +10104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!61 &1058664912
 BoxCollider2D:
@@ -10296,7 +10286,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!114 &1081759675
 MonoBehaviour:
@@ -10432,50 +10421,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 902d24e720785e947b2e2f0cf635b209, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1001 &1096403744
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 710048851}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 40.2000008
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 29.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.70000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-  m_RootGameObject: {fileID: 2087512737}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1104607189
 GameObject:
   m_ObjectHideFlags: 0
@@ -10667,17 +10612,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136984882}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 19
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 148974220}
+  elementSensor: {fileID: 0}
 --- !u!61 &1136984886
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10855,7 +10800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!61 &1139857852
 BoxCollider2D:
@@ -11439,7 +11383,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!61 &1196389425
 BoxCollider2D:
@@ -11628,7 +11571,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -12162,17 +12104,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1264105704}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -302
-  weitTime: 4
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 1659434170}
+  elementSensor: {fileID: 0}
 --- !u!61 &1264105709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12339,14 +12281,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1305190585}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 2
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 3
+  maxExec: 1
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 547064875}
@@ -12516,17 +12458,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1307298655}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 4
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 990518508}
+  elementSensor: {fileID: 0}
 --- !u!61 &1307298659
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13247,7 +13189,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -13463,17 +13404,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1392234478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: 2
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 99
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 432442696}
+  elementSensor: {fileID: 0}
 --- !u!61 &1392234482
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13836,7 +13777,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -14001,7 +13941,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -14214,7 +14153,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -14942,7 +14880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 1
   existAimPos: 0
 --- !u!61 &1580298356
 BoxCollider2D:
@@ -15024,7 +14961,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -15255,17 +15191,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1626377741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -100
-  weitTime: 4
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 999
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 1818739214}
+  elementSensor: {fileID: 0}
 --- !u!61 &1626377744
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15612,6 +15548,90 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1630366875}
+--- !u!1001 &1646191073
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1305190586}
+    m_Modifications:
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_AnchoredPosition.x
+      value: 27.2590008
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: -.191960007
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_AnchorMin.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_AnchorMin.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_Pivot.x
+      value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22432452, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+      propertyPath: m_Pivot.y
+      value: .5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4b16ea62cb07bde4aaad571c8d0a4c59, type: 2}
+  m_RootGameObject: {fileID: 547064873}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1655023482
 GameObject:
   m_ObjectHideFlags: 0
@@ -15925,7 +15945,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -16037,7 +16056,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -16145,7 +16163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 1
   existAimPos: 0
 --- !u!61 &1699130894
 BoxCollider2D:
@@ -16246,17 +16263,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1701851528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -999
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 3
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 209970945}
+  elementSensor: {fileID: 0}
 --- !u!61 &1701851531
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16786,7 +16803,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -16891,7 +16907,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -17070,7 +17085,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -17160,7 +17174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!61 &1843890676
 BoxCollider2D:
@@ -17289,17 +17302,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1856549798}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -301
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 100
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 960559066}
+  elementSensor: {fileID: 0}
 --- !u!61 &1856549802
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -18418,7 +18431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 1
   existAimPos: 0
 --- !u!61 &1999279949
 BoxCollider2D:
@@ -18677,7 +18689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 0
   existAimPos: 0
 --- !u!61 &2055277124
 BoxCollider2D:
@@ -18936,17 +18947,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 2067209766}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
   scriptKind: -999
-  weitTime: 2
+  weitTime: 6
   nowWaitTime: 0
-  maxExec: 3
+  maxExec: 1
   addElements: 0
   putRight: 1
-  elementSensor: {fileID: 435666775}
+  elementSensor: {fileID: 0}
 --- !u!95 &2067209774
 Animator:
   serializedVersion: 3
@@ -19010,7 +19021,7 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-  m_PrefabInternal: {fileID: 1096403744}
+  m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 2087512742}
@@ -19030,11 +19041,11 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 4feb85570a27df84396fffd872d07462,
     type: 2}
-  m_PrefabInternal: {fileID: 1096403744}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087512737}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b94bc4e4d1279884ca9e8e5d75350de9, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c49abf03509a0241a552d4d7bdf70c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ElementsList: []
@@ -19051,7 +19062,7 @@ Animator:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 9500000, guid: 4feb85570a27df84396fffd872d07462,
     type: 2}
-  m_PrefabInternal: {fileID: 1096403744}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087512737}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
@@ -19066,7 +19077,7 @@ CircleCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 5800000, guid: 4feb85570a27df84396fffd872d07462,
     type: 2}
-  m_PrefabInternal: {fileID: 1096403744}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087512737}
   m_Enabled: 1
   m_Material: {fileID: 0}
@@ -19078,7 +19089,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200000, guid: 4feb85570a27df84396fffd872d07462,
     type: 2}
-  m_PrefabInternal: {fileID: 1096403744}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087512737}
   m_Enabled: 1
   m_CastShadows: 0
@@ -19100,7 +19111,7 @@ SpriteRenderer:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 4feb85570a27df84396fffd872d07462, type: 2}
-  m_PrefabInternal: {fileID: 1096403744}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2087512737}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 40.2000008, y: 29.5, z: 1.70000005}
@@ -19431,7 +19442,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13a09e8adcb072140a28259bd7f4e189, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isStart: 1
   existAimPos: 0
 --- !u!61 &2100942625
 BoxCollider2D:

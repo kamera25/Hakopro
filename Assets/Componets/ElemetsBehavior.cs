@@ -3,9 +3,6 @@ using System.Collections;
 
 public class ElemetsBehavior : MonoBehaviour 
 {
-	public bool isStart = false;
-	
-	private Vector2 velocity = Vector2.zero;
 
 	private Vector2 aimPosotion = Vector2.zero;
 	public bool existAimPos = false;
