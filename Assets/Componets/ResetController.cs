@@ -3,9 +3,13 @@ using System.Collections;
 
 public class ResetController : MonoBehaviour 
 {
-	
-	void SceneReset()
+	public void SceneReset()
 	{
 		Application.LoadLevel (Application.loadedLevel);
+	}
+
+	public void BackToMenu()
+	{
+		Application.LoadLevel ("Menu");
 	}
 }
