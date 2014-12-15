@@ -448,6 +448,6 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 		Vector3 pos = this.transform.position + new Vector3( 3F, 0, 0);
 		GameObject clone = Instantiate( Resources.Load("Prefab/ObjectSensor"), pos, Quaternion.identity) as GameObject;
 		clone.GetComponent<RectTransform> ().SetParent ( this.transform);
-
+		elementSensor = clone.GetComponent<ElementSensorControl> ();
 	}
 }

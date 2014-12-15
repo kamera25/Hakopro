@@ -913,7 +913,7 @@ MonoBehaviour:
   scriptKind: -1
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -3318,7 +3318,7 @@ MonoBehaviour:
   scriptKind: 18
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -3855,7 +3855,7 @@ MonoBehaviour:
   scriptKind: -2
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -4296,7 +4296,7 @@ MonoBehaviour:
   scriptKind: -300
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -4713,7 +4713,7 @@ MonoBehaviour:
   scriptKind: 10
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -5477,7 +5477,7 @@ MonoBehaviour:
   scriptKind: 23
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -5978,6 +5978,7 @@ GameObject:
   - 223: {fileID: 652364559}
   - 114: {fileID: 652364558}
   - 114: {fileID: 652364557}
+  - 114: {fileID: 652364560}
   m_Layer: 0
   m_Name: QuestionDialog
   m_TagString: Untagged
@@ -6060,6 +6061,17 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 11
+--- !u!114 &652364560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 652364555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7225645314aae7347ba0da6a260f426f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &672471431
 GameObject:
   m_ObjectHideFlags: 0
@@ -7061,7 +7073,7 @@ MonoBehaviour:
   scriptKind: 12
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -9188,7 +9200,7 @@ MonoBehaviour:
   scriptKind: 6
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -9445,7 +9457,7 @@ MonoBehaviour:
   scriptKind: -200
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -9679,7 +9691,7 @@ MonoBehaviour:
   scriptKind: 22
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -10619,7 +10631,7 @@ MonoBehaviour:
   scriptKind: 19
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -12111,7 +12123,7 @@ MonoBehaviour:
   scriptKind: -302
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -12288,7 +12300,7 @@ MonoBehaviour:
   scriptKind: 2
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 547064875}
@@ -12465,7 +12477,7 @@ MonoBehaviour:
   scriptKind: 4
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -13411,7 +13423,7 @@ MonoBehaviour:
   scriptKind: 2
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -15198,7 +15210,7 @@ MonoBehaviour:
   scriptKind: -100
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
@@ -17309,7 +17321,7 @@ MonoBehaviour:
   scriptKind: -301
   weitTime: 6
   nowWaitTime: 0
-  maxExec: 1
+  maxExec: 999
   addElements: 0
   putRight: 1
   elementSensor: {fileID: 0}
