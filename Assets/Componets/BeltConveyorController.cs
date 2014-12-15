@@ -36,7 +36,7 @@ public class BeltConveyorController : MonoBehaviour
 
 		foreach( Rigidbody2D rig in ElementsList)
 		{
-			rig.AddForce( new Vector2( (float)direction * dump, 0F), ForceMode2D.Force);
+			rig.AddForce( new Vector2( (float)direction * dump * Time.timeScale, 0F), ForceMode2D.Force);
 		}
 
 	}

@@ -10,6 +10,7 @@ public class StartConveyor : MonoBehaviour {
 	private bool isStart = false;
 	//[SerializeField] private List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
 	[SerializeField] public List<BeltConveyorController> beltConveyors = new List<BeltConveyorController> ();
+	[SerializeField] private Slider playSlider;
 
 	public GameObject changeObj;
 
@@ -26,11 +27,17 @@ public class StartConveyor : MonoBehaviour {
 
 		audioSource = this.GetComponent<AudioSource> ();
 		execSE = Resources.Load ("chime00") as AudioClip;
+		Time.timeScale = 1F;
 	}
 	
+	public void PutMissionPanle()
+	{
+		missionPanel.SetActive (true);
+		Invoke ("DisableMissionPanel", 4F);
+	}
 
 
-	void ExecConveyor()
+	public void ExecConveyor()
 	{
 		Time.timeScale = 2F;
 
@@ -43,6 +50,11 @@ public class StartConveyor : MonoBehaviour {
 		}
 
 		audioSource.PlayOneShot (execSE);
+	}
+
+	public void ChangeTimeScale( float t)
+	{
+		Time.timeScale = playSlider.value / 2F;
 	}
 
 	void DisableMissionPanel()

@@ -1,12 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\ResetController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\takahiro\Documents\religion\Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs">
     <Files>
-      <File FileName="Assets\Componets\ResetController.cs" Line="16" Column="1" />
-      <File FileName="Assets\Componets\FlowBoxBehaviorControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Componets\ScrollController.cs" Line="1" Column="1" />
-      <File FileName="c:\Users\takahiro\Documents\Procedure1\Assets\Componets\StartConveyor.cs" Line="1" Column="1" />
-      <File FileName="Assets\Componets\FunctionBehavior.cs" Line="1" Column="1" />
+      <File FileName="Assets\Componets\StartConveyor.cs" Line="30" Column="21" />
+      <File FileName="c:\Users\takahiro\Documents\religion\Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs" Line="93" Column="99" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
