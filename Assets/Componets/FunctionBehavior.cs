@@ -176,7 +176,6 @@ public class FunctionBehavior : MonoBehaviour
 	{
 		GameObject obj = Instantiate ( Resources.Load("Prefab/Cards/Card")) as GameObject;
 		obj.transform.position = new Vector3 ( 0F, -100F, 0);
-		obj.SendMessage ( "RestartElement");
 		obj.SendMessage ( "UpdateCardData", num.ToString());
 
 		return obj;
@@ -226,7 +225,6 @@ public class FunctionBehavior : MonoBehaviour
 		{
 			clone.SendMessage( "UpdateCardData", newCardString);
 		}
-		clone.SendMessage ( "RestartElement");
 		clone.SendMessage( "SetAimPosition", this.transform.position + Vector3.up * 5F);
 		clone.rigidbody2D.AddForce (Vector3.up * 10F, ForceMode2D.Impulse);
 

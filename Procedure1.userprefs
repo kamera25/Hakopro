@@ -1,8 +1,13 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\DecisionController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\StartConveyor.cs">
     <Files>
-      <File FileName="Assets\Componets\DecisionController.cs" Line="89" Column="4" />
+      <File FileName="Assets\Componets\ScrollController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Componets\DecisionController.cs" Line="12" Column="2" />
+      <File FileName="Assets\BeltConveyorController.cs" Line="29" Column="2" />
+      <File FileName="Assets\Componets\ElemetsBehavior.cs" Line="27" Column="3" />
+      <File FileName="Assets\Componets\FunctionBehavior.cs" Line="227" Column="4" />
+      <File FileName="Assets\Componets\StartConveyor.cs" Line="34" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -561,6 +561,7 @@ GameObject:
   - 4: {fileID: 117060176}
   - 212: {fileID: 117060178}
   - 61: {fileID: 117060177}
+  - 114: {fileID: 117060179}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -617,6 +618,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f138981307e4ac9459f48a7b3ed3d083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &117060179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 117060175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &118195514
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1046,7 @@ GameObject:
   - 4: {fileID: 149759255}
   - 212: {fileID: 149759257}
   - 61: {fileID: 149759256}
+  - 114: {fileID: 149759258}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -1090,6 +1103,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f138981307e4ac9459f48a7b3ed3d083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &149759258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 149759254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &150544486
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3118,7 @@ GameObject:
   - 4: {fileID: 342841347}
   - 212: {fileID: 342841346}
   - 61: {fileID: 342841348}
+  - 114: {fileID: 342841349}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -3150,6 +3175,17 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 17.3099995, y: 1.91999984}
   m_Center: {x: 0, y: 0}
+--- !u!114 &342841349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 342841345}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &346622023
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,6 +3503,7 @@ GameObject:
   - 4: {fileID: 397630759}
   - 212: {fileID: 397630761}
   - 61: {fileID: 397630760}
+  - 114: {fileID: 397630762}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -3523,6 +3560,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f138981307e4ac9459f48a7b3ed3d083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &397630762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 397630758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &402537315
 GameObject:
   m_ObjectHideFlags: 0
@@ -8308,6 +8356,7 @@ GameObject:
   - 4: {fileID: 914245116}
   - 212: {fileID: 914245118}
   - 61: {fileID: 914245117}
+  - 114: {fileID: 914245119}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -8364,6 +8413,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f138981307e4ac9459f48a7b3ed3d083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &914245119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 914245115}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &920938187
 Prefab:
   m_ObjectHideFlags: 0
@@ -12011,10 +12071,7 @@ MonoBehaviour:
   ElementsList: []
   CorrectElementsList:
   - "\u2606"
-  timeDecision: 0
-  weitTime: 6
   stageNum: 5
-  decision: 0
 --- !u!95 &1248572653
 Animator:
   serializedVersion: 3
@@ -14740,7 +14797,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   missionPanel: {fileID: 1530305516}
-  elements: []
+  beltConveyors: []
   changeObj: {fileID: 0}
 --- !u!114 &1563182941
 MonoBehaviour:
@@ -15347,6 +15404,7 @@ GameObject:
   - 4: {fileID: 1628128608}
   - 212: {fileID: 1628128610}
   - 61: {fileID: 1628128609}
+  - 114: {fileID: 1628128611}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -15403,6 +15461,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f138981307e4ac9459f48a7b3ed3d083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1628128611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1628128607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1630366875
 GameObject:
   m_ObjectHideFlags: 0
@@ -16380,6 +16449,7 @@ GameObject:
   - 4: {fileID: 1713092100}
   - 212: {fileID: 1713092102}
   - 61: {fileID: 1713092101}
+  - 114: {fileID: 1713092103}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -16436,6 +16506,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f138981307e4ac9459f48a7b3ed3d083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1713092103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1713092099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1714184157
 Prefab:
   m_ObjectHideFlags: 0
@@ -17719,6 +17800,7 @@ GameObject:
   - 4: {fileID: 1899094635}
   - 212: {fileID: 1899094637}
   - 61: {fileID: 1899094636}
+  - 114: {fileID: 1899094638}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -17775,6 +17857,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f138981307e4ac9459f48a7b3ed3d083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1899094638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1899094634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1904161841
 Prefab:
   m_ObjectHideFlags: 0
@@ -18116,6 +18209,7 @@ GameObject:
   - 4: {fileID: 1982951709}
   - 212: {fileID: 1982951711}
   - 61: {fileID: 1982951710}
+  - 114: {fileID: 1982951712}
   m_Layer: 2
   m_Name: BeltConveyor
   m_TagString: BeltConveyor_R
@@ -18172,6 +18266,17 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f138981307e4ac9459f48a7b3ed3d083, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &1982951712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1982951708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1997361939
 GameObject:
   m_ObjectHideFlags: 0

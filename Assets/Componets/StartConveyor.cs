@@ -8,7 +8,8 @@ public class StartConveyor : MonoBehaviour {
 
 	[SerializeField] GameObject missionPanel;
 	private bool isStart = false;
-	[SerializeField] private List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
+	//[SerializeField] private List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
+	[SerializeField] public List<BeltConveyorController> beltConveyors = new List<BeltConveyorController> ();
 
 	public GameObject changeObj;
 
@@ -20,7 +21,8 @@ public class StartConveyor : MonoBehaviour {
 	{
 		Invoke ("DisableMissionPanel", 4F);
 
-		UpdateElementsList ();
+	//	UpdateElementsList ();
+		UpdateConveyor ();
 
 		audioSource = this.GetComponent<AudioSource> ();
 		execSE = Resources.Load ("chime00") as AudioClip;
@@ -35,10 +37,9 @@ public class StartConveyor : MonoBehaviour {
 		ConveyorCircleProc (true);
 		isStart = true;
 
-		foreach( ElemetsBehavior element in elements)
+		foreach( BeltConveyorController beltConveyor in beltConveyors)
 		{
-			element.isStart = true;
-			element.SendMessage("RestartElement");
+			beltConveyor.SendMessage("StartBeltConveyor");
 		}
 
 		audioSource.PlayOneShot (execSE);
@@ -64,11 +65,9 @@ public class StartConveyor : MonoBehaviour {
 
 	public void Pause()
 	{
-		// Elements.
-		UpdateElementsList ();
-		foreach( ElemetsBehavior element in elements)
+		foreach( BeltConveyorController beltConveyor in beltConveyors)
 		{
-			element.SendMessage("PauseElement");
+			beltConveyor.SendMessage("StopBeltConveyor");
 		}
 
 		// Conveyor Circles.
@@ -77,12 +76,12 @@ public class StartConveyor : MonoBehaviour {
 		Time.timeScale = 0F;
 	}
 
-	private void UpdateElementsList()
+	private void UpdateConveyor()
 	{
-		elements = GameObject.FindGameObjectsWithTag ("Element")
-					.Concat ( GameObject.FindGameObjectsWithTag ("Card"))
-					.Select ( ele => ele.GetComponent<ElemetsBehavior> ())
-					.ToList ();
+		beltConveyors = GameObject.FindGameObjectsWithTag ("BeltConveyor_R")
+			.Concat( GameObject.FindGameObjectsWithTag ("BeltConveyor_L"))
+				.Select( ele => ele.GetComponent<BeltConveyorController>())
+				.ToList();
 	}
 
 	private void ConveyorCircleProc( bool isExec)

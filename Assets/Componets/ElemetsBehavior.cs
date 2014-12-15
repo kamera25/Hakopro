@@ -4,10 +4,7 @@ using System.Collections;
 public class ElemetsBehavior : MonoBehaviour 
 {
 	public bool isStart = false;
-	private bool onBelt = false;
-	private bool moveRight = false;
-
-	private float force = 240F;
+	
 	private Vector2 velocity = Vector2.zero;
 
 	private Vector2 aimPosotion = Vector2.zero;
@@ -28,17 +25,6 @@ public class ElemetsBehavior : MonoBehaviour
 
 	void Update()
 	{
-		if (isStart && onBelt) 
-		{
-			if (moveRight) 
-			{
-				regid.AddForce (new Vector2 (force * Time.deltaTime, 0F));
-			}
-			else
-			{
-				regid.AddForce (new Vector2 (-force * Time.deltaTime, 0F));
-			}
-		}
 
 		if (existAimPos) 
 		{
@@ -61,25 +47,9 @@ public class ElemetsBehavior : MonoBehaviour
 
 	void OnCollisionEnter2D( Collision2D col)
 	{
-		if( col.collider.CompareTag("BeltConveyor_R"))
-		{
-			onBelt = true;
-			moveRight = true;
-			audioSource.PlayOneShot(fallSound);
-		}
-		else if( col.collider.CompareTag("BeltConveyor_L"))
-		{
-			onBelt = true;
-			moveRight = false;
-			audioSource.PlayOneShot(fallSound);
-		}
-	}
-
-	void OnCollisionExit2D( Collision2D col)
-	{
 		if( col.collider.CompareTag("BeltConveyor_R") || col.collider.CompareTag("BeltConveyor_L"))
 		{
-			onBelt = false;
+			audioSource.PlayOneShot(fallSound);
 		}
 	}
 
@@ -93,20 +63,4 @@ public class ElemetsBehavior : MonoBehaviour
 		boxCol.isTrigger = false;
 	}
 
-	public void PauseElement()
-	{
-		Rigidbody2D objRigid = this.rigidbody2D;
-		if (objRigid != null) 
-		{	
-			velocity = objRigid.velocity;
-			isStart = false;
-			if( regid != null) regid.velocity = Vector2.zero;
-		}
-	}
-
-	public void RestartElement()
-	{
-		isStart = true;
-		if( regid != null) regid.velocity = velocity;
-	}
 }
