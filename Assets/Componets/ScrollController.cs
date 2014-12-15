@@ -20,6 +20,7 @@ public class ScrollController : MonoBehaviour
 	private float interval = 0.0f;
 	private bool isPitched = false;
 	const float ZOOM_SPEED = 600.0f;
+	const float MOUSE_ZOOM_SPEED = 3.6F;
 
 
 	void Start()
@@ -87,7 +88,7 @@ public class ScrollController : MonoBehaviour
 	void ScaleProcess()
 	{
 		if (usePC) {
-			Camera.main.orthographicSize += Input.GetAxis ("Mouse ScrollWheel");
+			Camera.main.orthographicSize -= Input.GetAxis ("Mouse ScrollWheel") * MOUSE_ZOOM_SPEED;
 		} 
 		else 
 		{
