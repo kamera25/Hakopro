@@ -7,6 +7,10 @@ public class SendGachaponData : MonoBehaviour
 
 	public void PushButton()
 	{
-		GameObject.FindWithTag ("SelectMe").SendMessage ("CreateNewElement", model);
+		GameObject selectedButton = GameObject.FindWithTag ("SelectMe");
+
+		GameObject clone = Instantiate (model, selectedButton.GetComponent<RectTransform> ().position, Quaternion.identity) as GameObject;
+		selectedButton.gameObject.SetActive (false);
+		GameObject.FindWithTag ("GameController").GetComponent<BackSceneController>().AssignObject( selectedButton, clone);
 	}
 }
