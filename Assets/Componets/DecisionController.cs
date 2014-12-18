@@ -21,8 +21,7 @@ public class DecisionController : MonoBehaviour
 	private AudioClip clapSE;
 	private AudioClip absorbSE;
 	private AudioClip beepSE;
-
-	private const float INF = 999F;
+	
 
 	// Use this for initialization
 	void Start () 
@@ -133,7 +132,7 @@ public class DecisionController : MonoBehaviour
 
 		if( collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card"))
 		{
-			collision.transform.position = new Vector2( INF, INF);
+			collision.gameObject.SendMessage("DropElement");
 
 			AddCardElementsList( collision.gameObject);
 			anim.SetTrigger( "addObject");

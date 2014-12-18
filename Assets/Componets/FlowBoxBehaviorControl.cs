@@ -225,11 +225,11 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 	{
 		if( istrue)
 		{
-			obj.transform.position = this.transform.position + Vector3.right * 3F;
+			obj.SendMessage( "PopElement", this.transform.position + Vector3.right * 3F);
 		}
 		else
 		{
-			obj.transform.position = this.transform.position + Vector3.down * 3F;
+			obj.SendMessage( "PopElement", this.transform.position + Vector3.down * 3F);
 		}
 	}
 
@@ -237,11 +237,11 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 	{
 		if( isRight)
 		{
-			obj.transform.position = this.transform.position + Vector3.right * 3F;
+			obj.SendMessage( "PopElement", this.transform.position + Vector3.right * 3F);
 		}	
 		else 
 		{
-			obj.transform.position = this.transform.position + Vector3.left * 3F;
+			obj.SendMessage( "PopElement",this.transform.position + Vector3.left * 3F);
 		}
 	}
 
@@ -308,8 +308,9 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 							.Where (go => go.GetComponent<FlowBoxBehaviorControl> ().scriptKind == flag)
 							.FirstOrDefault();
 
-		ElementsList[0].transform.position = this.transform.position + Vector3.up * 3F;
-		
+		//ElementsList[0].transform.position = this.transform.position + Vector3.up * 3F;
+		ElementsList[0].SendMessage( "PopElement", this.transform.position + Vector3.up * 3F);
+
 		Rigidbody2D objRigid = ElementsList[0].GetComponent<Rigidbody2D>();
 		objRigid.Sleep();
 		
@@ -355,18 +356,19 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 
 	void OnTriggerEnter2D(Collider2D collision) 
 	{
-		const float posInf = 999F;
 
 		if(  collision.gameObject.CompareTag("Element") || collision.gameObject.CompareTag("Card"))
 		 {
 		   if( IsNoAbsorbScriptType())
 			{
-				if( collision.GetComponent<ElemetsBehavior>().existAimPos)
+				ElemetsBehavior eleBhv = collision.GetComponent<ElemetsBehavior>();
+
+				if( eleBhv.existAimPos)
 				{
 					return;
 				}
 
-				collision.transform.position = new Vector2( posInf, -posInf);
+				eleBhv.HideElement();
 				ElementsList.Add(collision.gameObject);
 
 				// These is executed soon.

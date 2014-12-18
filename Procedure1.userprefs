@@ -1,9 +1,14 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\takahiro\Documents\religion\Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Release" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\ElemetsBehavior.cs">
     <Files>
-      <File FileName="Assets\Componets\StartConveyor.cs" Line="30" Column="21" />
+      <File FileName="Assets\Componets\FlowBoxBehaviorControl.cs" Line="316" Column="3" />
+      <File FileName="Assets\LookUpCardController.cs" Line="43" Column="3" />
+      <File FileName="Assets\Componets\FunctionBehavior.cs" Line="9" Column="12" />
+      <File FileName="Assets\Componets\ScrollController.cs" Line="95" Column="11" />
       <File FileName="c:\Users\takahiro\Documents\religion\Assets\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs" Line="93" Column="99" />
+      <File FileName="Assets\Componets\ElemetsBehavior.cs" Line="71" Column="5" />
+      <File FileName="Assets\Componets\DecisionController.cs" Line="135" Column="52" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

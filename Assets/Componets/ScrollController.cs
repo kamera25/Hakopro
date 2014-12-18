@@ -17,6 +17,8 @@ public class ScrollController : MonoBehaviour
 	private bool usePC = true;
 
 	private BoxCollider2D collider;
+	private LookUpCardController lookUpCtl;
+
 	private float interval = 0.0f;
 	private bool isPitched = false;
 	const float ZOOM_SPEED = 600.0f;
@@ -30,6 +32,7 @@ public class ScrollController : MonoBehaviour
 		#endif
 
 		collider = this.GetComponent<BoxCollider2D> ();
+		lookUpCtl = GameObject.FindWithTag("GameController").GetComponent<LookUpCardController> ();
 	}
 
 	// Update is called once per frame
@@ -61,6 +64,8 @@ public class ScrollController : MonoBehaviour
 
 		if (Input.GetMouseButton(0)) 
 		{
+			lookUpCtl.isUse = false;// Change flag to false.
+
 			Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast( mousePosWorld, Vector2.zero);					
 			if( hit.collider != null)
@@ -83,6 +88,11 @@ public class ScrollController : MonoBehaviour
 				useScroll = true;
 			}	
 		}
+	}
+
+	public bool IsOutOfStage( Vector3 pos)
+	{
+		return !((minX < pos.x && pos.x < maxX) && (minY < pos.y && pos.y < maxY));
 	}
 
 	void ScaleProcess()

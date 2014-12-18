@@ -12,6 +12,10 @@ public class ElemetsBehavior : MonoBehaviour
 	private AudioSource audioSource;
 	private Rigidbody2D regid;
 
+	private Vector2 INFPOS = new Vector2 ( 999F, -999F);
+
+	public Vector3 lastPos;
+
 	void Awake()
 	{
 		boxCol = this.GetComponent<BoxCollider2D> ();
@@ -34,7 +38,7 @@ public class ElemetsBehavior : MonoBehaviour
 		}
 	}
 
-	void SetAimPosition( Vector3 pos)
+	public void SetAimPosition( Vector3 pos)
 	{
 		aimPosotion = new Vector2 (pos.x, pos.y);
 		DisableCollision ();
@@ -58,6 +62,26 @@ public class ElemetsBehavior : MonoBehaviour
 	public void EnableCollision()
 	{
 		boxCol.isTrigger = false;
+	}
+
+	public void HideElement()
+	{
+		//boxCol.enabled = false;
+		//this.GetComponent<SpriteRenderer> ().enabled = false;
+		this.transform.position = INFPOS;
+	}
+
+	public void PopElement( Vector3 pos)
+	{
+		this.transform.position = pos;
+		boxCol.enabled = true;
+		this.GetComponent<SpriteRenderer> ().enabled = true;
+	}
+
+	public void DropElement()
+	{
+	//	lastPos = this.transform.position;
+		this.transform.position = INFPOS;
 	}
 
 }
