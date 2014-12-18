@@ -2166,7 +2166,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: acfb46d8033cf4a4e9392ec95cd06fc4, type: 3}
     m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 1
@@ -2759,7 +2759,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: acfb46d8033cf4a4e9392ec95cd06fc4, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 1
@@ -2771,7 +2771,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u3053\u306E\u30BD\u30D5\u30C8\u30A6\u30A7\u30A2\u306F MIT\u30E9\u30A4\u30BB\u30F3\u30B9
-    \u306B\u57FA\u3065\u3044\u3066\u3001\u914D\u5E03\u3055\u308C\u3066\u3044\u307E\u3059\u3002\r\n\u8457\u4F5C\u6A29\u8868\u793A\u3092\u884C\u3063\u3066\u3044\u308C\u3070\u518D\u914D\u5E03\u304C\u53EF\u80FD\u3067\u3059\u3002\u307E\u305F\u30BD\u30D5\u30C8\u30A6\u30A7\u30A2\u306F\n\u7121\u4FDD\u8A3C\u3001\u7121\u8CAC\u4EFB\u3067\u3059\u3002\r\n\n\u30BD\u30FC\u30B9\u30B3\u30FC\u30C9
+    \u306B\u57FA\u3065\u3044\u3066\u3001\u914D\u5E03\u3055\u308C\u3066\u3044\u307E\u3059\u3002\r\n\u8457\u4F5C\u6A29\u8868\u793A\u3092\u884C\u3063\u3066\u3044\u308C\u3070\u518D\u914D\u5E03\u304C\u53EF\u80FD\u3067\u3059\u3002\u307E\u305F\u30BD\u30D5\u30C8\u30A6\u30A7\u30A2\u306F\u7121\u4FDD\u8A3C\u3001\u7121\u8CAC\u4EFB\u3067\u3059\u3002\r\n\n\u30BD\u30FC\u30B9\u30B3\u30FC\u30C9
     : https://github.com/kamera25/Hakopro"
 --- !u!222 &1480989360
 CanvasRenderer:
@@ -3816,7 +3816,7 @@ MonoBehaviour:
   m_Material: {fileID: 0}
   m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: acfb46d8033cf4a4e9392ec95cd06fc4, type: 3}
     m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 1
