@@ -2832,6 +2832,7 @@ MonoBehaviour:
   maxY: 0
   maxScale: 10
   minScale: 5
+  isMenu: 1
 --- !u!114 &1507870556
 MonoBehaviour:
   m_ObjectHideFlags: 0

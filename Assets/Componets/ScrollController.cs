@@ -21,6 +21,7 @@ public class ScrollController : MonoBehaviour
 
 	private float interval = 0.0f;
 	private bool isPitched = false;
+	public bool isMenu = false;
 	const float ZOOM_SPEED = 600.0f;
 	const float MOUSE_ZOOM_SPEED = 3.6F;
 
@@ -32,7 +33,10 @@ public class ScrollController : MonoBehaviour
 		#endif
 
 		collider = this.GetComponent<BoxCollider2D> ();
-		lookUpCtl = GameObject.FindWithTag("GameController").GetComponent<LookUpCardController> ();
+		if( !isMenu)
+		{
+			lookUpCtl = GameObject.FindWithTag("GameController").GetComponent<LookUpCardController> ();
+		}
 	}
 
 	// Update is called once per frame
@@ -57,14 +61,17 @@ public class ScrollController : MonoBehaviour
 
 	void MoveCamera()
 	{
-		if (isPitched) 
+		if (isPitched ) 
 		{
 			return;
 		}
 
 		if (Input.GetMouseButton(0)) 
 		{
-			lookUpCtl.isUse = false;// Change flag to false.
+			if( lookUpCtl != null)
+			{
+				lookUpCtl.isUse = false;// Change flag to false.
+			}
 
 			Vector3 mousePosWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			RaycastHit2D hit = Physics2D.Raycast( mousePosWorld, Vector2.zero);					
