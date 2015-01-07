@@ -6,6 +6,10 @@ public class BoxButton : MonoBehaviour
 
 	void NotifyButtonPallet()
 	{
-		GameObject.FindWithTag ("GameController").SendMessage ( "SetButtonPallet", this.gameObject);
+		GameObject controller = GameObject.FindWithTag ("GameController");
+		controller.SendMessage ( "SetButtonPallet", this.gameObject);
+
+		this.tag = "SelectMeFunction";
+		controller.SendMessage ("PutHelpDialog");
 	}
 }
