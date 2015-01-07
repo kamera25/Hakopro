@@ -16,6 +16,7 @@ public class CardBehaviour : MonoBehaviour
 	void Awake () 
 	{
 		cardText = this.transform.FindChild ("Canvas").FindChild ("Text").GetComponent<Text> ();
+		UpdateCardData ( cardString);
 	}
 	
 
