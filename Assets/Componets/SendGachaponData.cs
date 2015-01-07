@@ -11,6 +11,10 @@ public class SendGachaponData : MonoBehaviour
 
 		GameObject clone = Instantiate (model, selectedButton.GetComponent<RectTransform> ().position, Quaternion.identity) as GameObject;
 		selectedButton.gameObject.SetActive (false);
-		GameObject.FindWithTag ("GameController").GetComponent<BackSceneController>().AssignObject( selectedButton, clone);
+
+		GameObject controller = GameObject.FindWithTag ("GameController");
+		controller.GetComponent<BackSceneController>().AssignObject( selectedButton, clone);
+
+		controller.SendMessage ( "RecordData", "->Select variavle :" + model.name);
 	}
 }

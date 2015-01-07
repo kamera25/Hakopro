@@ -55,6 +55,7 @@ public class StartConveyor : MonoBehaviour {
 	public void ChangeTimeScale( float t)
 	{
 		Time.timeScale = playSlider.value / 2F;
+		GameObject.FindWithTag ("GameController").SendMessage ( "RecordData", "Change execution speed : " + Time.timeScale);
 	}
 
 	void DisableMissionPanel()

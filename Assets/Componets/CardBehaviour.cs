@@ -10,12 +10,12 @@ public class CardBehaviour : MonoBehaviour
 	public bool putInside = false;
 	private bool changeNum = false;
 
+	private LogRecodeController logRecCtrl;
+
 	// Use this for initialization
 	void Awake () 
 	{
 		cardText = this.transform.FindChild ("Canvas").FindChild ("Text").GetComponent<Text> ();
-
-		UpdateCardData ( cardString);
 	}
 	
 

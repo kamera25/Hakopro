@@ -13,7 +13,7 @@ public class DecisionController : MonoBehaviour
 	public List<string> CorrectElementsList = new List<string>();
 	private bool inputObj = false;
 
-	[SerializeField] int stageNum = 0;
+	public int stageNum = 0;
 	
 	private Animator anim;
 
@@ -119,6 +119,11 @@ public class DecisionController : MonoBehaviour
 
 	void GoToMenu()
 	{
+		GameObject controller = GameObject.FindWithTag ("GameController");
+		controller.SendMessage ( "RecordData", "Clear!");
+		controller.SendMessage ( "WriteFile");
+
+		// Process for putting clear indicator on menu.
 		int flag = PlayerPrefs.GetInt ("ClearFlag");
 		int condition = 1 << (stageNum-1);
 

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class ScrollController : MonoBehaviour 
 {
@@ -25,6 +26,7 @@ public class ScrollController : MonoBehaviour
 	const float ZOOM_SPEED = 600.0f;
 	const float MOUSE_ZOOM_SPEED = 3.6F;
 
+	private UnityEngine.EventSystems.EventSystem eventSystem;
 
 	void Start()
 	{
@@ -32,6 +34,7 @@ public class ScrollController : MonoBehaviour
 			usePC = false;
 		#endif
 
+		eventSystem = GameObject.Find ("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem> ();
 		collider = this.GetComponent<BoxCollider2D> ();
 		if( !isMenu)
 		{
@@ -61,10 +64,20 @@ public class ScrollController : MonoBehaviour
 
 	void MoveCamera()
 	{
-		if (isPitched ) 
+
+		if (isPitched) 
 		{
 			return;
 		}
+
+		/*if (selectedObj != null) 
+		{
+			Debug.Log(selectedObj.name);
+			if( selectedObj.transform.parent.name == "BlockPalletCanvas")
+			{
+				return;
+			}
+		}*/
 
 		if (Input.GetMouseButton(0)) 
 		{
@@ -95,6 +108,7 @@ public class ScrollController : MonoBehaviour
 				useScroll = true;
 			}	
 		}
+
 	}
 
 	public bool IsOutOfStage( Vector3 pos)

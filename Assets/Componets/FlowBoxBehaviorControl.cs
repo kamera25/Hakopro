@@ -21,7 +21,8 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 	private AudioClip absorbSE;
 	private AudioClip outputSE;
 	private bool isExec = false;
-	
+
+	private LogRecodeController logRecCtrl;
 
 	// relation parameter.
 	private List<SaucerBehavior> SaucerList = new List<SaucerBehavior>();
@@ -32,7 +33,10 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 		InitChangeBox (scriptKind);
 		animator = this.GetComponent<Animator> ();
 
-		audioSource = GameObject.FindWithTag ("GameController").GetComponent<AudioSource>();
+		GameObject controller = GameObject.FindWithTag ("GameController");
+
+		logRecCtrl = controller.GetComponent<LogRecodeController> ();
+		audioSource = controller.GetComponent<AudioSource>();
 		explosionSE = Resources.Load ("crash28") as AudioClip;
 		absorbSE = Resources.Load ("open24") as AudioClip;
 		outputSE = Resources.Load ("open43") as AudioClip;
@@ -160,6 +164,7 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 		} 
 		else 
 		{
+			logRecCtrl.RecordData ( "Box Execute successuful : " + scriptKind.ToString() + " / position=" + this.transform.position);
 			execDecision = true;
 		}
 
@@ -169,6 +174,7 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 	void ErrorProc()
 	{
 		this.enabled = false;
+		logRecCtrl.RecordData ( "Box Error : " + scriptKind.ToString() + " / position=" + this.transform.position);
 		audioSource.PlayOneShot(explosionSE);
 		animator.SetBool( "isError", true);
 	}
