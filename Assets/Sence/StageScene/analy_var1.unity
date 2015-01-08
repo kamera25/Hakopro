@@ -1433,6 +1433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!1 &343330102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2011,6 +2012,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &478037702
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5278,7 +5280,7 @@ MonoBehaviour:
   - 2
   - "\u306F"
   - 3
-  stageNum: 5
+  stageNum: 0
 --- !u!95 &1248572653
 Animator:
   serializedVersion: 3
@@ -6193,6 +6195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &1456473850
 BoxCollider2D:
   m_ObjectHideFlags: 0

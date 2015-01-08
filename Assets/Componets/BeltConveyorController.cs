@@ -10,7 +10,7 @@ public enum DIRECTION
 
 public class BeltConveyorController : MonoBehaviour 
 {
-	private List<Rigidbody2D> ElementsList = new List<Rigidbody2D>();
+	public List<Rigidbody2D> ElementsList = new List<Rigidbody2D>();
 	private bool isStart = false;
 	private const float dump = 1.6F;
 	private DIRECTION direction;
@@ -36,6 +36,13 @@ public class BeltConveyorController : MonoBehaviour
 
 		foreach( Rigidbody2D rig in ElementsList)
 		{
+			// Check a missing object. when finding it, remove it.
+			if( rig == null)
+			{
+				ElementsList.Remove( rig);
+				break;
+			}
+
 			rig.AddForce( new Vector2( (float)direction * dump * Time.timeScale, 0F), ForceMode2D.Force);
 		}
 
