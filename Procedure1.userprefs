@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\LogRecodeController.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\StartConveyor.cs">
     <Files>
-      <File FileName="Assets\Componets\LogRecodeController.cs" Line="33" Column="13" />
+      <File FileName="Assets\Componets\StartConveyor.cs" Line="51" Column="1" />
+      <File FileName="Assets\BlockPalletControl.cs" Line="41" Column="40" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

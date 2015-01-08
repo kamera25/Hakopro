@@ -6,7 +6,7 @@ using System.Linq;
 
 public class StartConveyor : MonoBehaviour {
 
-	[SerializeField] GameObject missionPanel;
+	[SerializeField] GameObject missionUI;
 	private bool isStart = false;
 	//[SerializeField] private List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
 	[SerializeField] public List<BeltConveyorController> beltConveyors = new List<BeltConveyorController> ();
@@ -28,11 +28,13 @@ public class StartConveyor : MonoBehaviour {
 		audioSource = this.GetComponent<AudioSource> ();
 		execSE = Resources.Load ("chime00") as AudioClip;
 		Time.timeScale = 1F;
+
+		missionUI = GameObject.Find ("MissionUI");
 	}
 	
-	public void PutMissionPanle()
+	public void PutMissionPanel()
 	{
-		missionPanel.SetActive (true);
+		missionUI.SetActive (true);
 		Invoke ("DisableMissionPanel", 4F);
 	}
 
@@ -60,7 +62,7 @@ public class StartConveyor : MonoBehaviour {
 
 	void DisableMissionPanel()
 	{
-		missionPanel.SetActive (false);
+		missionUI.SetActive (false);
 	}
 
 	void SetButtonPallet( GameObject obj)
