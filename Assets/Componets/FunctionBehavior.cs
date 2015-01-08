@@ -30,16 +30,13 @@ public enum SCRIPTTYPE
 	SUBSTITUTE	= 12,
 	COUNTER		= 13,
 	MINIMUMINDEX= 14,
-	PRINT_LN	= 15,
-	PRINT_LN_VAR= 16,
 	BLACKHOLE	= 17,
 	GREATER		= 18,
 	LESS		= 19,
 	EQUAL		= 20,
 	REM			= 21,
 	INCREMET	= 22,
-	INTIALIZE	= 23,
-	PRINT_NORMAL= 24
+	INTIALIZE	= 23
 }
 
 public class FunctionBehavior : MonoBehaviour 
@@ -259,36 +256,23 @@ public class FunctionBehavior : MonoBehaviour
 		} 
 		else 
 		{
-			switch (scriptKind) 
+			CardBehaviour card = ElementsList[0].GetComponent<CardBehaviour>();
+			if( card != null)
 			{
-			case SCRIPTTYPE.PRINT:
-				fukidashiText.text = fukidashiText.text + ElementsList [0].name;
-				break;
-			case SCRIPTTYPE.PRINT_LN:
-				fukidashiText.text = fukidashiText.text + ElementsList [0].name;
-				break;
-			case SCRIPTTYPE.PRINT_LN_VAR:
-				fukidashiText.text = fukidashiText.text + ElementsList[0].GetComponent<CardBehaviour>().CardNumberForInt() + " ";
-				break;
-			case SCRIPTTYPE.PRINT_NORMAL:
-				CardBehaviour card = ElementsList[0].GetComponent<CardBehaviour>();
-				if( card != null)
+				if( card.putInside)
 				{
-					if( card.putInside)
-					{
-						fukidashiText.text = fukidashiText.text + card.CardNumberForInt();
-					}
-					else
-					{
-						fukidashiText.text = fukidashiText.text + ElementsList [0].name;
-					}
+					fukidashiText.text = fukidashiText.text + card.CardNumberForInt();
 				}
 				else
 				{
 					fukidashiText.text = fukidashiText.text + ElementsList [0].name;
 				}
-				break;
 			}
+			else
+			{
+				fukidashiText.text = fukidashiText.text + ElementsList [0].name;
+			}
+				
 		}
 	}
 	

@@ -14,8 +14,6 @@ public class ElemetsBehavior : MonoBehaviour
 
 	private Vector2 INFPOS = new Vector2 ( 999F, -999F);
 
-	public Vector3 lastPos;
-
 	void Awake()
 	{
 		boxCol = this.GetComponent<BoxCollider2D> ();

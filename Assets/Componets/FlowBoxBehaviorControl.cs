@@ -197,9 +197,6 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 					nowWaitTime = 3F; // slow..
 					break;
 				case SCRIPTTYPE.PRINT:  // Opeariton of PRINTs ... 
-				case SCRIPTTYPE.PRINT_LN:
-				case SCRIPTTYPE.PRINT_LN_VAR:
-			case SCRIPTTYPE.PRINT_NORMAL:
 					Print ();
 					PutElement( ElementsList[0], putRight);
 					break;
@@ -378,7 +375,7 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 				ElementsList.Add(collision.gameObject);
 
 				// These is executed soon.
-				if( scriptKind == SCRIPTTYPE.ADD || scriptKind == SCRIPTTYPE.SUBSTITUTE || scriptKind == SCRIPTTYPE.BLACKHOLE || scriptKind == SCRIPTTYPE.PRINT_LN_VAR)
+				if( scriptKind == SCRIPTTYPE.ADD || scriptKind == SCRIPTTYPE.SUBSTITUTE || scriptKind == SCRIPTTYPE.BLACKHOLE)
 				{
 					nowWaitTime = 0;
 				}
