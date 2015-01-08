@@ -20,15 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Sence/StageScene/Noworking/while1.unity
   - enabled: 1
-    path: Assets/Sence/StageScene/Noworking/analy_loop1.unity
-  - enabled: 1
-    path: Assets/Sence/StageScene/Noworking/analy_mes1.unity
-  - enabled: 1
-    path: Assets/Sence/StageScene/Noworking/analy_var1.unity
-  - enabled: 1
     path: Assets/Sence/StageScene/Noworking/analy_loop2.unity
-  - enabled: 1
-    path: Assets/Sence/StageScene/Noworking/analy_var2.unity
   - enabled: 1
     path: Assets/Sence/StageScene/Noworking/selectionsort.unity
   - enabled: 1
