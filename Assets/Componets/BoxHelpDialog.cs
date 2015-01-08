@@ -10,13 +10,14 @@ public class BoxHelpDialog : MonoBehaviour
 	[SerializeField] private Text detailText;
 
 	private BoxHelop_Sheet1 boxHelpData;
-	public SCRIPTTYPE scType;
+	private SCRIPTTYPE scType;
 
 	public void Awake()
 	{
 		boxHelpData = Resources.Load("BoxHelp", typeof(BoxHelop_Sheet1)) as BoxHelop_Sheet1;
 	}
 
+	// Change subject and detail from XLS Data.
 	public void UpdateText( SCRIPTTYPE type)
 	{
 		scType = type;
@@ -30,6 +31,7 @@ public class BoxHelpDialog : MonoBehaviour
 
 	}
 
+	// Destroy this Dialog.
 	public void DisableBoxHelp()
 	{
 		Destroy (this.gameObject);

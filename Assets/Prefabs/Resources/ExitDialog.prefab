@@ -98,6 +98,7 @@ GameObject:
   - 223: {fileID: 22309580}
   - 114: {fileID: 11409596}
   - 114: {fileID: 11409594}
+  - 114: {fileID: 11419872}
   m_Layer: 5
   m_Name: ExitDialog
   m_TagString: Untagged
@@ -165,9 +166,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 109590}
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 11419872}
+        m_MethodName: DialogDestroy
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 11419872}
         m_MethodName: BackToMenu
         m_Mode: 1
         m_Arguments:
@@ -358,6 +359,17 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+--- !u!114 &11419872
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 109590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2175944c55c4b54792c6041001d91e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &22209580
 CanvasRenderer:
   m_ObjectHideFlags: 1
