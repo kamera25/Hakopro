@@ -22,9 +22,15 @@ public class LogRecodeController : MonoBehaviour
 		GameObject dicisionBox = GameObject.Find ("DecisionBox");
 
 		directory = "Logs";
-		fileName = dt.Year.ToString () + dt.Month.ToString () + "_" + dt.Day.ToString () 
-						+ "_" + dt.Hour.ToString () + dt.Minute.ToString () + dt.Millisecond.ToString ()
-						+ "_stage" + dicisionBox.GetComponent<DecisionController> ().stageNum.ToString () + ".txt"; 
+		fileName = 			dt.Year.ToString () 
+					+ "_" + dt.Month.ToString () 
+					+ "_" + dt.Day.ToString () 
+					+ "_" + dt.Hour.ToString () 
+					+ "_" + dt.Minute.ToString () 
+					+ "_" + dt.Millisecond.ToString ()
+					+ "_stage" 
+					+ dicisionBox.GetComponent<DecisionController> ().stageNum.ToString () 
+					+ ".txt"; 
 	}
 
 	public void RecordData( string str)

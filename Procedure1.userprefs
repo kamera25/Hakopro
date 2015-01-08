@@ -1,17 +1,12 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\FlowBoxBehaviorControl.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\LogRecodeController.cs">
     <Files>
-      <File FileName="Assets\Componets\BoxHelpDialog.cs" Line="17" Column="87" />
-      <File FileName="Assets\Componets\BoxButton.cs" Line="13" Column="44" />
-      <File FileName="Assets\Componets\PutOtherScript.cs" Line="20" Column="8" />
-      <File FileName="Assets\Componets\FlowBoxBehaviorControl.cs" Line="167" Column="25" />
+      <File FileName="Assets\Componets\LogRecodeController.cs" Line="33" Column="13" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
-    <Watch file="Assets\Componets\BoxHelpDialog.cs" line="24" offsetX="605" offsetY="391" expression="boxHelpData" liveUpdate="False" />
-  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
