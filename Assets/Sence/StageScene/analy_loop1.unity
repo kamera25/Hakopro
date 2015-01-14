@@ -6680,11 +6680,7 @@ MonoBehaviour:
   notClearTextUI: {fileID: 1073826603}
   ElementsList: []
   CorrectElementsList:
-  - 1
-  - +
-  - 2
-  - "\u306F"
-  - 3
+  - 10
   stageNum: 4
 --- !u!95 &1248572653
 Animator:
