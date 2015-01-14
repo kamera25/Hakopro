@@ -7713,6 +7713,7 @@ MonoBehaviour:
   maxScale: 10
   minScale: 5
   isMenu: 0
+  moveDist: 0
 --- !u!1 &1445743576
 GameObject:
   m_ObjectHideFlags: 0
