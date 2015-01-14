@@ -2792,7 +2792,7 @@ GameObject:
   - 114: {fileID: 1507870555}
   - 61: {fileID: 1507870558}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Panel_b
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2833,6 +2833,7 @@ MonoBehaviour:
   maxScale: 10
   minScale: 5
   isMenu: 1
+  moveDist: 0
 --- !u!114 &1507870556
 MonoBehaviour:
   m_ObjectHideFlags: 0

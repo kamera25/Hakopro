@@ -23,6 +23,7 @@ public class ScrollController : MonoBehaviour
 	private float interval = 0.0f;
 	private bool isPitched = false;
 	public bool isMenu = false;
+	public float moveDist = 0F;
 	const float ZOOM_SPEED = 600.0f;
 	const float MOUSE_ZOOM_SPEED = 3.6F;
 
@@ -98,6 +99,7 @@ public class ScrollController : MonoBehaviour
 					
 					pos.x = Mathf.Clamp( pos.x - X, minX, maxX);
 					pos.y = Mathf.Clamp( pos.y - Y, minY, maxY);
+					moveDist += Vector3.SqrMagnitude( Camera.main.transform.position - pos);
 					Camera.main.transform.position = pos;
 				}
 				
@@ -107,6 +109,10 @@ public class ScrollController : MonoBehaviour
 				beforeY = mousePosWorld.y;
 				useScroll = true;
 			}	
+		}
+		else
+		{
+			moveDist = 0F;
 		}
 
 	}
