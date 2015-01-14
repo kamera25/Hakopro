@@ -14,14 +14,11 @@ public class PutOtherScript : MonoBehaviour
 		dialog.SendMessage ("UpdateText", scriptType);
 
 		// Save a log.
-		this.SendMessage ( "RecordData", "Watch a box help : script = " + scriptType.ToString());
+		this.SendMessage ( "RecordData", "12, Watch a box help : script = " + scriptType.ToString() + ", "+ ((int)scriptType).ToString());
 	}
 
 	public void PutExitDialog()
 	{
 		GameObject dialog = Instantiate ( Resources.Load( "ExitDialog")) as GameObject;
-
-		// Save a log.
-		this.SendMessage ( "RecordData", "Push BackToMenuButton.");
 	}
 }

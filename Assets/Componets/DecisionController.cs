@@ -120,7 +120,7 @@ public class DecisionController : MonoBehaviour
 	void GoToMenu()
 	{
 		GameObject controller = GameObject.FindWithTag ("GameController");
-		controller.SendMessage ( "RecordData", "Clear!");
+		controller.SendMessage ( "RecordData", "7, Clear!");
 		controller.SendMessage ( "WriteFile");
 
 		// Process for putting clear indicator on menu.

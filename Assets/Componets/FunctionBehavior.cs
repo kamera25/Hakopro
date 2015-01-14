@@ -324,7 +324,7 @@ public class FunctionBehavior : MonoBehaviour
 
 	private void ApplyChangeVariable( int num, string cardString)
 	{
-		GameObject.FindWithTag ("GameController").SendMessage( "RecordData", "Change variavle : " + cardString + " -> " + num);
+		GameObject.FindWithTag ("GameController").SendMessage( "RecordData", "10, Change variavle : " + cardString + " -> " + num);
 
 		// Assign variable all card of same name.
 		CardBehaviour[] cardBhvs = GameObject.FindGameObjectsWithTag ("Card")

@@ -15,37 +15,37 @@ public class BlockPalletControl : MonoBehaviour
 	public void PushReloadButton()
 	{
 		controller.SendMessage ("SceneReset");
-		logRecCtrl.RecordData ( "Push ReloadButton.");
+		logRecCtrl.RecordData ( "1, Push ReloadButton.");
 	}
 
 	public void PutMissionButton()
 	{
 		controller.SendMessage ("PutMissionPanel");
-		logRecCtrl.RecordData ( "Put Mission.");
+		logRecCtrl.RecordData ( "2, Put Mission.");
 	}
 
 	public void PushAttentionButton()
 	{
 		controller.SendMessage ("PushLookUpButton");
-		logRecCtrl.RecordData ( "Push AttetionButton.");
+		logRecCtrl.RecordData ( "3, Push AttetionButton.");
 	}
 
 	public void PushOneBackButton()
 	{
 		controller.SendMessage ("PushBackButton");
-		logRecCtrl.RecordData ("Undo.");
+		logRecCtrl.RecordData ("4, Undo.");
 	}
 
 	public void PushPlayButton()
 	{
 		controller.SendMessage ("ExecConveyor");
-		logRecCtrl.RecordData ( "Push StartButton.");
+		logRecCtrl.RecordData ( "5, Push StartButton.");
 	}
 
 	public void PushBackToMenu()
 	{
 		controller.SendMessage ("PutExitDialog");
-		logRecCtrl.RecordData ( "Push BackToMenuButton.");
+		logRecCtrl.RecordData ( "6, Push BackToMenuButton.");
 	}
 
 }

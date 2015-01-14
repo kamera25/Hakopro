@@ -15,6 +15,6 @@ public class SendGachaponData : MonoBehaviour
 		GameObject controller = GameObject.FindWithTag ("GameController");
 		controller.GetComponent<BackSceneController>().AssignObject( selectedButton, clone);
 
-		controller.SendMessage ( "RecordData", "->Select variavle :" + model.name);
+		controller.SendMessage ( "RecordData", " -1, ->Select variavle :" + model.name);
 	}
 }

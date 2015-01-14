@@ -30,7 +30,12 @@ public class LogRecodeController : MonoBehaviour
 					+ "_" + dt.Millisecond.ToString ()
 					+ "_stage" 
 					+ dicisionBox.GetComponent<DecisionController> ().stageNum.ToString () 
-					+ ".txt"; 
+					+ ".csv"; 
+	}
+
+	public void RecordDataWithPos( string str, Vector3 pos)
+	{
+		RecordData ( str + ", " + pos.x + ", " + pos.y + ", " + pos.z);
 	}
 
 	public void RecordData( string str)
@@ -60,11 +65,14 @@ public class LogRecodeController : MonoBehaviour
 			FileStream f = new FileStream( filePath, FileMode.Create, FileAccess.Write);
 			BinaryWriter writer = new BinaryWriter(f);
 
-			string str = "";
+			string str = "Day,Time,PramKind,Messeage,BoxKind,PosX,PosY,PosZ\r\n";
 			// Write log datas to file.
 			foreach( LogData log in logs)
 			{
-				str += log.nowDateTime + ", " + log.detail + "\r\n";
+				string today = log.nowDateTime.Year.ToString () + "/" + log.nowDateTime.Month.ToString () + "/" + log.nowDateTime.Day.ToString ();
+				string nowTime = log.nowDateTime.Hour.ToString() + ":" + log.nowDateTime.Minute.ToString() + ":" + log.nowDateTime.Millisecond.ToString();
+
+				str += today + ", " + nowTime + ", " + log.detail + "\r\n";
 
 			}
 			writer.Write( str);

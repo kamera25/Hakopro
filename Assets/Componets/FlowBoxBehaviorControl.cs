@@ -164,7 +164,7 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 		} 
 		else 
 		{
-			logRecCtrl.RecordData ( "Box Execute successuful : " + scriptKind.ToString() + " / position=" + this.transform.position);
+			logRecCtrl.RecordDataWithPos ( "8, Box Execute successuful : " + scriptKind.ToString() + ", " + ((int)scriptKind).ToString(), this.transform.position);
 			execDecision = true;
 		}
 
@@ -174,7 +174,7 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 	void ErrorProc()
 	{
 		this.enabled = false;
-		logRecCtrl.RecordData ( "Box Error : " + scriptKind.ToString() + " / position=" + this.transform.position);
+		logRecCtrl.RecordDataWithPos ( "9, Box Error : " + scriptKind.ToString() +  ", " + ((int)scriptKind).ToString() , this.transform.position);
 		audioSource.PlayOneShot(explosionSE);
 		animator.SetBool( "isError", true);
 	}
