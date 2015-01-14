@@ -6685,7 +6685,7 @@ MonoBehaviour:
   - 2
   - "\u306F"
   - 3
-  stageNum: 3
+  stageNum: 4
 --- !u!95 &1248572653
 Animator:
   serializedVersion: 3

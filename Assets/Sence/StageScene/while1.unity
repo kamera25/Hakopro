@@ -6681,7 +6681,7 @@ MonoBehaviour:
   ElementsList: []
   CorrectElementsList:
   - 32
-  stageNum: 3
+  stageNum: 6
 --- !u!95 &1248572653
 Animator:
   serializedVersion: 3

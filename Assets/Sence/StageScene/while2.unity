@@ -299,7 +299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!61 &76952357
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1703,7 +1702,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!61 &239755248
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1837,6 +1835,10 @@ Prefab:
     - target: {fileID: 169466, guid: 305d60d6238d3194dbecc12d5ef182d6, type: 2}
       propertyPath: m_Name
       value: MissionUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 11469468, guid: 305d60d6238d3194dbecc12d5ef182d6, type: 2}
+      propertyPath: m_Text
+      value: "\u2606\u309215\u500B\u8868\u793A\u3055\u305B\u3066\uFF01"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 305d60d6238d3194dbecc12d5ef182d6, type: 2}
@@ -2036,7 +2038,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!114 &265579930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2779,6 +2780,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!1 &343330102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3264,6 +3266,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &363157659
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4181,6 +4184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &478037702
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5608,6 +5612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &701114671
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5894,7 +5899,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7D50\u679C\u3092160\u306B\u3057\u3066\uFF01"
+  m_Text: "\u2606\u309215\u500B\u8868\u793A\u3055\u305B\u3066\uFF01"
 --- !u!222 &715810928
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6998,6 +7003,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &941738282
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8224,7 +8230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1058664912
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8470,7 +8475,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1081759675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9274,7 +9278,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1139857852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9770,7 +9773,7 @@ MonoBehaviour:
   ElementsList: []
   CorrectElementsList:
   - "\u2606"
-  stageNum: 5
+  stageNum: 7
 --- !u!95 &1248572653
 Animator:
   serializedVersion: 3
@@ -10797,6 +10800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &1351260133
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11812,6 +11816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &1456473850
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12896,7 +12901,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1580298356
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -13943,7 +13947,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1699130894
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15186,6 +15189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &1818780039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -16410,7 +16414,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!61 &1999279949
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17403,7 +17406,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   existAimPos: 0
-  lastPos: {x: 0, y: 0, z: 0}
 --- !u!61 &2100942625
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -17582,6 +17584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce7c7fb90c1c7bf4e805c8b8eec77ae3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ElementsList: []
 --- !u!61 &2103811774
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -105,15 +105,17 @@ PlayerSettings:
   AndroidSplashScreenScale: 0
   AndroidKeystoreName: C:/Users/takahiro/Documents/Procedure1/user.keystore
   AndroidKeyaliasName: "\u30CF\u30B3\u30D7\u30ED"
-  resolutionDialogBanner: {fileID: 0}
+  resolutionDialogBanner: {fileID: 2800000, guid: 0a7520fa0c51c4640a0a855857d334f8,
+    type: 3}
   m_BuildTargetIcons:
   - m_BuildTarget: 
     m_Icons:
-    - m_Icon: {fileID: 2800000, guid: 91faaecbcab65b342bde08665574cd3f, type: 3}
+    - m_Icon: {fileID: 2800000, guid: c3849e91fee13734c806bb3e94a415c1, type: 3}
       m_Size: 128
   m_BuildTargetBatching: []
   webPlayerTemplate: APPLICATION:Default
   m_TemplateCustomTags: {}
+  locationUsageDescription: 
   XboxTitleId: 
   XboxImageXexPath: 
   XboxSpaPath: 
@@ -246,6 +248,7 @@ PlayerSettings:
   tizenGPSPermissions: 0
   tizenMicrophonePermissions: 0
   stvDeviceAddress: 
+  wp8UnprocessedPlugins: []
   firstStreamedLevelWithResources: 0
   unityRebuildLibraryVersion: 9
   unityForwardCompatibleVersion: 39
