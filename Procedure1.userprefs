@@ -1,15 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Componets\MenuSceneLoder.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\religion\Assets\Components\WeaponStructure.cs">
     <Files>
-      <File FileName="Assets\Componets\MenuSceneLoder.cs" Line="23" Column="4" />
-      <File FileName="Assets\Componets\MenuClearControl.cs" Line="21" Column="5" />
-      <File FileName="Assets\Componets\VariableIndicatorControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Componets\LogRecodeController.cs" Line="64" Column="4" />
-      <File FileName="Assets\Componets\FlowBoxBehaviorControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Componets\PutOtherScript.cs" Line="1" Column="1" />
-      <File FileName="Assets\Componets\GameSoundController.cs" Line="1" Column="1" />
-      <File FileName="Assets\Componets\ScrollController.cs" Line="26" Column="8" />
+      <File FileName="..\religion\Assets\Components\WeaponDataProcess.cs" Line="110" Column="1" />
+      <File FileName="..\religion\Assets\Components\WeaponStructure.cs" Line="23" Column="12" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

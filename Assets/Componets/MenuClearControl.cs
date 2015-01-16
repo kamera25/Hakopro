@@ -7,6 +7,7 @@ public class MenuClearControl : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
+		//ClearReset ();
 		// Put Clear Texts.
 		int clearFlag = PlayerPrefs.GetInt ("ClearFlag");
 		GameObject[] buttons = GameObject.FindGameObjectsWithTag("MenuButton");
