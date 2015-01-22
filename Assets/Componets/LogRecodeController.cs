@@ -27,7 +27,7 @@ public class LogRecodeController : MonoBehaviour
 					+ "_" + dt.Day.ToString () 
 					+ "_" + dt.Hour.ToString () 
 					+ "_" + dt.Minute.ToString () 
-					+ "_" + dt.Millisecond.ToString ()
+					+ "_" + dt.Second.ToString()
 					+ "_stage" 
 					+ dicisionBox.GetComponent<DecisionController> ().stageNum.ToString () 
 					+ ".csv"; 
@@ -70,7 +70,7 @@ public class LogRecodeController : MonoBehaviour
 			foreach( LogData log in logs)
 			{
 				string today = log.nowDateTime.Year.ToString () + "/" + log.nowDateTime.Month.ToString () + "/" + log.nowDateTime.Day.ToString ();
-				string nowTime = log.nowDateTime.Hour.ToString() + ":" + log.nowDateTime.Minute.ToString() + ":" + log.nowDateTime.Millisecond.ToString();
+				string nowTime = log.nowDateTime.Hour.ToString() + ":" + log.nowDateTime.Minute.ToString() + ":" + log.nowDateTime.Second.ToString();
 
 				str += today + ", " + nowTime + ", " + log.detail + "\r\n";
 
