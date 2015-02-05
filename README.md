@@ -6,7 +6,7 @@
 * プログラミング初学者を対象とした、「手続き」の理解を深めるためのプログラミング学習環境
 * MITライセンスで配布(ソースコード、画像)
 * 音声は ザ・マッチメイカァズ2nd よりお借りしています
-* Unity 4.6.2p で開発
+* Unity 4.6.2 で開発
 * アプリは[ここから](https://play.google.com/store/apps/details?id=com.hitkakiuchi.hakopro)からダウンロード出来ます
 
 - - -

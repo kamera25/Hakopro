@@ -14,7 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Sence/StageScene/analy_loop1.unity
   - enabled: 1
-    path: Assets/Sence/StageScene/analy_mes1.unity
+    path: Assets/Sence/StageScene/analy_mesa1.unity
   - enabled: 1
     path: Assets/Sence/StageScene/analy_var1.unity
   - enabled: 1
