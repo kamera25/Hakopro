@@ -2050,7 +2050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab867c5bbe1f51c409829f1fb3b87a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: analy_mes1
+  scene: analy_mes
 --- !u!1 &1017535165
 GameObject:
   m_ObjectHideFlags: 0
