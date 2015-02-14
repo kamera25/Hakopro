@@ -12368,7 +12368,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef89d41436546c409126a73dc5975d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  missionUI: {fileID: 0}
   beltConveyors: []
   playSlider: {fileID: 210313393}
   changeObj: {fileID: 0}

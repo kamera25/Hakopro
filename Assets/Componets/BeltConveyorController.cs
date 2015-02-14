@@ -26,11 +26,7 @@ public class BeltConveyorController : MonoBehaviour
 			direction = DIRECTION.LEFT;
 		}
 	}
-
-	void Update()
-	{
-
-	}
+	
 
 	void FixedUpdate()
 	{

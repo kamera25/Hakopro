@@ -6,7 +6,7 @@ using System.Linq;
 
 public class StartConveyor : MonoBehaviour {
 
-	[SerializeField] GameObject missionUI;
+	private GameObject missionUI;
 	private bool isStart = false;
 	//[SerializeField] private List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
 	[SerializeField] public List<BeltConveyorController> beltConveyors = new List<BeltConveyorController> ();
@@ -57,6 +57,7 @@ public class StartConveyor : MonoBehaviour {
 	public void ChangeTimeScale( float t)
 	{
 		Time.timeScale = playSlider.value / 2F;
+
 		GameObject.FindWithTag ("GameController").SendMessage ( "RecordData", "14, Change execution speed : " + Time.timeScale);
 	}
 

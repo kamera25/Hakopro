@@ -65,8 +65,8 @@ public class ScrollController : MonoBehaviour
 
 	void MoveCamera()
 	{
-
-		if (isPitched) 
+		bool onUI = UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject ();// Check a pointer on UI.
+		if (isPitched || onUI) 
 		{
 			return;
 		}
