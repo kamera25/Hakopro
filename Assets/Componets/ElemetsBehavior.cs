@@ -64,8 +64,6 @@ public class ElemetsBehavior : MonoBehaviour
 
 	public void HideElement()
 	{
-		//boxCol.enabled = false;
-		//this.GetComponent<SpriteRenderer> ().enabled = false;
 		this.transform.position = INFPOS;
 	}
 
@@ -78,7 +76,6 @@ public class ElemetsBehavior : MonoBehaviour
 
 	public void DropElement()
 	{
-	//	lastPos = this.transform.position;
 		this.transform.position = INFPOS;
 	}
 

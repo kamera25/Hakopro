@@ -49,27 +49,27 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 		
 		switch (scKind) 
 		{
-		case SCRIPTTYPE.SWAPARRAY:
-		case SCRIPTTYPE.EQUAL:
-		case SCRIPTTYPE.LESS:
-		case SCRIPTTYPE.GREATER:
-			MakeSaucer( 2);
-			break;
-		case SCRIPTTYPE.ADD:
-		case SCRIPTTYPE.SUB:
-		case SCRIPTTYPE.DIV:
-		case SCRIPTTYPE.MUL:
-		case SCRIPTTYPE.REM:
-		case SCRIPTTYPE.SUBSTITUTE:
-		case SCRIPTTYPE.COUNTER:
-		case SCRIPTTYPE.MINIMUMINDEX:
-		case SCRIPTTYPE.INCREMET:
-		case SCRIPTTYPE.INTIALIZE:
-			MakeSaucer(1);
-			break;
-		case SCRIPTTYPE.CAPSEL:
-			MakeSaucer(1);
-			break;
+			case SCRIPTTYPE.SWAPARRAY:
+			case SCRIPTTYPE.EQUAL:
+			case SCRIPTTYPE.LESS:
+			case SCRIPTTYPE.GREATER:
+				MakeSaucer( 2);
+				break;
+			case SCRIPTTYPE.ADD:
+			case SCRIPTTYPE.SUB:
+			case SCRIPTTYPE.DIV:
+			case SCRIPTTYPE.MUL:
+			case SCRIPTTYPE.REM:
+			case SCRIPTTYPE.SUBSTITUTE:
+			case SCRIPTTYPE.COUNTER:
+			case SCRIPTTYPE.MINIMUMINDEX:
+			case SCRIPTTYPE.INCREMET:
+			case SCRIPTTYPE.INTIALIZE:
+				MakeSaucer(1);
+				break;
+			case SCRIPTTYPE.CAPSEL:
+				MakeSaucer(1);
+				break;
 		}
 		
 		return;
@@ -97,6 +97,7 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 		}
 	}
 
+	// Execute a process from scriptType.
 	void ExecScript()
 	{
 		switch( scriptKind)
@@ -283,7 +284,6 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 			maxExec--;
 			if( maxExec <= 0)
 			{
-				//ExplosionCards();
 				audioSource.PlayOneShot(explosionSE);
 				this.gameObject.SetActive(false);
 			}
@@ -291,17 +291,6 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 
 		return;
 	}
-
-	/*
-	void ExplosionCards()
-	{
-		foreach (SaucerBehavior saucer in SaucerList) 
-		{
-			saucer.onElement.SetActive(false);
-			saucer.gameObject.SetActive(false);
-		}
-	}
-	*/
 
 	void GoToFlag( SCRIPTTYPE flag)
 	{
@@ -311,13 +300,15 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 							.Where (go => go.GetComponent<FlowBoxBehaviorControl> ().scriptKind == flag)
 							.FirstOrDefault();
 
-		//ElementsList[0].transform.position = this.transform.position + Vector3.up * 3F;
+		// Output a top element.
 		ElementsList[0].SendMessage( "PopElement", this.transform.position + Vector3.up * 3F);
 
+		// Get rigidbody from the outputed element.
 		Rigidbody2D objRigid = ElementsList[0].GetComponent<Rigidbody2D>();
 		objRigid.Sleep();
-		
 		objRigid.AddForce( new Vector2( 0F, 15F), ForceMode2D.Impulse);
+
+		// If set an aiming flag, flay away to the flag! 
 		if( aimObj != null)
 		{
 			float dump = 0.3F;

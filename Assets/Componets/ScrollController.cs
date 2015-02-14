@@ -26,8 +26,7 @@ public class ScrollController : MonoBehaviour
 	public float moveDist = 0F;
 	const float ZOOM_SPEED = 600.0f;
 	const float MOUSE_ZOOM_SPEED = 3.6F;
-
-	private UnityEngine.EventSystems.EventSystem eventSystem;
+	
 
 	void Start()
 	{
@@ -35,7 +34,6 @@ public class ScrollController : MonoBehaviour
 			usePC = false;
 		#endif
 
-		eventSystem = GameObject.Find ("EventSystem").GetComponent<UnityEngine.EventSystems.EventSystem> ();
 		collider = this.GetComponent<BoxCollider2D> ();
 		if( !isMenu)
 		{
@@ -71,14 +69,6 @@ public class ScrollController : MonoBehaviour
 			return;
 		}
 
-		/*if (selectedObj != null) 
-		{
-			Debug.Log(selectedObj.name);
-			if( selectedObj.transform.parent.name == "BlockPalletCanvas")
-			{
-				return;
-			}
-		}*/
 
 		if (Input.GetMouseButton(0)) 
 		{
@@ -117,6 +107,7 @@ public class ScrollController : MonoBehaviour
 
 	}
 
+	// Check out of this camera position from game scene. 
 	public bool IsOutOfStage( Vector3 pos)
 	{
 		return !((minX < pos.x && pos.x < maxX) && (minY < pos.y && pos.y < maxY));

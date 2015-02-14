@@ -4,11 +4,11 @@ using UnityEngine.UI;
 using System.Collections.Generic;
 using System.Linq;
 
-public class StartConveyor : MonoBehaviour {
+public class StartConveyor : MonoBehaviour 
+{
 
 	private GameObject missionUI;
 	private bool isStart = false;
-	//[SerializeField] private List<ElemetsBehavior> elements = new List<ElemetsBehavior>();
 	[SerializeField] public List<BeltConveyorController> beltConveyors = new List<BeltConveyorController> ();
 	[SerializeField] private Slider playSlider;
 
@@ -22,7 +22,6 @@ public class StartConveyor : MonoBehaviour {
 	{
 		Invoke ("DisableMissionPanel", 4F);
 
-	//	UpdateElementsList ();
 		UpdateConveyor ();
 
 		audioSource = this.GetComponent<AudioSource> ();
