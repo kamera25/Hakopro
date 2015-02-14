@@ -12,7 +12,7 @@ public class BeltConveyorController : MonoBehaviour
 {
 	public List<Rigidbody2D> ElementsList = new List<Rigidbody2D>();
 	private bool isStart = false;
-	private const float dump = 1.6F;
+	private const float dump = 330F;
 	private DIRECTION direction;
 
 	void Start()
@@ -29,11 +29,17 @@ public class BeltConveyorController : MonoBehaviour
 
 	void Update()
 	{
+
+	}
+
+	void FixedUpdate()
+	{
+		
 		if (!isStart) 
 		{
 			return;
 		}
-
+		
 		foreach( Rigidbody2D rig in ElementsList)
 		{
 			// Check a missing object. when finding it, remove it.
@@ -42,10 +48,9 @@ public class BeltConveyorController : MonoBehaviour
 				ElementsList.Remove( rig);
 				break;
 			}
-
-			rig.AddForce( new Vector2( (float)direction * dump * Time.timeScale, 0F), ForceMode2D.Force);
+			
+			rig.AddForce( new Vector2( (float)direction * dump * Time.fixedDeltaTime, 0F), ForceMode2D.Force);
 		}
-
 	}
 
 	void StartBeltConveyor()
