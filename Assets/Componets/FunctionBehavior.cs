@@ -355,7 +355,7 @@ public class FunctionBehavior : MonoBehaviour
 		if (scriptKind == SCRIPTTYPE.STOPSIGN) 
 		{
 			this.GetComponent<BoxCollider2D>().enabled = false;
-			Sprite sign = Load( "Element", "GoSign");
+			Sprite sign = Resources.Load<Sprite>( "Element/GoSign");
 			this.GetComponent<Image>().sprite = sign;
 		}
 	}
@@ -433,10 +433,4 @@ public class FunctionBehavior : MonoBehaviour
 		}
 	}
 
-	public static Sprite Load (string fileName , string spriteName) {
-		// Resoucesから対象のテクスチャから生成したスプライト一覧を取得
-		Sprite[] sprites = Resources.LoadAll<Sprite>(fileName);
-		// 対象のスプライトを取得
-		return System.Array.Find<Sprite>( sprites, (sprite) => sprite.name.Equals(spriteName));
-	}
 }

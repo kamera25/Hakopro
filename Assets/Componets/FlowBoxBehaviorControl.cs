@@ -428,7 +428,7 @@ public class FlowBoxBehaviorControl : FunctionBehavior
 		}
 		if (scriptKind == SCRIPTTYPE.STOPSIGN) 
 		{
-			this.GetComponent<Image>().sprite = Load( "Element", "stopSign");
+			this.GetComponent<Image>().sprite = Resources.Load<Sprite>( "Element/stopSign");
 			this.GetComponent<BoxCollider2D>().enabled = true;
 		}
 	}
