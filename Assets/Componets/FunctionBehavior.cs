@@ -223,7 +223,7 @@ public class FunctionBehavior : MonoBehaviour
 			clone.SendMessage( "UpdateCardData", newCardString);
 		}
 		clone.SendMessage( "SetAimPosition", this.transform.position + Vector3.up * 5F);
-		clone.rigidbody2D.AddForce (Vector3.up * 10F, ForceMode2D.Impulse);
+		clone.GetComponent<Rigidbody2D>().AddForce (Vector3.up * 10F, ForceMode2D.Impulse);
 
 		clone.transform.parent = GameObject.Find ("Elements").transform;
 

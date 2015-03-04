@@ -19,7 +19,7 @@ public class ElemetsBehavior : MonoBehaviour
 		boxCol = this.GetComponent<BoxCollider2D> ();
 		fallSound = Resources.Load ("bosu06") as AudioClip;
 		audioSource = GameObject.FindWithTag ("GameController").GetComponent<AudioSource> ();
-		regid = this.rigidbody2D;
+		regid = this.GetComponent<Rigidbody2D>();
 	}
 
 	void Update()

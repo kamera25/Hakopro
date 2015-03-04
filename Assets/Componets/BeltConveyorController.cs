@@ -63,7 +63,7 @@ public class BeltConveyorController : MonoBehaviour
 	{
 		if( IsElement( col.gameObject))
 		{
-			ElementsList.Add ( col.gameObject.rigidbody2D);
+			ElementsList.Add ( col.gameObject.GetComponent<Rigidbody2D>());
 		}
 	}
 	
@@ -71,7 +71,7 @@ public class BeltConveyorController : MonoBehaviour
 	{
 		if( IsElement( col.gameObject))
 		{
-			ElementsList.Remove ( col.gameObject.rigidbody2D);
+			ElementsList.Remove ( col.gameObject.GetComponent<Rigidbody2D>());
 		}
 	}
 
